@@ -1,9 +1,11 @@
 export const siteConfig = {
-  name: "Vlasta Premier Advisory",
-  tagline: "South Saigon Luxury Living Platform",
+  name: "Saigon Living",
+  tagline: "South Saigon Real Estate Advisory",
   description:
-    "Nền tảng tư vấn Vlasta Premier Phú Thuận và bất động sản cao cấp Nam Sài Gòn, tập trung lifestyle, phân tích đầu tư và lựa chọn sống cho gia đình.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vlasta-premier.vn",
+    "Saigon Living là nền tảng tư vấn bất động sản cao cấp Nam Sài Gòn, tập trung dự án đáng sống, pháp lý, bảng giá, mặt bằng và góc nhìn đầu tư cho gia đình.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://saigonliving.net",
+  ogImage: "/assets/optimized/overview-marina.jpg",
+  shareImage: "/assets/optimized/overview-marina.jpg?v=20260606",
   locale: "vi_VN",
   contact: {
     advisor: "Chuyên gia tư vấn Nam Sài Gòn",
@@ -197,7 +199,7 @@ export const project = {
     {
       question: "Dự án có ngân hàng bảo lãnh không?",
       answer:
-        "Dự án có cam kết phát hành thư bảo lãnh cho người mua nhà của VPBank. VPBank cấp chứng thư bảo lãnh cho từng căn hộ, phí bảo lãnh tính theo tỷ lệ 1% giá trị bảo lãnh và chi phí này khách hàng chịu.",
+        "Theo thông tin tư vấn hiện tại, dự án có phương án phát hành thư bảo lãnh cho người mua nhà của VPBank. Khách mua cần đối chiếu chứng thư, phí bảo lãnh và điều kiện cụ thể theo hồ sơ giao dịch tại từng thời điểm.",
     },
     {
       question: "Thời gian bàn giao dự kiến là khi nào?",
@@ -293,6 +295,39 @@ export const seoHubLinks = [
   },
 ];
 
+export const vlastaSeoClusterLinks = [
+  {
+    title: "Giá Vlasta Premier 2026",
+    description: "Bảng giá tham khảo theo 1PN, 1PN+, 2PN, 3PN và lưu ý khi so giỏ hàng.",
+    href: "/blog/gia-vlasta-premier-2026",
+  },
+  {
+    title: "Pháp lý Vlasta Premier",
+    description: "Tên pháp lý New Tech, giấy phép xây dựng, quy hoạch 1/500 và bảo lãnh ngân hàng.",
+    href: "/blog/phap-ly-vlasta-premier-van-phu",
+  },
+  {
+    title: "Vlasta Premier có sổ hồng không?",
+    description: "Cách hiểu sở hữu lâu dài, điều kiện ra sổ và các giấy tờ nên kiểm tra trước khi mua.",
+    href: "/blog/vlasta-premier-co-so-hong-khong",
+  },
+  {
+    title: "Review vị trí Vlasta Premier Đào Trí",
+    description: "Đánh giá vị trí Phú Thuận, kết nối Phú Mỹ Hưng, Quận 1 và tiện ích khu Nam.",
+    href: "/blog/review-vi-tri-vlasta-premier",
+  },
+  {
+    title: "Thanh toán 20% đến khi nhận nhà",
+    description: "Phân tích lợi thế dòng tiền, hỗ trợ lãi suất và rủi ro cần tính trước khi xuống tiền.",
+    href: "/blog/thanh-toan-vlasta-premier-20-den-khi-nhan-nha",
+  },
+  {
+    title: "So sánh Vlasta Premier với dự án khu Nam",
+    description: "Đặt Vlasta Premier cạnh Mizuki Park, The Peak Garden, Sunshine Sky City và Sunshine Diamond River.",
+    href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
+  },
+];
+
 export const legacyBlogPostsNotUsed: LegacyBlogPost[] = [
   {
     slug: "vlasta-premier-co-dang-dau-tu-khong",
@@ -334,7 +369,7 @@ export const legacyBlogPostsNotUsed: LegacyBlogPost[] = [
     slug: "so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
     title: "So sánh Vlasta Premier với Sunshine Sky City, Sunshine Diamond River và The Peak Garden",
     description:
-      "So sánh Vlasta Premier Phú Thuận với Sunshine Sky City, Sunshine Diamond River và The Peak Garden theo vị trí, sản phẩm, tiện ích, tệp khách hàng và mục tiêu đầu tư.",
+      "So sánh Vlasta Premier Phú Thuận với Sunshine Sky City, Sunshine Diamond River và The Peak Garden theo vị trí, yếu tố Đào Trí ven sông, sản phẩm, tiện ích, giá và mục tiêu đầu tư.",
     category: "Market Comparison",
     publishedAt: "2026-06-03",
     readingTime: "7 phút đọc",
@@ -345,7 +380,7 @@ export const legacyBlogPostsNotUsed: LegacyBlogPost[] = [
         id: "dinh-vi",
         heading: "Khác biệt về định vị",
         body: [
-          "Vlasta Premier cần được đặt cạnh Sunshine Sky City, Sunshine Diamond River và The Peak Garden theo vị trí, giá vào, tiện ích vận hành, pháp lý, tiến độ và mục tiêu sử dụng.",
+          "Vlasta Premier cần được đặt cạnh Sunshine Sky City, Sunshine Diamond River và The Peak Garden theo vị trí, yếu tố Đào Trí ven sông, giá vào, tiện ích vận hành, pháp lý, tiến độ và mục tiêu sử dụng.",
           "Vì vậy, hai dự án không cạnh tranh trực diện ở mọi tiêu chí. Điểm so sánh quan trọng là mục tiêu sử dụng và khẩu vị tài chính của từng gia đình.",
         ],
       },

@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { DeferredHeroMedia } from "@/app/components/deferred-hero-media";
+import { GalleryLightbox } from "@/app/components/gallery-lightbox";
+import { LeadFormTrigger } from "@/app/components/lead-form-popup";
+import { LocationVideo } from "@/app/components/location-video";
 import { MotionReveal } from "@/app/components/motion-reveal";
 import { media } from "@/app/lib/media";
 import { blogPosts } from "@/app/lib/posts";
@@ -13,42 +17,44 @@ const navItems = [
   { href: "/vlasta-premier#legal", label: "Pháp lý" },
   { href: "/vlasta-premier#progress", label: "Tiến độ" },
   { href: "/vlasta-premier#pricing", label: "Bảng giá" },
+  { href: "/blog", label: "Phân tích" },
+  { href: "/vinhomes-binh-chanh", label: "Bình Chánh" },
   { href: "/vlasta-premier#faq", label: "FAQ" },
 ];
 
 export function SiteHeader() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d9c79f]/45 bg-[#fbf8f2]/92 shadow-sm shadow-black/5 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
-        <Link href="/" className="group flex items-center gap-3" aria-label="Vlasta Premier Advisory">
-          <span className="flex size-10 items-center justify-center rounded-full border border-[#c9a45d]/45 bg-[#f1e6d2] text-sm font-semibold text-[#6f4f1c]">
-            VP
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#1c1b19]/62 shadow-[0_14px_44px_rgba(0,0,0,0.18)] backdrop-blur-2xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2.5 lg:px-8">
+        <Link href="/" className="group flex items-center gap-3" aria-label="Saigon Living">
+          <span className="flex size-9 items-center justify-center rounded-full border border-[#d4b87a]/45 bg-[#d4b87a]/12 text-xs font-semibold text-[#f0ddb0]">
+            SL
           </span>
           <span className="flex flex-col leading-none">
-            <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[#15110c]">
-              Vlasta
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#faf6f0]">
+              Saigon
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.28em] text-[#8a6a2f]">
-              Premier Advisory
+            <span className="mt-1 text-[9px] uppercase tracking-[0.28em] text-[#f0ddb0]">
+              Living
             </span>
           </span>
         </Link>
         <a
           href={`tel:${siteConfig.contact.phone}`}
-          className="rounded-full border border-[#c9a45d]/55 bg-white/70 px-4 py-2 text-xs font-semibold text-[#6f4f1c] transition hover:bg-[#c9a45d] hover:text-black sm:inline-flex sm:text-sm"
+          className="rounded-full border border-[#d4b87a]/55 bg-[#1c1b19]/25 px-4 py-2 text-xs font-semibold text-[#f0ddb0] transition hover:bg-[#d4b87a] hover:text-[#1c1b19]"
         >
           Gọi tư vấn
         </a>
       </div>
       <nav
-        className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 pb-3 text-sm font-semibold text-[#3b3024] lg:px-8"
+        className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 pb-2.5 text-xs font-semibold text-[#faf6f0]/86 lg:px-8"
         aria-label="Project sections"
       >
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="shrink-0 rounded-full border border-[#d9c79f]/70 bg-white/75 px-4 py-2.5 shadow-sm shadow-black/5 transition hover:border-[#c9a45d] hover:bg-[#f1e6d2]"
+            className="shrink-0 rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-2 shadow-sm shadow-black/10 transition hover:border-[#d4b87a]/70 hover:bg-[#d4b87a]/12 hover:text-white"
           >
             {item.label}
           </Link>
@@ -61,17 +67,23 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#d9c79f]/50 bg-[#f7f1e6] px-5 py-12 text-[#15110c] lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.15fr_0.75fr_0.75fr_0.75fr]">
         <div>
           <p className="text-xs uppercase tracking-[0.38em] text-[#8a6a2f]">{siteConfig.tagline}</p>
-          <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight">
-            Tư vấn bất động sản cao cấp bằng phân tích, không bằng áp lực bán hàng.
+          <h2 className="font-display mt-4 max-w-xl text-3xl font-medium tracking-[-0.03em]">
+            Saigon Living tư vấn bất động sản cao cấp Nam Sài Gòn bằng phân tích, không bằng áp lực bán hàng.
           </h2>
+          <p className="mt-5 max-w-xl text-sm leading-7 text-[#5d554c]">
+            Saigon Living là kênh thông tin và tư vấn độc lập. Website không đại diện pháp lý cho chủ đầu tư; mọi thông tin giao dịch cần đối chiếu với hồ sơ, hợp đồng và chính sách chính thức tại thời điểm mua.
+          </p>
         </div>
         <div className="space-y-3 text-sm text-[#5d554c]">
           <p className="font-medium text-[#15110c]">Liên kết nội bộ</p>
           <Link href="/vlasta-premier" className="block hover:text-[#8a6a2f]">
             Dự án Vlasta Premier
+          </Link>
+          <Link href="/vinhomes-binh-chanh" className="block hover:text-[#8a6a2f]">
+            Vinhomes Bình Chánh
           </Link>
           <Link href="/blog/review-vi-tri-vlasta-premier" className="block hover:text-[#8a6a2f]">
             Review vị trí
@@ -82,6 +94,9 @@ export function SiteFooter() {
         </div>
         <div className="space-y-3 text-sm text-[#5d554c]">
           <p className="font-medium text-[#15110c]">Kết nối</p>
+          <a href={`mailto:${siteConfig.contact.email}`} className="block hover:text-[#8a6a2f]">
+            {siteConfig.contact.email}
+          </a>
           <a href={`tel:${siteConfig.contact.phone}`} className="block hover:text-[#8a6a2f]">
             {siteConfig.contact.phone}
           </a>
@@ -92,9 +107,21 @@ export function SiteFooter() {
             WhatsApp
           </a>
         </div>
+        <div className="space-y-3 text-sm text-[#5d554c]">
+          <p className="font-medium text-[#15110c]">Pháp lý website</p>
+          <Link href="/privacy-policy" className="block hover:text-[#8a6a2f]">
+            Chính sách bảo mật
+          </Link>
+          <Link href="/terms" className="block hover:text-[#8a6a2f]">
+            Điều khoản sử dụng
+          </Link>
+          <Link href="/disclaimer" className="block hover:text-[#8a6a2f]">
+            Miễn trừ trách nhiệm
+          </Link>
+        </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl text-xs text-[#6b6258]">
-        Nội dung trên website mang tính tham khảo và cần được đối chiếu theo pháp lý, chính sách bán hàng, hiện trạng từng thời điểm.
+      <div className="mx-auto mt-10 max-w-7xl text-xs leading-6 text-[#6b6258]">
+        Nội dung trên website chỉ phục vụ mục đích tham khảo, tư vấn và tổng hợp thông tin thị trường. Giá bán, chính sách thanh toán, pháp lý, tiến độ, tiện ích và vật liệu bàn giao có thể thay đổi theo thông báo của các bên liên quan.
       </div>
     </footer>
   );
@@ -102,77 +129,86 @@ export function SiteFooter() {
 
 export function HeroSection() {
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-[#fbf8f2] px-5 pt-32 text-[#15110c] lg:px-8">
+    <section className="relative isolate flex min-h-[720px] overflow-hidden bg-[#1c1b19] px-5 pb-10 pt-36 text-white lg:min-h-screen lg:px-8 lg:pb-16">
       <div className="absolute inset-0 -z-10">
-        <video
-          className="h-full w-full object-cover opacity-100"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
+        <DeferredHeroMedia
           poster={media.images.hero}
-          aria-label="Vlasta Premier cinematic hero video"
-        >
-          <source src={media.video.heroMobile} type="video/mp4" media="(max-width: 767px)" />
-          <source src={media.video.hero} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-[#fbf8f2]/18" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fbf8f2]/72 via-[#fbf8f2]/42 to-[#fbf8f2]/5" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#fbf8f2]/82 to-transparent" />
+          video={media.video.hero}
+          label="Vlasta Premier cinematic hero"
+        />
+        <div className="absolute inset-0 bg-[#1c1b19]/18" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1c1b19]/78 via-[#1c1b19]/38 to-[#1c1b19]/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1b19]/68 via-transparent to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#1c1b19]/55 to-transparent" />
       </div>
-      <div className="mx-auto grid max-w-7xl items-center gap-14 pb-24 lg:grid-cols-[1.05fr_0.95fr]">
-        <MotionReveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.42em] text-[#8a6a2f]">
-            {siteConfig.tagline}
-          </p>
-          <h1 className="mt-7 max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-balance sm:text-6xl lg:text-7xl">
-            {project.headline}
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4c4339]">
-            {project.summary}
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link href="#contact" className="rounded-full bg-[#15110c] px-7 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#c9a45d] hover:text-black">
-              Nhận phân tích riêng
-            </Link>
-            <Link href="/vlasta-premier" className="rounded-full border border-[#15110c]/15 bg-white/70 px-7 py-4 text-center text-sm font-semibold text-[#15110c] transition hover:border-[#c9a45d] hover:bg-[#f1e6d2]">
-              Xem hồ sơ dự án
-            </Link>
-          </div>
-        </MotionReveal>
-        <MotionReveal delay={0.12} className="relative">
-          <div className="aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#d9c79f]/70 bg-white/70 p-4 shadow-2xl shadow-black/10">
-            <div className="relative h-full overflow-hidden rounded-[1.5rem]">
-              <Image
-                src={media.images.marina}
-                alt="Bến thuyền và phối cảnh Vlasta Premier"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-              <div className="absolute inset-x-8 bottom-8 rounded-3xl border border-white/40 bg-[#fbf8f2]/82 p-5 text-[#15110c] shadow-xl backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#8a6a2f]">Private briefing</p>
-                <p className="mt-3 text-2xl font-semibold">High-end apartment outlook 2026</p>
-              </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-end">
+        <div className="grid items-end gap-10 lg:grid-cols-[1.05fr_0.72fr]">
+          <MotionReveal className="max-w-3xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4b87a]/35 bg-[#1c1b19]/45 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f0ddb0] shadow-lg shadow-black/20 backdrop-blur-md md:text-xs">
+              <span className="size-1.5 rounded-full bg-[#d4b87a]" />
+              {siteConfig.tagline}
+            </p>
+            <h1 className="font-display text-5xl font-light leading-[1.01] tracking-tight text-[#fffaf0] drop-shadow-[0_10px_28px_rgba(0,0,0,0.42)] sm:text-6xl md:text-7xl lg:text-[5.7rem]">
+              Khởi nguyên
+              <br />
+              <span className="text-gradient-gold font-normal italic">sống mới</span>
+              <br />
+              tại Nam Sài Gòn
+            </h1>
+            <p className="mt-7 max-w-2xl text-base font-medium leading-8 text-[#faf6f0]/88 drop-shadow md:text-lg">
+              {project.summary}
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <LeadFormTrigger source="Hero CTA" className="btn-luxury rounded-full bg-[#d4b87a] px-8 py-4 text-center text-sm font-bold text-[#1c1b19] shadow-xl shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[#f0ddb0] md:px-9">
+                Nhận bảng giá & phân tích
+              </LeadFormTrigger>
+              <Link href="/vlasta-premier#masterplan" className="rounded-full border border-[#faf6f0]/35 bg-[#1c1b19]/32 px-8 py-4 text-center text-sm font-semibold text-[#faf6f0] shadow-lg shadow-black/20 backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-[#faf6f0]/12 md:px-9">
+                Xem mặt bằng
+              </Link>
             </div>
-          </div>
-        </MotionReveal>
+          </MotionReveal>
+          <MotionReveal delay={0.12} className="hidden lg:block">
+            <aside className="luxury-card-dark rounded-[2rem] p-6 text-[#faf6f0] backdrop-blur-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f0ddb0]">
+                Private Dossier
+              </p>
+              <h2 className="font-display mt-4 text-3xl font-medium leading-tight">
+                Nhận bảng giá, mặt bằng và tư vấn căn phù hợp.
+              </h2>
+              <div className="gold-divider my-6" />
+              <div className="space-y-4 text-sm leading-6 text-[#faf6f0]/78">
+                <p>• Lọc căn theo ngân sách, tầng, view và mục tiêu mua.</p>
+                <p>• So sánh 1PN, 2PN, 3PN và penthouse duplex.</p>
+                <p>• Cập nhật chính sách thanh toán tại thời điểm tư vấn.</p>
+              </div>
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                <LeadFormTrigger source="Private Dossier" className="rounded-full bg-[#d4b87a] px-5 py-3 text-center text-sm font-bold text-[#1c1b19] transition hover:bg-[#f0ddb0]">
+                  Nhận bảng giá
+                </LeadFormTrigger>
+                <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-white/18 bg-white/8 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/14">
+                  Gọi tư vấn
+                </a>
+              </div>
+            </aside>
+          </MotionReveal>
+        </div>
+        <StatsStrip />
       </div>
-      <StatsStrip />
+      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[#faf6f0]/50 md:flex">
+        <span className="text-[10px] uppercase tracking-[0.3em]">Cuộn</span>
+        <div className="h-10 w-px bg-gradient-to-b from-[#d4b87a]/60 to-transparent" />
+      </div>
     </section>
   );
 }
 
 export function StatsStrip() {
   return (
-    <div className="mx-auto grid max-w-7xl gap-3 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-4">
       {project.heroStats.map((stat) => (
-        <div key={stat.label} className="rounded-3xl border border-[#d9c79f]/70 bg-white/80 p-5 shadow-sm shadow-black/5 backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#8a6a2f]">{stat.label}</p>
-          <p className="mt-2 text-xl font-semibold text-[#15110c]">{stat.value}</p>
+        <div key={stat.label} className="rounded-2xl border border-[#faf6f0]/12 bg-[#1c1b19]/48 px-5 py-4 shadow-xl shadow-black/20 backdrop-blur-xl">
+          <p className="font-display text-3xl text-[#f0ddb0] md:text-[2.35rem]">{stat.value}</p>
+          <p className="mt-1 text-xs font-medium tracking-wide text-[#faf6f0]/68 md:text-sm">{stat.label}</p>
         </div>
       ))}
     </div>
@@ -193,7 +229,8 @@ export function SectionIntro({
       <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
         {eyebrow}
       </p>
-      <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-balance text-[#15110c] md:text-5xl">
+      <div className="gold-divider mx-auto mt-4 w-28" />
+      <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-balance text-[#15110c] md:text-5xl">
         {title}
       </h2>
       <p className="mt-5 text-lg leading-8 text-[#5d554c]">
@@ -205,42 +242,98 @@ export function SectionIntro({
 
 export function ProjectOverview() {
   return (
-    <section className="bg-[#f7f1e6] px-5 py-24 lg:px-8" id="overview">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden bg-[#f7f1e6] px-5 py-24 lg:px-8" id="overview">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(212,184,122,0.16),transparent_28rem)]" />
+      <div className="relative mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Project overview"
-          title="Thông số dự án được đặt trong trải nghiệm tư vấn cao cấp."
-          description="Các thông tin cốt lõi như vị trí, quy mô, tầng, loại hình, sở hữu và thời gian bàn giao được trình bày rõ ràng để khách mua dễ ra quyết định."
+          eyebrow="Tổng quan dự án"
+          title="Vlasta Premier Phú Thuận: dự án căn hộ cao cấp đáng chú ý tại Nam Sài Gòn."
+          description="Tổng hợp nhanh vị trí, chủ đầu tư, quy mô, loại căn, pháp lý và thời gian bàn giao để Anh/Chị nắm thông tin trước khi nhận bảng giá."
         />
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {project.facts.map((fact, index) => (
-            <MotionReveal key={fact.label} delay={index * 0.04}>
-              <article className="h-full rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8a6a2f]">
-                  {fact.label}
-                </p>
-                <p className="mt-3 text-xl font-semibold leading-7 text-[#15110c]">{fact.value}</p>
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {media.overviewVisuals.map((item, index) => (
+            <MotionReveal
+              key={item.src}
+              delay={index * 0.05}
+            >
+              <article className="image-polish group relative h-[340px] overflow-hidden rounded-[2rem] border border-[#d9c79f]/60 bg-[#15110c] md:h-[390px]">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/76 via-black/12 to-transparent" />
+                <div className="absolute inset-x-5 bottom-5 text-white">
+                  <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#f0ddb0]">
+                    Tổng quan 0{index + 1}
+                  </p>
+                  <h3 className="font-display mt-3 text-2xl font-medium tracking-[-0.03em]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-white/76">
+                    {item.description}
+                  </p>
+                </div>
               </article>
             </MotionReveal>
           ))}
         </div>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <MotionReveal className="mt-14">
+          <div className="luxury-card overflow-hidden rounded-[2.5rem]">
+            <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
+              <div className="border-b border-black/10 p-8 md:p-10 lg:border-b-0 lg:border-r">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#8a6a2f]">
+                  Dữ liệu cốt lõi
+                </p>
+                <h3 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
+                  Quy mô vừa đủ, sản phẩm rõ và pháp lý dễ kiểm tra.
+                </h3>
+                <p className="mt-6 text-base leading-8 text-[#5d554c]">
+                  Các thông số chính được gom vào một khối để khách mua nắm nhanh trước khi xem bảng giá, mặt bằng và chính sách thanh toán.
+                </p>
+              </div>
+              <div className="grid gap-px bg-black/10 md:grid-cols-2 lg:grid-cols-3">
+                {project.facts.map((fact) => (
+                  <div key={fact.label} className="bg-[#fbf8f2]/92 p-6">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#8a6a2f]">
+                      {fact.label}
+                    </p>
+                    <p className="mt-3 text-lg font-semibold leading-7 text-[#15110c]">{fact.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </MotionReveal>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           {project.productTypes.map((type) => (
             <span key={type} className="rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-[#15110c]">
               {type}
             </span>
           ))}
         </div>
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {project.highlights.map((item, index) => (
-            <MotionReveal key={item} delay={index * 0.05}>
-              <article className="h-full rounded-[2rem] border border-black/10 bg-white/70 p-7 shadow-sm">
-                <span className="text-sm font-semibold text-[#a7803c]">0{index + 1}</span>
-                <p className="mt-5 text-lg leading-7 text-[#2a241d]">{item}</p>
-              </article>
-            </MotionReveal>
-          ))}
-        </div>
+        <MotionReveal className="mt-14">
+          <div className="grid gap-5 rounded-[2.5rem] border border-[#d9c79f]/60 bg-[#15110c] p-5 text-white shadow-[0_28px_80px_rgba(21,17,12,0.18)] lg:grid-cols-[0.72fr_1.28fr]">
+            <div className="p-4 md:p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#f0ddb0]">
+                Vì sao đáng xem
+              </p>
+              <h3 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#fffaf0]">
+                Những lý do chính khiến Vlasta Premier nổi bật tại Nam Sài Gòn.
+              </h3>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {project.highlights.map((item, index) => (
+                <div key={item} className="rounded-[1.5rem] border border-white/12 bg-white/[0.08] p-5">
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0ddb0]">0{index + 1}</span>
+                  <p className="mt-4 leading-7 text-white/78">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </MotionReveal>
       </div>
     </section>
   );
@@ -251,17 +344,17 @@ export function ProjectDataHighlights() {
     <section className="bg-[#f7f1e6] px-5 py-24 lg:px-8" id="project-highlights">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Project highlights"
-          title="Những dữ liệu cần nhớ trước khi xem bảng giá."
-          description="Thông tin dự án được chuẩn hóa để khách mua hiểu đúng sản phẩm trước khi so sánh giá, tầng, view và chính sách thanh toán."
+          eyebrow="Giỏ hàng & chính sách"
+          title="Những thông tin cần nắm trước khi nhận bảng giá Vlasta Premier."
+          description="Tóm tắt loại căn, pháp lý, bàn giao và tiến độ thanh toán để khách hàng dễ so sánh trước khi chọn căn."
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <MotionReveal>
-            <article className="h-full rounded-[2rem] border border-black/10 bg-white p-7 shadow-sm">
+            <article className="luxury-card h-full rounded-[2rem] p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8a6a2f]">
-                Product mix
+                Cơ cấu sản phẩm
               </p>
-              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#15110c]">
+              <h3 className="font-display mt-4 text-3xl font-medium tracking-[-0.04em] text-[#15110c]">
                 602 căn hộ ở và 136 căn thương mại dịch vụ.
               </h3>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -284,12 +377,12 @@ export function ProjectDataHighlights() {
             </article>
           </MotionReveal>
           <MotionReveal delay={0.08}>
-            <article className="h-full rounded-[2rem] border border-black/10 bg-white p-7 shadow-sm">
+            <article className="luxury-card h-full rounded-[2rem] p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8a6a2f]">
-                Payment timeline
+                Chính sách thanh toán
               </p>
-              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#15110c]">
-                Các mốc thanh toán và hoàn tất hồ sơ cần nắm trước khi chọn căn.
+              <h3 className="font-display mt-4 text-3xl font-medium tracking-[-0.04em] text-[#15110c]">
+                Các mốc thanh toán và hồ sơ cần nắm trước khi chọn căn.
               </h3>
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 {project.salesPolicyMilestones.map((milestone, index) => (
@@ -317,66 +410,11 @@ export function GallerySection() {
     <section className="bg-[#fbf8f2] px-5 py-24 text-[#15110c] lg:px-8" id="gallery">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Gallery"
-          title="Phối cảnh dự án được trình bày theo phong cách editorial luxury."
-          description="Hình ảnh được tối ưu responsive qua Next Image để giữ trải nghiệm tốt trên mobile và desktop."
+          eyebrow="Hình ảnh dự án"
+          title="Không gian sống, tiện ích và cảnh quan Vlasta Premier qua phối cảnh thực tế."
+          description="Xem nhanh các góc nhìn nổi bật của dự án: tổng thể, ven nước, hồ bơi, ban công và không gian nghỉ dưỡng."
         />
-        <div className="mt-14 grid auto-rows-[220px] gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {media.gallery.map((item, index) => (
-            <MotionReveal
-              key={item.src}
-              delay={index * 0.04}
-              className={index === 0 ? "sm:col-span-2 sm:row-span-2" : index === 5 ? "lg:col-span-2" : ""}
-            >
-              <div className="group relative h-full overflow-hidden rounded-[2rem] border border-[#d9c79f]/60 bg-white shadow-sm shadow-black/5">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
-                  sizes={index === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-                <div className="absolute inset-x-5 bottom-5">
-                  <span className="text-xs uppercase tracking-[0.28em] text-[#d9bc7c]">Frame 0{index + 1}</span>
-                  <h3 className="mt-2 text-xl font-semibold">{item.alt}</h3>
-                </div>
-              </div>
-            </MotionReveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function VideoSection() {
-  return (
-    <section className="bg-white px-5 py-24 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <MotionReveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
-            Cinematic briefing
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#15110c] md:text-5xl">
-            Video cinematic giúp khách cảm nhận nhanh quy mô và tinh thần dự án.
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-[#5d554c]">
-            Video chỉ tải metadata ban đầu và có poster ảnh phối cảnh để giữ trải nghiệm nhanh hơn trên mobile.
-          </p>
-        </MotionReveal>
-        <MotionReveal delay={0.08}>
-          <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-[#15110c] p-3 shadow-2xl shadow-black/10">
-            <video
-              className="aspect-video w-full rounded-[1.5rem] object-cover"
-              controls
-              preload="metadata"
-              poster={media.images.hero}
-            >
-              <source src={media.video.hero} type="video/mp4" />
-            </video>
-          </div>
-        </MotionReveal>
+        <GalleryLightbox items={media.gallery} />
       </div>
     </section>
   );
@@ -385,46 +423,55 @@ export function VideoSection() {
 export function LocationSection() {
   return (
     <section className="bg-[#f7f1e6] px-5 py-24 lg:px-8" id="location">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <MotionReveal>
-          <div className="rounded-[2rem] border border-black/10 bg-white p-4 shadow-sm">
-            <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] bg-[#eee4d2]">
-              <Image
-                src={media.images.location}
-                alt="Bản đồ vị trí Vlasta Premier tại Nam Sài Gòn"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
-              <div className="absolute left-8 top-8 rounded-2xl bg-[#15110c]/90 px-5 py-4 text-white shadow-xl backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.25em] text-[#f3d69b]">Nam Sài Gòn</p>
-                <p className="mt-2 text-xl font-semibold">Lifestyle map</p>
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <MotionReveal>
+            <div className="luxury-card rounded-[2rem] p-4">
+              <div className="relative min-h-[420px] overflow-hidden rounded-[1.5rem] bg-[#eee4d2]">
+                <Image
+                  src={media.images.location}
+                  alt="Bản đồ vị trí Vlasta Premier tại Nam Sài Gòn"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+                <div className="absolute left-8 top-8 rounded-2xl bg-[#15110c]/90 px-5 py-4 text-white shadow-xl backdrop-blur">
+                  <p className="text-xs uppercase tracking-[0.25em] text-[#f3d69b]">Nam Sài Gòn</p>
+                  <p className="mt-2 text-xl font-semibold">Lifestyle map</p>
+                </div>
               </div>
             </div>
-          </div>
-        </MotionReveal>
-        <MotionReveal delay={0.08}>
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
-            Location intelligence
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#15110c] md:text-5xl">
-            Vị trí được kể bằng thói quen sống, không chỉ bằng khoảng cách.
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-[#5d554c]">
-            Dự án tọa lạc tại Phường Phú Thuận, kết nối nhanh đến Phú Mỹ Hưng, Quận 1, Thủ Thiêm - Thủ Đức và sân bay Long Thành.
-          </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {project.locationHighlights.map((item) => (
-              <div key={item.place} className="rounded-2xl border border-black/10 bg-white/70 p-4">
-                <p className="text-2xl font-semibold text-[#15110c]">{item.time}</p>
-                <p className="mt-1 text-sm leading-6 text-[#5d554c]">{item.place}</p>
-              </div>
-            ))}
-          </div>
-          <Link href="/blog/review-vi-tri-vlasta-premier" className="mt-8 inline-flex rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white">
-            Đọc review vị trí
-          </Link>
+          </MotionReveal>
+          <MotionReveal delay={0.08}>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
+              Vị trí chiến lược
+            </p>
+            <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
+              Kết nối nhanh Phú Mỹ Hưng, Quận 1, Thủ Thiêm và sân bay Long Thành.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-[#5d554c]">
+              Vlasta Premier tọa lạc tại Phường Phú Thuận, trục kết nối quan trọng của Nam Sài Gòn, phù hợp cả nhu cầu ở thực và đầu tư dài hạn.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {project.locationHighlights.map((item) => (
+                <div key={item.place} className="luxury-card rounded-2xl p-4">
+                  <p className="text-2xl font-semibold text-[#15110c]">{item.time}</p>
+                  <p className="mt-1 text-sm leading-6 text-[#5d554c]">{item.place}</p>
+                </div>
+              ))}
+            </div>
+            <Link href="/blog/review-vi-tri-vlasta-premier" className="btn-luxury mt-8 inline-flex rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]">
+              Đọc review vị trí
+            </Link>
+          </MotionReveal>
+        </div>
+        <MotionReveal delay={0.12} className="mt-14">
+          <LocationVideo
+            thumbnail={media.images.location}
+            embedUrl={media.video.locationEmbed}
+            youtubeUrl={media.video.locationYoutube}
+          />
         </MotionReveal>
       </div>
     </section>
@@ -436,9 +483,9 @@ export function AmenitiesSection() {
     <section className="bg-white px-5 py-24 lg:px-8" id="amenities">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Amenities"
-          title="Tiện ích được đặt trong bối cảnh wellness, family living và cộng đồng cư dân."
-          description="Cách trình bày tránh kiểu bán hàng ồn ào, thay bằng insight giúp khách hàng hình dung cuộc sống hằng ngày."
+          eyebrow="Tiện ích đặc quyền"
+          title="Hệ tiện ích chuẩn sống cao cấp dành cho cư dân Vlasta Premier."
+          description="Từ hồ bơi Panorama, Business Lounge, Co-working đến Gym, Yoga, Golf 3D, rạp phim mini và thư viện nội khu."
         />
         <div className="mt-14 grid auto-rows-[280px] gap-5 md:grid-cols-2 lg:grid-cols-3">
           {media.amenityVisuals.map((item, index) => (
@@ -447,7 +494,7 @@ export function AmenitiesSection() {
               delay={index * 0.05}
               className={index === 0 ? "md:col-span-2" : ""}
             >
-              <article className="group relative h-full overflow-hidden rounded-[2rem] border border-black/10 bg-[#15110c] shadow-sm">
+              <article className="image-polish group relative h-full overflow-hidden rounded-[2rem] border border-black/10 bg-[#15110c]">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -460,7 +507,7 @@ export function AmenitiesSection() {
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f3d69b]">
                     Amenity 0{index + 1}
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
+                  <h3 className="font-display mt-3 text-2xl font-medium tracking-[-0.03em]">
                     {item.title}
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-6 text-white/78">
@@ -474,7 +521,7 @@ export function AmenitiesSection() {
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {media.amenityCards.map((amenity, index) => (
             <MotionReveal key={amenity.title} delay={index * 0.035}>
-              <div className="group h-full overflow-hidden rounded-3xl border border-black/10 bg-[#fbf8f2] shadow-sm">
+              <div className="luxury-card group h-full overflow-hidden rounded-3xl transition duration-300 hover:-translate-y-1">
                 <div className="relative h-44 bg-white">
                   <Image
                     src={amenity.src}
@@ -489,7 +536,7 @@ export function AmenitiesSection() {
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8a6a2f]">
                     Tiện ích 0{index + 1}
                   </p>
-                  <h3 className="mt-3 text-lg font-semibold leading-7 text-[#15110c]">
+                  <h3 className="font-display mt-3 text-lg font-medium leading-7 text-[#15110c]">
                     {amenity.title}
                   </h3>
                 </div>
@@ -507,18 +554,18 @@ export function LegalSection() {
     <section className="bg-[#f7f1e6] px-5 py-24 lg:px-8" id="legal">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Legal"
-          title="Pháp lý và thông tin sở hữu cần kiểm tra trước khi đặt cọc."
-          description="Tóm tắt nhanh theo hướng dễ hiểu cho khách mua, đồng thời nhắc rõ cần đối chiếu hồ sơ chính thức trước khi giao dịch."
+          eyebrow="Pháp lý dự án"
+          title="Thông tin pháp lý, sở hữu và bảo lãnh cần biết trước khi đặt cọc."
+          description="Các điểm quan trọng về chủ đầu tư, hình thức sở hữu, bàn giao và hồ sơ giao dịch cần được kiểm tra trước khi quyết định mua."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {project.legalHighlights.map((item, index) => (
             <MotionReveal key={item.title} delay={index * 0.05}>
-              <article className="h-full rounded-[2rem] border border-black/10 bg-white p-7 shadow-sm">
+              <article className="luxury-card h-full rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1">
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8a6a2f]">
                   {item.title}
                 </p>
-                <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#15110c]">
+                <h3 className="font-display mt-4 text-3xl font-medium tracking-[-0.04em] text-[#15110c]">
                   {item.value}
                 </h3>
                 <p className="mt-5 leading-7 text-[#5d554c]">{item.text}</p>
@@ -537,17 +584,17 @@ export function ProgressSection() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <MotionReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
-            Construction progress
+            Tiến độ xây dựng
           </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#15110c] md:text-5xl">
-            Tiến độ được tách thành mục riêng để khách dễ kiểm tra trước khi liên hệ.
+          <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
+            Cập nhật tiến độ Vlasta Premier trước khi nhận tư vấn và đặt lịch xem dự án.
           </h2>
           <p className="mt-6 text-lg leading-8 text-[#5d554c]">
-            Khu vực này có thể cập nhật định kỳ bằng ảnh thực tế mới để khách hàng theo dõi tiến độ trước khi liên hệ.
+            Hình ảnh tiến độ giúp Anh/Chị kiểm tra hiện trạng triển khai, thời gian bàn giao dự kiến và mức độ phù hợp với kế hoạch tài chính.
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {["Ảnh tiến độ cập nhật", "Bàn giao dự kiến 2027"].map((item) => (
-              <div key={item} className="rounded-2xl border border-black/10 bg-[#fbf8f2] p-5">
+              <div key={item} className="luxury-card rounded-2xl p-5">
                 <p className="text-sm font-semibold text-[#15110c]">{item}</p>
               </div>
             ))}
@@ -556,7 +603,7 @@ export function ProgressSection() {
         <MotionReveal delay={0.08}>
           <div className="grid gap-4 sm:grid-cols-2">
             {[media.images.progressRecent, media.images.progress].map((src, index) => (
-              <div key={src} className="relative min-h-80 overflow-hidden rounded-[2rem] border border-black/10 bg-[#15110c] shadow-sm">
+              <div key={src} className="image-polish relative min-h-80 overflow-hidden rounded-[2rem] border border-black/10 bg-[#15110c]">
                 <Image
                   src={src}
                   alt={`Tiến độ Vlasta Premier ${index + 1}`}
@@ -585,19 +632,70 @@ export function PricingSection() {
     media.images.planA3Br,
     media.images.planA2Br,
   ];
+  const policyHighlights = [
+    {
+      label: "Ưu đãi tiên phong",
+      value: "100 sản phẩm đầu",
+      note: "Cập nhật chính sách áp dụng tại thời điểm tư vấn.",
+    },
+    {
+      label: "Thanh toán linh hoạt",
+      value: "Theo tiến độ",
+      note: "Đối chiếu từng mốc thanh toán trước khi chọn căn.",
+    },
+    {
+      label: "Hỗ trợ tư vấn vay",
+      value: "Theo hồ sơ",
+      note: "Lọc phương án tài chính phù hợp ngân sách và dòng tiền.",
+    },
+  ];
 
   return (
     <section className="bg-[#f7f1e6] px-5 py-24 lg:px-8" id="pricing">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Pricing"
-          title="Bảng giá tham khảo theo dòng sản phẩm."
-          description="Giá bán cần được xác nhận theo giỏ hàng, tầng, view, chính sách thanh toán và thời điểm giao dịch."
+          eyebrow="Bảng giá Vlasta Premier"
+          title="Giá bán tham khảo theo từng dòng căn hộ."
+          description="Nhận bảng giá mới nhất theo giỏ hàng, tầng, view, loại căn và chính sách thanh toán đang áp dụng."
         />
+        <MotionReveal className="mt-14 overflow-hidden rounded-[2.5rem] border border-[#d9c79f]/70 bg-[#15110c] text-white shadow-[0_28px_80px_rgba(21,17,12,0.22)]">
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="relative min-h-[320px] p-8 md:p-10">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(212,184,122,0.32),transparent_22rem),linear-gradient(145deg,#15110c,#372715)]" />
+              <div className="relative">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#f0ddb0]">
+                  Chính sách bán hàng
+                </p>
+                <h3 className="font-display mt-5 max-w-xl text-4xl font-medium tracking-[-0.04em] text-[#fffaf0]">
+                  Nhận bảng giá, ưu đãi và phương án thanh toán mới nhất.
+                </h3>
+                <p className="mt-6 max-w-xl text-base leading-8 text-white/72">
+                  Bảng giá thực tế thay đổi theo giỏ hàng, tầng, view và chính sách tại thời điểm mở bán. Anh/Chị nên nhận tư vấn trước khi so sánh giá từng loại căn.
+                </p>
+                <LeadFormTrigger source="Sales Policy Highlight" className="btn-luxury mt-8 rounded-full bg-[#d4b87a] px-7 py-4 text-sm font-bold text-[#15110c] transition hover:-translate-y-0.5 hover:bg-[#f0ddb0]">
+                  Nhận bảng giá & ưu đãi
+                </LeadFormTrigger>
+              </div>
+            </div>
+            <div className="grid gap-4 bg-white/6 p-5 md:p-8">
+              {policyHighlights.map((item, index) => (
+                <div key={item.label} className="rounded-[1.5rem] border border-white/12 bg-white/[0.08] p-5 backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f0ddb0]">
+                    0{index + 1} · {item.label}
+                  </p>
+                  <h4 className="font-display mt-3 text-3xl font-medium tracking-[-0.04em] text-white">
+                    {item.value}
+                  </h4>
+                  <p className="mt-3 text-sm leading-6 text-white/68">{item.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </MotionReveal>
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {project.pricingPlans.map((plan, index) => (
             <MotionReveal key={plan.type} delay={index * 0.05}>
-              <article className="h-full overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-sm">
+              <article className="luxury-card h-full overflow-hidden rounded-[2rem] transition duration-300 hover:-translate-y-1">
                 <div className="relative h-48 bg-[#15110c]">
                   <Image
                     src={pricingImages[index]}
@@ -611,7 +709,7 @@ export function PricingSection() {
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8a6a2f]">
                     {plan.type}
                   </p>
-                  <h3 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-[#15110c]">
+                  <h3 className="font-display mt-3 text-3xl font-medium tracking-[-0.04em] text-[#15110c]">
                     {plan.price}
                   </h3>
                   <p className="mt-4 text-sm leading-6 text-[#5d554c]">{plan.note}</p>
@@ -623,6 +721,11 @@ export function PricingSection() {
         <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-6 text-[#6b6258]">
           Các mức giá trên là thông tin tham khảo ban đầu. Khách hàng nên nhận bảng giá mới nhất theo giỏ hàng, tầng, view và chính sách thanh toán trước khi ra quyết định.
         </p>
+        <div className="mt-8 flex justify-center">
+          <LeadFormTrigger source="Pricing Section" className="btn-luxury rounded-full bg-[#15110c] px-8 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#c9a45d] hover:text-black">
+            Nhận bảng giá mới nhất
+          </LeadFormTrigger>
+        </div>
       </div>
     </section>
   );
@@ -633,15 +736,15 @@ export function InvestmentSection() {
     <section className="bg-[#fbf8f2] px-5 py-24 text-[#15110c] lg:px-8" id="investment">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Investment potential"
-          title="Phân tích đầu tư giữ giọng advisory: rõ luận điểm, rõ rủi ro, không thổi phồng."
-          description="Website định vị chuyên gia tư vấn bằng framework phân tích thay vì chỉ kêu gọi đặt cọc."
+          eyebrow="Tiềm năng đầu tư"
+          title="Lý do Vlasta Premier đáng cân nhắc cho nhu cầu ở thực và giữ tài sản."
+          description="Đánh giá theo vị trí Nam Sài Gòn, cơ cấu sản phẩm, nhu cầu thuê, chất lượng cư dân và khả năng thanh khoản."
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {project.investmentPoints.map((point, index) => (
             <MotionReveal key={point.title} delay={index * 0.06}>
-              <article className="h-full rounded-[2rem] border border-[#d9c79f]/60 bg-white p-7 shadow-sm shadow-black/5">
-                <h3 className="text-2xl font-semibold">{point.title}</h3>
+              <article className="luxury-card h-full rounded-[2rem] p-7 transition duration-300 hover:-translate-y-1">
+                <h3 className="font-display text-2xl font-medium">{point.title}</h3>
                 <p className="mt-5 leading-7 text-[#5d554c]">{point.text}</p>
               </article>
             </MotionReveal>
@@ -658,15 +761,15 @@ export function BlogPreview() {
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
-            Market insights
+            Bài viết nên đọc
           </p>
-          <h2 className="text-4xl font-semibold tracking-[-0.04em] text-balance text-[#15110c] md:text-5xl">
-            Cụm bài phân tích giúp khách mua hiểu sâu hơn trước khi chọn căn.
+          <h2 className="font-display text-4xl font-medium tracking-[-0.04em] text-balance text-[#15110c] md:text-5xl">
+            Thông tin cần đọc trước khi mua Vlasta Premier.
           </h2>
           <p className="text-lg leading-8 text-[#5d554c]">
-            Các bài viết được tổ chức theo từng chủ đề như vị trí, pháp lý, bảng giá, tiện ích và so sánh dự án để khách hàng dễ tra cứu.
+            Tổng hợp bài viết về vị trí, pháp lý, bảng giá, tiện ích, so sánh dự án và tiềm năng đầu tư tại Nam Sài Gòn.
           </p>
-          <Link href="/blog" className="rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white">
+          <Link href="/blog" className="btn-luxury rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]">
             Xem tất cả bài phân tích
           </Link>
         </div>
@@ -683,18 +786,18 @@ export function BlogPreview() {
 export function BlogCard({ post }: { post: (typeof blogPosts)[number] }) {
   return (
     <MotionReveal>
-      <article className="group h-full overflow-hidden rounded-[2rem] border border-black/10 bg-[#fbf8f2] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10">
-        <div className="min-h-44 bg-[radial-gradient(circle_at_40%_20%,rgba(201,164,93,0.42),transparent_30%),linear-gradient(145deg,#18130d,#ede2cf)] p-5">
+      <article className="luxury-card group flex h-full flex-col overflow-hidden rounded-[2rem] transition hover:-translate-y-1">
+        <div className="min-h-36 bg-[radial-gradient(circle_at_40%_20%,rgba(201,164,93,0.42),transparent_30%),linear-gradient(145deg,#18130d,#ede2cf)] p-5">
           <span className="rounded-full bg-black/35 px-3 py-1 text-xs font-medium text-white backdrop-blur">
             {post.category}
           </span>
         </div>
-        <div className="p-6">
+        <div className="flex flex-1 flex-col p-6">
           <p className="text-xs uppercase tracking-[0.22em] text-[#8a6a2f]">{post.readingTime}</p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#15110c]">
+          <h3 className="mt-3 line-clamp-2 text-xl font-bold leading-7 tracking-[-0.02em] text-[#15110c]">
             <Link href={`/blog/${post.slug}`}>{post.title}</Link>
           </h3>
-          <p className="mt-4 line-clamp-3 leading-7 text-[#5d554c]">{post.description}</p>
+          <p className="mt-4 line-clamp-3 text-sm leading-6 text-[#5d554c]">{post.description}</p>
         </div>
       </article>
     </MotionReveal>
@@ -707,16 +810,16 @@ export function ContactSection() {
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <MotionReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#8a6a2f]">
-            Private advisory
+            Nhận bảng giá & tư vấn
           </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#15110c] md:text-5xl">
-            Nhận phân tích căn phù hợp, bảng giá và kịch bản đầu tư.
+          <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
+            Đăng ký nhận bảng giá, mặt bằng và tư vấn căn phù hợp.
           </h2>
           <p className="mt-6 text-lg leading-8 text-[#5d554c]">
-            Để lại thông tin, đội tư vấn sẽ hỗ trợ lọc căn theo ngân sách, nhu cầu ở thực hoặc mục tiêu đầu tư.
+            Để lại thông tin để được tư vấn theo ngân sách, loại căn, tầng, view và phương án thanh toán phù hợp.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={siteConfig.contact.zalo} className="rounded-full bg-[#15110c] px-6 py-3 text-sm font-semibold text-white">
+            <a href={siteConfig.contact.zalo} className="btn-luxury rounded-full bg-[#15110c] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]">
               Zalo
             </a>
             <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
@@ -728,7 +831,7 @@ export function ContactSection() {
           </div>
         </MotionReveal>
         <MotionReveal delay={0.08}>
-          <form className="rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm">
+          <form className="luxury-card rounded-[2rem] p-6">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2 text-sm font-medium text-[#15110c]">
                 Họ tên
@@ -752,7 +855,7 @@ export function ContactSection() {
               Ghi chú
               <textarea className="min-h-32 w-full rounded-2xl border border-black/10 bg-[#fbf8f2] px-4 py-3 outline-none focus:border-[#c9a45d]" placeholder="Ngân sách, mục tiêu, thời gian dự kiến..." />
             </label>
-            <button type="button" className="mt-5 w-full rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#c9a45d] hover:text-black">
+            <button type="button" className="btn-luxury mt-5 w-full rounded-full bg-[#15110c] px-7 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#c9a45d] hover:text-black">
               Gửi yêu cầu tư vấn
             </button>
             <p className="mt-4 text-xs leading-6 text-[#6b6258]">
@@ -772,13 +875,13 @@ export function RelatedProjects() {
     <section className="bg-[#fbf8f2] px-5 py-20 text-[#15110c] lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Related projects"
-          title="Mở rộng authority bằng cụm dự án Nam Sài Gòn."
-          description="Các dự án cùng khu vực giúp khách hàng có thêm góc nhìn khi so sánh vị trí, tiện ích, giá bán và mục tiêu sử dụng."
+          eyebrow="So sánh dự án"
+          title="Đặt Vlasta Premier cạnh các lựa chọn nổi bật tại khu Nam."
+          description="So sánh với Sunshine Sky City, Sunshine Diamond River và The Peak Garden để chọn đúng sản phẩm theo ngân sách và mục tiêu mua."
         />
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {items.map((item) => (
-            <div key={item} className="rounded-3xl border border-[#d9c79f]/60 bg-white p-6 shadow-sm shadow-black/5">
+            <div key={item} className="luxury-card rounded-3xl p-6">
               <p className="text-xl font-semibold">{item}</p>
               <p className="mt-3 text-sm leading-6 text-[#5d554c]">
                 Hồ sơ so sánh, định vị khách hàng và phân tích giá trị sống.
@@ -800,9 +903,31 @@ export function MobileStickyCta() {
       <a href={siteConfig.contact.zalo} className="rounded-full bg-[#f3d69b] px-3 py-3 text-black">
         Zalo
       </a>
-      <a href={siteConfig.contact.whatsapp} className="rounded-full border border-[#15110c]/15 bg-white px-3 py-3">
-        WhatsApp
+      <LeadFormTrigger source="Mobile Sticky CTA" className="rounded-full border border-[#15110c]/15 bg-white px-3 py-3">
+        Bảng giá
+      </LeadFormTrigger>
+    </div>
+  );
+}
+
+export function DesktopFloatingCta() {
+  return (
+    <div className="fixed bottom-8 right-6 z-50 hidden w-40 flex-col gap-2.5 lg:flex">
+      <a
+        href={siteConfig.contact.zalo}
+        className="rounded-full border border-white/20 bg-[#0068ff]/90 px-4 py-2.5 text-center text-xs font-bold text-white shadow-[0_14px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#0068ff]"
+      >
+        Zalo
       </a>
+      <a
+        href={`tel:${siteConfig.contact.phone}`}
+        className="rounded-full border border-[#d9c79f]/45 bg-[#15110c]/92 px-4 py-2.5 text-center text-xs font-bold text-white shadow-[0_14px_34px_rgba(0,0,0,0.16)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]"
+      >
+        {siteConfig.contact.phone}
+      </a>
+      <LeadFormTrigger source="Desktop Floating CTA" className="rounded-full border border-[#d9c79f]/55 bg-[#d4b87a]/92 px-4 py-2.5 text-center text-xs font-bold text-[#15110c] shadow-[0_14px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#f0ddb0]">
+        Bảng giá
+      </LeadFormTrigger>
     </div>
   );
 }
@@ -812,13 +937,13 @@ export function FaqSection() {
     <section className="bg-white px-5 py-24 lg:px-8" id="faq">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="FAQ"
-          title="FAQ nổi bật về Vlasta Premier Phú Thuận."
-          description="Các câu hỏi được chọn theo những mối quan tâm lớn nhất của khách mua: chủ đầu tư, vị trí, quy mô, tiện ích, pháp lý, vận hành, chi phí và chuyển nhượng."
+          eyebrow="Câu hỏi thường gặp"
+          title="Những điều khách hàng thường hỏi trước khi mua Vlasta Premier."
+          description="Giải đáp nhanh về vị trí, chủ đầu tư, giá bán, pháp lý, tiện ích, phí vận hành, chuyển nhượng và thời gian bàn giao."
         />
         <div className="mt-12 space-y-4">
           {project.faqs.map((faq) => (
-            <details key={faq.question} className="group rounded-3xl border border-black/10 bg-[#fbf8f2] p-6">
+            <details key={faq.question} className="luxury-card group rounded-3xl p-6">
               <summary className="cursor-pointer list-none text-xl font-semibold text-[#15110c]">
                 {faq.question}
               </summary>

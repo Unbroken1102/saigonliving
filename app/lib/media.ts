@@ -3,7 +3,8 @@ const asset = (path: string) => encodeURI(path);
 export const media = {
   video: {
     hero: "/assets/Video/hero.mp4",
-    heroMobile: "/assets/Video/hero-mobile.mp4",
+    locationEmbed: "https://www.youtube.com/embed/hgcSRJMupjc?autoplay=1&rel=0&modestbranding=1",
+    locationYoutube: "https://www.youtube.com/watch?v=hgcSRJMupjc",
   },
   images: {
     hero: "/assets/optimized/hero.jpg",
@@ -45,6 +46,32 @@ export const media = {
     {
       src: "/assets/optimized/pool-bar.jpg",
       alt: "Pool bar và tiện ích nghỉ dưỡng",
+    },
+  ],
+  overviewVisuals: [
+    {
+      title: "Tổng thể tháp đôi",
+      src: "/assets/optimized/overview-towers.jpg",
+      alt: "Tổng thể tháp đôi Vlasta Premier Phú Thuận",
+      description: "Phối cảnh tổng thể giúp khách hàng hình dung quy mô, kiến trúc và cảnh quan chính của dự án.",
+    },
+    {
+      title: "Mặt tiền Đào Trí",
+      src: "/assets/optimized/overview-dao-tri.jpg",
+      alt: "Phối cảnh Vlasta Premier nhìn từ đường Đào Trí",
+      description: "Góc nhìn từ trục Đào Trí thể hiện vị thế cửa ngõ Nam Sài Gòn và kết nối quanh dự án.",
+    },
+    {
+      title: "Không gian ven nước",
+      src: "/assets/optimized/overview-marina.jpg",
+      alt: "Không gian ven nước và cảnh quan Vlasta Premier",
+      description: "Cảnh quan ven nước tạo cảm giác nghỉ dưỡng, cân bằng giữa nhịp sống đô thị và trải nghiệm riêng tư.",
+    },
+    {
+      title: "View ban công",
+      src: "/assets/optimized/overview-balcony.jpg",
+      alt: "View ban công căn hộ Vlasta Premier",
+      description: "Tầm nhìn từ căn hộ là yếu tố quan trọng khi so sánh tầng, hướng, view và giá trị sử dụng lâu dài.",
     },
   ],
   amenityVisuals: [

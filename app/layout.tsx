@@ -1,32 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { SiteFooter, SiteHeader, MobileStickyCta } from "@/app/components/site-sections";
+import { Cormorant_Garamond, Inter } from "next/font/google";
+import { DesktopFloatingCta, MobileStickyCta, SiteFooter, SiteHeader } from "@/app/components/site-sections";
 import { TrackingScripts } from "@/app/components/tracking";
 import { absoluteUrl, siteConfig } from "@/app/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-display-serif",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const inter = Inter({
+  variable: "--font-body-sans",
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Vlasta Premier | South Saigon Luxury Living Platform",
-    template: "%s | Vlasta Premier Advisory",
+    default: "Saigon Living | Bất động sản cao cấp Nam Sài Gòn",
+    template: "%s | Saigon Living",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
+    "Saigon Living",
     "Vlasta Premier",
     "bất động sản Nam Sài Gòn",
-    "South Saigon luxury living",
+    "bất động sản cao cấp Nam Sài Gòn",
     "căn hộ cao cấp Phú Thuận",
     "tư vấn bất động sản cao cấp",
   ],
@@ -41,22 +46,22 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Vlasta Premier | South Saigon Luxury Living Platform",
+    title: "Saigon Living | Bất động sản cao cấp Nam Sài Gòn",
     description: siteConfig.description,
     images: [
       {
-        url: absoluteUrl("/og-vlasta-premier.svg"),
-        width: 1200,
-        height: 630,
-        alt: "Vlasta Premier luxury real estate advisory",
+        url: absoluteUrl(siteConfig.shareImage),
+        width: 1024,
+        height: 576,
+        alt: "Vlasta Premier view sông Đào Trí Nam Sài Gòn",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vlasta Premier | South Saigon Luxury Living Platform",
+    title: "Saigon Living | Bất động sản cao cấp Nam Sài Gòn",
     description: siteConfig.description,
-    images: [absoluteUrl("/og-vlasta-premier.svg")],
+    images: [absoluteUrl(siteConfig.shareImage)],
   },
   robots: {
     index: true,
@@ -80,13 +85,15 @@ export default function RootLayout({
     <html
       lang="vi"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${cormorantGaramond.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-[#fbf8f2] font-sans text-[#15110c]">
         <TrackingScripts />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <DesktopFloatingCta />
         <MobileStickyCta />
       </body>
     </html>
