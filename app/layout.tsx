@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { DesktopFloatingCta, MobileStickyCta, SiteFooter, SiteHeader } from "@/app/components/site-sections";
+import { TrackingEngagement } from "@/app/components/tracking-engagement";
 import { TrackingScripts } from "@/app/components/tracking";
 import { absoluteUrl, siteConfig } from "@/app/lib/site";
 import "./globals.css";
@@ -8,14 +9,14 @@ import "./globals.css";
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-display-serif",
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-body-sans",
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -90,6 +91,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#fbf8f2] font-sans text-[#15110c]">
         <TrackingScripts />
+        <TrackingEngagement />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

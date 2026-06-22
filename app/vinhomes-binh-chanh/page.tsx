@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/app/components/json-ld";
 import { LeadFormTrigger } from "@/app/components/lead-form-popup";
+import { PROJECT_INVENTORY_CTA_LABEL, ProjectInventoryCta, INVENTORY_CTA_HERO_CLASS } from "@/app/components/project-inventory-cta";
 import { MotionReveal } from "@/app/components/motion-reveal";
 import { media } from "@/app/lib/media";
 import { absoluteUrl, siteConfig } from "@/app/lib/site";
@@ -86,6 +87,51 @@ const buyerStrategies = [
   {
     title: "Khách tìm cơ hội trước sóng",
     text: "Lợi thế của việc đi sớm là hiểu thị trường trước đám đông. Rủi ro là thông tin còn nhiễu, nên cần lọc nguồn và tránh mua theo tin đồn.",
+  },
+];
+
+const relatedArticles = [
+  {
+    eyebrow: "Quy hoạch",
+    title: "Hé lộ quy hoạch khu đô thị 1.500 ha được cho là của Vinhomes ở Bình Chánh",
+    description: "Đọc ảnh quy hoạch, ranh khu vực Hưng Long - Bình Chánh, quy mô 1.512,7 ha và các lớp thông tin cần kiểm tra.",
+    href: "/blog/vinhomes-binh-chanh-doc-quy-hoach-hung-long-1512ha",
+  },
+  {
+    eyebrow: "Tài liệu mới",
+    title: "Vin Group được giao nghiên cứu siêu đô thị 1512ha ở Bình Chánh",
+    description: "Tổng hợp các số liệu trong tài liệu đề xuất, vai trò Vingroup và cách hiểu thận trọng trước giai đoạn công bố chính thức.",
+    href: "/blog/vin-group-nghien-cuu-sieu-do-thi-1512ha-binh-chanh",
+  },
+  {
+    eyebrow: "Dòng tiền địa phương",
+    title: "Nếu Vinhomes Bình Chánh triển khai, người nhận đền bù có thể mua nhà ở đâu?",
+    description: "Góc nhìn về nhu cầu ở lại gần nơi cũ, chuyển sang khu có tiện ích tốt hơn hoặc tìm vùng giá mềm hơn.",
+    href: "/blog/den-bu-tai-dinh-cu-vinhomes-binh-chanh-dong-tien-di-ve-dau",
+  },
+  {
+    eyebrow: "Chất lượng sống",
+    title: "Bãi rác Đa Phước và Hưng Long 1.512 ha: kỳ vọng cải thiện chất lượng sống khu Nam",
+    description: "Một góc đọc mềm về môi trường sống, kỳ vọng của cư dân khu Nam và những yếu tố người mua nên kiểm tra.",
+    href: "/blog/bai-rac-da-phuoc-hung-long-1512ha-binh-chanh",
+  },
+  {
+    eyebrow: "Mizuki Park",
+    title: "Mizuki Park hưởng lợi gì nếu Bình Chánh và Hưng Long 1.512 ha được chú ý hơn?",
+    description: "Phân tích vì sao một khu đô thị đã có cư dân như Mizuki có thể được người mua nhìn lại khi khu Nam nóng lên.",
+    href: "/blog/mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh",
+  },
+  {
+    eyebrow: "Hạ tầng chống ngập",
+    title: "Hệ thống chống ngập khu Nam vận hành thế nào và kỳ vọng giảm ngập từ 2026",
+    description: "Cập nhật tiến độ các cống ngăn triều lớn và giải thích nguyên tắc vận hành bằng ngôn ngữ dễ hiểu cho người mua nhà.",
+    href: "/blog/he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026",
+  },
+  {
+    eyebrow: "Đô thị bền vững",
+    title: "Nhà ở xã hội trong khu đô thị lớn: bài học từ Nam Long và Mizuki Park",
+    description: "Vì sao đại đô thị tương lai không chỉ cần sản phẩm thương mại, mà còn cần nhiều tầng cư dân để có sinh khí và tiện ích vận hành thật.",
+    href: "/blog/nha-o-xa-hoi-trong-khu-do-thi-lon-nam-long-mizuki-hung-long",
   },
 ];
 
@@ -205,29 +251,38 @@ export default function VinhomesBinhChanhPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <section className="relative isolate overflow-hidden bg-[#1c1b19] px-5 pb-16 pt-32 text-white lg:px-8 lg:pb-24 lg:pt-40">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(212,184,122,0.30),transparent_30rem),radial-gradient(circle_at_80%_15%,rgba(255,255,255,0.14),transparent_24rem),linear-gradient(145deg,#15110c,#2c241a_48%,#0f1411)]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1c1b19]/88 via-[#1c1b19]/50 to-[#1c1b19]/16" />
+      <section className="relative isolate overflow-hidden bg-[#111611] px-5 pb-16 pt-32 text-white lg:px-8 lg:pb-24 lg:pt-40">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/assets/vinhomes-binh-chanh/quy-hoach-hung-long-binh-chanh.jpg"
+            alt="Quy hoạch Hưng Long Bình Chánh 1.512 ha Vinhomes khu Tây Nam TP.HCM"
+            fill
+            priority
+            className="object-cover opacity-42"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#111611]/94 via-[#111611]/62 to-[#111611]/22" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_12%,rgba(212,184,122,0.30),transparent_30rem),radial-gradient(circle_at_80%_15%,rgba(255,255,255,0.12),transparent_24rem)]" />
+        </div>
 
         <div className="mx-auto grid max-w-7xl items-end gap-12 lg:grid-cols-[1fr_0.86fr]">
           <MotionReveal>
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4b87a]/35 bg-[#1c1b19]/45 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f0ddb0] shadow-lg shadow-black/20 backdrop-blur-md md:text-xs">
               <span className="size-1.5 rounded-full bg-[#d4b87a]" />
-              Theo dõi sớm khu Tây Nam
+              Watchlist đại đô thị Tây Nam
             </p>
             <h1 className="font-display max-w-4xl text-5xl font-light leading-[1.03] tracking-tight text-[#fffaf0] drop-shadow-[0_10px_28px_rgba(0,0,0,0.42)] sm:text-6xl md:text-7xl lg:text-[5.1rem]">
-              Vinhomes
-              <br />
-              <span className="text-gradient-gold font-normal italic">Bình Chánh</span>
-              <br />
-              nên theo dõi từ bây giờ?
+              Vinhomes Bình Chánh
             </h1>
+            <p className="font-display mt-4 max-w-3xl text-2xl font-light leading-[1.12] tracking-tight text-[#faf6f0]/92 sm:text-3xl md:text-4xl">
+              Đại đô thị <span className="text-gradient-gold font-normal italic">Hưng Long</span> 1.512 ha.
+            </p>
             <p className="mt-7 max-w-2xl text-base font-medium leading-8 text-[#faf6f0]/88 md:text-lg">
-              Trang cập nhật độc lập của Saigon Living về khu đô thị quy mô khoảng 1.512,7 ha tại Hưng Long - Bình Chánh, được thị trường cho là liên quan Vinhomes và có mốc triển khai dự kiến 2027.
+              Trang theo dõi quy hoạch Hưng Long - Bình Chánh quy mô khoảng 1.512,7 ha, được thị trường quan tâm như câu chuyện đại đô thị mới phía Tây Nam TP.HCM.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <LeadFormTrigger source="Vinhomes Bình Chánh Hero" className="btn-luxury rounded-full bg-[#d4b87a] px-8 py-4 text-center text-sm font-bold text-[#1c1b19] shadow-xl shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[#f0ddb0] md:px-9">
-                Nhận cập nhật sớm
+              <LeadFormTrigger source="Vinhomes Bình Chánh Hero" ctaLabel={PROJECT_INVENTORY_CTA_LABEL} className={INVENTORY_CTA_HERO_CLASS}>
+                {PROJECT_INVENTORY_CTA_LABEL}
               </LeadFormTrigger>
               <Link href="#cap-nhat" className="rounded-full border border-[#faf6f0]/35 bg-[#1c1b19]/32 px-8 py-4 text-center text-sm font-semibold text-[#faf6f0] shadow-lg shadow-black/20 backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-[#faf6f0]/12 md:px-9">
                 Xem bảng theo dõi
@@ -243,7 +298,7 @@ export default function VinhomesBinhChanhPage() {
               <div className="relative min-h-[440px] overflow-hidden rounded-[2rem] bg-[#fbf8f2]">
                 <Image
                   src={media.images.location}
-                  alt="Hạ tầng và kết nối khu Nam, khu Tây Nam TP.HCM"
+                  alt="Hạ tầng kết nối Vinhomes Bình Chánh khu Nam Tây Nam TP.HCM"
                   fill
                   priority
                   className="object-cover"
@@ -254,9 +309,9 @@ export default function VinhomesBinhChanhPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f0ddb0]">
                     Bình Chánh Watchlist
                   </p>
-                  <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em]">
-                    Đi sớm bằng dữ liệu, không đi theo tin đồn.
-                  </h2>
+                  <h3 className="font-display mt-4 text-3xl font-medium tracking-[-0.04em]">
+                    Đọc quy hoạch trước, rồi mới nói đến giá và sản phẩm.
+                  </h3>
                 </div>
               </div>
             </div>
@@ -273,9 +328,9 @@ export default function VinhomesBinhChanhPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#8a6a2f]">
                     {item.label}
                   </p>
-                  <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c]">
+                  <p className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c]">
                     {item.value}
-                  </h2>
+                  </p>
                   <p className="mt-5 leading-7 text-[#5d554c]">{item.description}</p>
                 </article>
               </MotionReveal>
@@ -292,7 +347,7 @@ export default function VinhomesBinhChanhPage() {
                 Quy hoạch dự án
               </p>
               <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-6xl">
-                Ranh, vị trí và quy mô khu đô thị được cho là của Vinhomes.
+                Quy hoạch đại đô thị Vinhomes Bình Chánh Hưng Long
               </h2>
               <p className="mt-6 text-base leading-8 text-[#5d554c] md:text-lg">
                 Theo ảnh quy hoạch và thông tin thị trường hiện tại, khu đô thị được cho là liên quan Vinhomes ở Bình Chánh được theo dõi tại khu vực Hưng Long - Bình Chánh, TP.HCM, với quy mô dự kiến khoảng 1.512,7 ha. Đây là quy mô đủ lớn để hình thành một đại đô thị nếu được triển khai đồng bộ về hạ tầng, tiện ích, sản phẩm và vận hành.
@@ -323,7 +378,7 @@ export default function VinhomesBinhChanhPage() {
                 <div className="relative aspect-[4/5] bg-[#15110c]">
                   <Image
                     src="/assets/vinhomes-binh-chanh/quy-hoach-hung-long-binh-chanh.jpg"
-                    alt="Quy hoạch khu đô thị 1.500 ha được cho là của Vinhomes ở Bình Chánh"
+                    alt="Quy hoạch Vinhomes Bình Chánh Hưng Long 1.512 ha khu Tây Nam"
                     fill
                     className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 48vw"
@@ -345,7 +400,7 @@ export default function VinhomesBinhChanhPage() {
               Bối cảnh khu vực
             </p>
             <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-6xl">
-              Vì sao Bình Chánh đang được chú ý trước chu kỳ dự án lớn?
+              Hạ tầng và bối cảnh phát triển Vinhomes Bình Chánh
             </h2>
             <p className="mt-6 text-base leading-8 text-[#5d554c] md:text-lg">
               Điểm đáng theo dõi không chỉ là một tên dự án, mà là sự thay đổi của cả vùng Tây Nam TP.HCM: hạ tầng kết nối, dân cư tăng, quỹ đất lớn và nhu cầu về khu đô thị bài bản hơn.
@@ -378,7 +433,7 @@ export default function VinhomesBinhChanhPage() {
                 Bảng theo dõi
               </p>
               <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] md:text-6xl">
-                Cập nhật theo nguồn chính thức, không chạy theo tin đồn.
+                Cập nhật Vinhomes Bình Chánh từ nguồn chính thức
               </h2>
               <p className="mt-6 leading-8 text-white/70">
                 Saigon Living sẽ cập nhật landing này khi có thông tin đủ rõ về pháp lý, sản phẩm, giá, tiến độ và chính sách. Trước thời điểm đó, trang này đóng vai trò theo dõi thị trường.
@@ -402,6 +457,51 @@ export default function VinhomesBinhChanhPage() {
               </div>
             </MotionReveal>
           </div>
+          <ProjectInventoryCta
+            projectName="Vinhomes Bình Chánh"
+            source="Vinhomes Bình Chánh Pricing CTA"
+            variant="dark"
+            className="mt-14"
+            description="Saigon Living sẽ gửi 5 phương án theo dõi sớm và giá tham khảo khi có giỏ hàng rõ hơn tại Vinhomes Bình Chánh — đúng lúc Anh/Chị đang cân nhắc khu đô thị Hưng Long 1.512 ha."
+          />
+        </div>
+      </section>
+
+      <section className="bg-white px-5 py-24 lg:px-8" id="doc-tiep">
+        <div className="mx-auto max-w-7xl">
+          <MotionReveal className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#8a6a2f]">
+              Đọc tiếp trong cụm Bình Chánh
+            </p>
+            <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-6xl">
+              Đọc thêm về Vinhomes Bình Chánh và khu vực
+            </h2>
+            <p className="mt-6 leading-8 text-[#5d554c]">
+              Cụm nội dung này được sắp theo hành trình tự nhiên: đọc quy hoạch trước, đối chiếu tài liệu mới, sau đó xem dòng tiền đền bù và yếu tố môi trường khu Nam.
+            </p>
+          </MotionReveal>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {relatedArticles.map((article, index) => (
+              <MotionReveal key={article.href} delay={index * 0.05}>
+                <Link
+                  href={article.href}
+                  className="group block h-full rounded-[2rem] border border-[#d9c79f]/55 bg-[#fbf8f2] p-7 shadow-sm transition hover:-translate-y-1 hover:border-[#8a6a2f]/45 hover:bg-white"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#8a6a2f]">
+                    {article.eyebrow}
+                  </p>
+                  <h3 className="font-display mt-4 text-3xl font-medium tracking-[-0.04em] text-[#15110c]">
+                    {article.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-[#5d554c]">{article.description}</p>
+                  <span className="mt-6 inline-flex text-sm font-semibold text-[#8a6a2f] transition group-hover:translate-x-1">
+                    Đọc bài liên quan
+                  </span>
+                </Link>
+              </MotionReveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -412,7 +512,7 @@ export default function VinhomesBinhChanhPage() {
               Chiến lược theo dõi
             </p>
             <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-6xl">
-              Ai nên quan tâm khu đô thị này từ sớm?
+              Ai nên quan tâm Vinhomes Bình Chánh từ giai đoạn sớm?
             </h2>
             <p className="mt-6 leading-8 text-[#5d554c]">
               Giai đoạn trước công bố không phù hợp để ra quyết định vội, nhưng rất phù hợp để chuẩn bị dữ liệu, ngân sách và tiêu chí chọn tài sản.
@@ -476,7 +576,7 @@ export default function VinhomesBinhChanhPage() {
               FAQ
             </p>
             <h2 className="font-display mt-5 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-6xl">
-              Câu hỏi thường gặp
+              Những câu hỏi thường gặp về Vinhomes Bình Chánh
             </h2>
           </MotionReveal>
           <div className="mt-12 space-y-4">

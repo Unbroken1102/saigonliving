@@ -29,23 +29,23 @@ export const media = {
     },
     {
       src: "/assets/optimized/marina.jpg",
-      alt: "Không gian bến thuyền và cảnh quan ven sông",
+      alt: "Không gian bến thuyền và cảnh quan ven sông Vlasta Premier Phú Thuận",
     },
     {
       src: "/assets/optimized/pool-daybed.jpg",
-      alt: "Ghế thư giãn và không gian nghỉ dưỡng",
+      alt: "Ghế thư giãn và không gian nghỉ dưỡng Vlasta Premier Nam Sài Gòn",
     },
     {
       src: "/assets/optimized/pool.jpg",
-      alt: "Bể bơi trung tâm phong cách resort",
+      alt: "Bể bơi trung tâm phong cách resort Vlasta Premier Quận 7",
     },
     {
       src: "/assets/optimized/balcony.jpg",
-      alt: "Ban công căn hộ với tầm nhìn thoáng",
+      alt: "Ban công căn hộ Vlasta Premier với tầm nhìn thoáng",
     },
     {
       src: "/assets/optimized/pool-bar.jpg",
-      alt: "Pool bar và tiện ích nghỉ dưỡng",
+      alt: "Pool bar và tiện ích nghỉ dưỡng Vlasta Premier",
     },
   ],
   overviewVisuals: [

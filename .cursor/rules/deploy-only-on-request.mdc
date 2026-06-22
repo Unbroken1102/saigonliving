@@ -1,0 +1,10 @@
+---
+description: Deployment must be explicitly requested
+alwaysApply: true
+---
+
+# Deployment Guardrail
+
+- Do not run production deployment commands unless the user explicitly asks to deploy.
+- Treat code/content edits, local verification, lint, and build as separate from deployment.
+- Commands such as `npx vercel --prod --yes`, `vercel deploy --prod`, production alias promotion, or production publish steps require an explicit user request in the current conversation.

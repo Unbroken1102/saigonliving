@@ -1,0 +1,32 @@
+---
+description: Blog post description must excerpt the article opening
+alwaysApply: true
+---
+
+# Blog post description
+
+When creating or editing `app/content/posts/*.mdx`, set `post.description` as an **excerpt from the opening** of the article — not an analytical summary.
+
+## Do
+
+- Copy or lightly trim the first 1–2 sentences of the article body (after the first heading).
+- Keep a narrative, readable tone that matches how the article starts.
+- Target **140–160 characters** when possible (meta description length).
+- End at a natural sentence boundary.
+
+## Do not
+
+- Start with "Phân tích...", "So sánh...", "Cập nhật...", "Đánh giá...", "Tổng hợp..." unless that exact wording appears in the opening.
+- List keywords, bullet topics, or every angle the article covers.
+- Write a description that reads like an SEO abstract instead of the article voice.
+
+## Example
+
+Opening paragraph:
+> Nếu cách đây vài năm, nhắc đến khu Đào Trí – Phú Thuận người ta nghĩ ngay đến Q7 Riverside...
+
+Good `description`:
+> Nếu cách đây vài năm, nhắc đến khu Đào Trí – Phú Thuận người ta nghĩ ngay đến Q7 Riverside như một khu căn hộ ven sông đông dân, giá vừa tầm.
+
+Bad `description`:
+> So sánh Vlasta Premier và Q7 Riverside theo quy mô, tiện ích, chính sách thanh toán và nhóm khách phù hợp.

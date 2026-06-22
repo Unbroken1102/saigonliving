@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "analytics:live": "node scripts/fetch-analytics.mjs live",
+    "analytics:report": "node scripts/fetch-analytics.mjs summary",
+    "analytics:daily": "node scripts/fetch-analytics.mjs daily"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -15,12 +18,14 @@
     "@types/mdx": "^2.0.13",
     "framer-motion": "^12.40.0",
     "next": "16.2.7",
+    "nodemailer": "^8.0.11",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

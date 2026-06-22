@@ -4,6 +4,7 @@ import Link from "next/link";
 import { DeferredHeroMedia } from "@/app/components/deferred-hero-media";
 import { JsonLd } from "@/app/components/json-ld";
 import { LeadFormTrigger } from "@/app/components/lead-form-popup";
+import { PROJECT_INVENTORY_CTA_LABEL, INVENTORY_CTA_HERO_CLASS } from "@/app/components/project-inventory-cta";
 import {
   AmenitiesSection,
   BlogPreview,
@@ -19,21 +20,23 @@ import {
   ProjectDataHighlights,
   SectionIntro,
   StatsStrip,
+  VlastaBlogClusterSection,
 } from "@/app/components/site-sections";
 import { MotionReveal } from "@/app/components/motion-reveal";
 import { media } from "@/app/lib/media";
 import { absoluteUrl, project, siteConfig } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Vlasta Premier Phú Thuận | Bảng giá, mặt bằng, pháp lý mới nhất",
+  title: "Vlasta Premier Phú Thuận | Giá từ 4,35 tỷ, trả 20% đến nhận nhà 2026",
   description:
-    "Cập nhật Vlasta Premier Phú Thuận: bảng giá, mặt bằng tầng, layout căn hộ, vị trí, pháp lý, tiến độ, tiện ích và FAQ cho khách mua ở hoặc đầu tư.",
+    "Căn hộ ven sông Đào Trí Phú Thuận — thanh toán 10% khi ký, 20% đến nhận nhà, full nội thất CBRE. Bảng giá 1PN–3PN, mặt bằng và pháp lý 2026.",
   alternates: {
     canonical: absoluteUrl("/vlasta-premier"),
   },
   openGraph: {
-    title: "Vlasta Premier Phú Thuận | Bảng giá, mặt bằng, pháp lý",
-    description: project.summary,
+    title: "Vlasta Premier Phú Thuận | Giá từ 4,35 tỷ, trả 20% đến nhận nhà 2026",
+    description:
+      "Căn hộ cao cấp ven sông Đào Trí — trả 20% đến nhận nhà, hỗ trợ lãi sau bàn giao. Xem bảng giá, mặt bằng và chính sách ngân hàng 2026.",
     url: absoluteUrl("/vlasta-premier"),
     images: [
       {
@@ -117,7 +120,7 @@ export default function VlastaPremierPage() {
           <DeferredHeroMedia
             poster={media.images.hero}
             video={media.video.hero}
-            label="Vlasta Premier Phú Thuận hero"
+            label="Phối cảnh Vlasta Premier Phú Thuận ven sông Đào Trí Quận 7"
           />
           <div className="absolute inset-0 bg-[#1c1b19]/22" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1c1b19]/82 via-[#1c1b19]/46 to-[#1c1b19]/10" />
@@ -129,23 +132,20 @@ export default function VlastaPremierPage() {
             <MotionReveal className="max-w-3xl">
               <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#d4b87a]/35 bg-[#1c1b19]/45 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#f0ddb0] shadow-lg shadow-black/20 backdrop-blur-md md:text-xs">
                 <span className="size-1.5 rounded-full bg-[#d4b87a]" />
-                Vlasta Premier Phú Thuận
+                Luxury Residence bên sông Đào Trí
               </p>
               <h1 className="font-display text-5xl font-light leading-[1.03] tracking-tight text-[#fffaf0] drop-shadow-[0_10px_28px_rgba(0,0,0,0.42)] sm:text-6xl md:text-7xl lg:text-[4.85rem]">
-                Bảng giá &
-                <br />
-                <span className="text-gradient-gold font-normal italic">mặt bằng</span>
-                <br />
                 Vlasta Premier
-                <br />
-                Phú Thuận.
               </h1>
+              <p className="font-display mt-4 max-w-3xl text-2xl font-light leading-[1.12] tracking-tight text-[#faf6f0]/92 sm:text-3xl md:text-4xl">
+                Khởi nguyên <span className="text-gradient-gold font-normal italic">sống mới</span> tại Nam Sài Gòn.
+              </p>
               <p className="mt-7 max-w-2xl text-base font-medium leading-8 text-[#faf6f0]/88 drop-shadow md:text-lg">
-                {project.summary}
+                Vlasta Premier Phú Thuận là lựa chọn dành cho khách muốn một căn hộ mới, riêng tư, thiết kế sang và có lợi thế kết nối từ trục Đào Trí ven sông.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <LeadFormTrigger source="Vlasta Premier Hero" className="btn-luxury rounded-full bg-[#d4b87a] px-8 py-4 text-center text-sm font-bold text-[#1c1b19] shadow-xl shadow-black/25 transition hover:-translate-y-0.5 hover:bg-[#f0ddb0] md:px-9">
-                  Nhận bảng giá & giỏ hàng
+                <LeadFormTrigger source="Vlasta Premier Hero" ctaLabel={PROJECT_INVENTORY_CTA_LABEL} className={INVENTORY_CTA_HERO_CLASS}>
+                  {PROJECT_INVENTORY_CTA_LABEL}
                 </LeadFormTrigger>
                 <Link href="#masterplan" className="rounded-full border border-[#faf6f0]/35 bg-[#1c1b19]/32 px-8 py-4 text-center text-sm font-semibold text-[#faf6f0] shadow-lg shadow-black/20 backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-[#faf6f0]/12 md:px-9">
                   Xem mặt bằng dự án
@@ -178,15 +178,15 @@ export default function VlastaPremierPage() {
         <div className="relative mx-auto max-w-7xl">
           <SectionIntro
             eyebrow="Mặt bằng & layout"
-            title="Chọn đúng tháp, đúng tầng và đúng layout trước khi nhận bảng giá."
-            description="Tổng hợp mặt bằng tổng thể, mặt bằng tầng và layout căn hộ để Anh/Chị lọc nhanh dòng sản phẩm phù hợp nhu cầu ở thực hoặc đầu tư."
+            title="Mặt bằng và layout căn hộ Vlasta Premier"
+            description="Chọn đúng tháp, đúng tầng và đúng layout trước khi nhận bảng giá. Tổng hợp mặt bằng tổng thể, mặt bằng tầng và layout căn hộ để Anh/Chị lọc nhanh dòng sản phẩm phù hợp nhu cầu ở thực hoặc đầu tư."
           />
           <div className="mt-14 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
             <MotionReveal>
               <article className="image-polish group relative min-h-[520px] overflow-hidden rounded-[2.25rem] border border-[#d9c79f]/60 bg-[#15110c]">
                 <Image
                   src={media.images.hero}
-                  alt="Tổng thể mặt bằng và phối cảnh Vlasta Premier Phú Thuận"
+                  alt="Mặt bằng tổng thể Vlasta Premier Phú Thuận ven sông Đào Trí"
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 58vw"
@@ -196,9 +196,12 @@ export default function VlastaPremierPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f0ddb0]">
                     Masterplan nổi bật
                   </p>
-                  <h2 className="font-display mt-4 max-w-2xl text-4xl font-medium tracking-[-0.04em] md:text-5xl">
+                  <h3 className="font-display mt-4 max-w-2xl text-4xl font-medium tracking-[-0.04em] md:text-5xl">
+                    Mặt bằng tổng thể Vlasta Premier Phú Thuận
+                  </h3>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-white/78">
                     Xem tổng quan trước, rồi lọc căn theo tầng, view và ngân sách.
-                  </h2>
+                  </p>
                   <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                     <LeadFormTrigger source="Masterplan Featured CTA" className="btn-luxury rounded-full bg-[#d4b87a] px-7 py-4 text-sm font-bold text-[#1c1b19] transition hover:-translate-y-0.5 hover:bg-[#f0ddb0]">
                       Nhận mặt bằng & bảng giá
@@ -242,7 +245,7 @@ export default function VlastaPremierPage() {
                 Mặt bằng tầng
               </p>
               <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
-                Mặt bằng tầng điển hình và vị trí căn trong tòa tháp.
+                Mặt bằng tầng và vị trí căn trong tòa tháp
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#5d554c]">
                 Xem cách bố trí lõi thang, hành lang, hướng căn và phân bổ sản phẩm trước khi chọn layout chi tiết.
@@ -286,7 +289,7 @@ export default function VlastaPremierPage() {
                   Layout căn hộ
                 </p>
                 <h2 className="font-display mt-4 max-w-3xl text-4xl font-medium tracking-[-0.04em] text-[#15110c] md:text-5xl">
-                  Layout căn hộ 1PN, 2PN, 3PN theo từng tháp.
+                  Layout căn hộ 1PN, 2PN, 3PN tại Vlasta Premier
                 </h2>
               </div>
               <Link href="#pricing" className="btn-luxury rounded-full bg-[#15110c] px-6 py-3 text-center text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#c9a45d] hover:text-black">
@@ -327,10 +330,11 @@ export default function VlastaPremierPage() {
       <ProgressSection />
       <PricingSection />
       <InvestmentSection />
-      <BlogPreview />
+      <VlastaBlogClusterSection />
+      <BlogPreview variant="vlasta" />
       <GallerySection />
       <FaqSection />
-      <ContactSection />
+      <ContactSection variant="vlasta-premier" />
     </>
   );
 }

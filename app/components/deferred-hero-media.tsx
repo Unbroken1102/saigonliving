@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type DeferredHeroMediaProps = {
   poster: string;
+  mobilePoster?: string;
   video?: string;
   mobileVideo?: string;
   label: string;
@@ -12,6 +12,7 @@ type DeferredHeroMediaProps = {
 
 export function DeferredHeroMedia({
   poster,
+  mobilePoster,
   video,
   mobileVideo,
   label,
@@ -19,18 +20,19 @@ export function DeferredHeroMedia({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   useEffect(() => {
-    if (!video) {
+    if (!video && !mobileVideo) {
       return;
     }
 
-    const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    if (!mediaQuery.matches) {
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    const hasVideoForViewport = isDesktop ? Boolean(video) : Boolean(mobileVideo);
+    if (!hasVideoForViewport) {
       return;
     }
 
     const loadVideo = () => setShouldLoadVideo(true);
-    const idleCallback = window.requestIdleCallback?.(loadVideo, { timeout: 3000 });
-    const timeout = window.setTimeout(loadVideo, 4500);
+    const idleCallback = window.requestIdleCallback?.(loadVideo, { timeout: isDesktop ? 3000 : 2000 });
+    const timeout = window.setTimeout(loadVideo, isDesktop ? 4500 : 2800);
 
     return () => {
       window.clearTimeout(timeout);
@@ -38,22 +40,23 @@ export function DeferredHeroMedia({
         window.cancelIdleCallback?.(idleCallback);
       }
     };
-  }, [video]);
+  }, [mobileVideo, video]);
 
   return (
     <>
-      <Image
-        src={poster}
-        alt={label}
-        fill
-        className="object-cover animate-hero-zoom"
-        sizes="100vw"
-        preload
-        quality={82}
-      />
+      <picture className="absolute inset-0 block">
+        {mobilePoster ? <source srcSet={mobilePoster} media="(max-width: 767px)" /> : null}
+        <img
+          src={poster}
+          alt={label}
+          className="hero-media h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
       {shouldLoadVideo ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
+          className="hero-media absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
@@ -63,9 +66,9 @@ export function DeferredHeroMedia({
           aria-label={label}
         >
           {mobileVideo ? (
-            <source src={mobileVideo} type="video/mp4" media="(max-width: 767px)" />
+            <source src={mobileVideo} type="video/mp4" media="(max-width: 1023px)" />
           ) : null}
-          <source src={video} type="video/mp4" />
+          {video ? <source src={video} type="video/mp4" media="(min-width: 1024px)" /> : null}
         </video>
       ) : null}
     </>
