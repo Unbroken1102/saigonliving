@@ -1,3 +1,8 @@
+import { attachAutoListingImages } from "@/app/lib/listings-images";
+import { resolveProjectSlug } from "@/app/lib/listings-project";
+
+export { resolveProjectSlug } from "@/app/lib/listings-project";
+
 export type ListingType = "dang-ban" | "chuyen-nhuong" | "cho-thue";
 
 export type ListingStatus = "draft" | "published" | "sold";
@@ -26,21 +31,11 @@ export const listingTypeLabels: Record<ListingType, string> = {
 };
 
 export const listingTypeDescriptions: Record<ListingType, string> = {
-  "dang-ban":
-    "Căn mở bán từ chủ đầu tư hoặc đợt phân phối chính thức — giá và chính sách cần xác nhận lại theo giỏ hàng tuần.",
-  "chuyen-nhuong":
-    "Căn chuyển nhượng thứ cấp tại các dự án Nam Sài Gòn — nên kiểm tra pháp lý, tiến độ và phí trước khi giữ chỗ.",
-  "cho-thue":
-    "Căn cho thuê tại khu Nam — phù hợp khách muốn ở thử khu vực hoặc nhà đầu tư cần tham chiếu giá thuê thực tế.",
+  "dang-ban": "Liên hệ để xem chính sách ưu đãi và lịch thanh toán.",
+  "chuyen-nhuong": "Giỏ hàng chuyển nhượng — liên hệ để xem nhà và biết giá chốt.",
+  "cho-thue": "Liên hệ xem nhà và biết giá chốt.",
 };
 
-const projectSlugByName: Record<string, string> = {
-  "Mizuki Park": "/mizuki-park",
-  "The Peak Garden": "/the-peak-garden",
-  "TT Genesis": "/tt-genesis",
-  "Vlasta Premier": "/vlasta-premier",
-  "Eco Retreat": "/eco-retreat",
-};
 
 export const sampleListings: Listing[] = [
   {
@@ -141,15 +136,15 @@ function normalizeListing(raw: Partial<Listing>): Listing | null {
     id: String(raw.id),
     type,
     status: (raw.status as ListingStatus) || "published",
-    project: String(raw.project),
-    projectSlug: raw.projectSlug || projectSlugByName[String(raw.project)],
+    project: String(raw.project).trim(),
+    projectSlug: resolveProjectSlug(String(raw.project), raw.projectSlug),
     district: String(raw.district || "TP.HCM"),
     unitType: String(raw.unitType),
     area: raw.area ? String(raw.area) : undefined,
     price: String(raw.price),
     priceNote: raw.priceNote ? String(raw.priceNote) : undefined,
     description: String(raw.description || ""),
-    images: images.length ? images : ["/assets/optimized/overview-marina.jpg"],
+    images: images.length ? images : [],
     updatedAt: String(raw.updatedAt || new Date().toISOString().slice(0, 10)),
     featured: Boolean(raw.featured),
   };
@@ -161,7 +156,7 @@ export async function getPublishedListings(): Promise<Listing[]> {
   if (feedUrl) {
     try {
       const response = await fetch(feedUrl, {
-        next: { revalidate: 300 },
+        next: { revalidate: 60 },
       });
 
       if (response.ok) {
@@ -172,7 +167,7 @@ export async function getPublishedListings(): Promise<Listing[]> {
           .filter((item) => item.status === "published");
 
         if (listings.length) {
-          return listings;
+          return attachAutoListingImages(listings);
         }
       }
     } catch {
@@ -180,7 +175,9 @@ export async function getPublishedListings(): Promise<Listing[]> {
     }
   }
 
-  return sampleListings.filter((listing) => listing.status === "published");
+  return attachAutoListingImages(
+    sampleListings.filter((listing) => listing.status === "published"),
+  );
 }
 
 export function filterListingsByType(listings: Listing[], type?: ListingType) {
@@ -192,5 +189,185 @@ export function filterListingsByType(listings: Listing[], type?: ListingType) {
 }
 
 export function getProjectSlug(listing: Listing) {
-  return listing.projectSlug || projectSlugByName[listing.project];
+  return resolveProjectSlug(listing.project, listing.projectSlug);
+}
+
+export function parseListingPriceBillions(price: string): number | null {
+  const normalized = price
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/,/g, ".");
+
+  if (/lien he|thoa thuan/.test(normalized)) {
+    return null;
+  }
+
+  const tyMatch = normalized.match(/(\d+(?:\.\d+)?)\s*t[y]/);
+  if (tyMatch) {
+    return Number.parseFloat(tyMatch[1]);
+  }
+
+  const trieuMatch = normalized.match(/(\d+(?:\.\d+)?)\s*tr(?:ieu)?/);
+  if (trieuMatch) {
+    return Number.parseFloat(trieuMatch[1]) / 1000;
+  }
+
+  return null;
+}
+
+export function parseListingBedroomCount(unitType: string): 1 | 2 | 3 | null {
+  const normalized = unitType
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  const match = normalized.match(/\b([123])\s*pn\b/);
+  if (!match) {
+    return null;
+  }
+
+  const count = Number.parseInt(match[1], 10);
+  return count === 1 || count === 2 || count === 3 ? count : null;
+}
+
+export function sortListingsByBestPrice(listings: Listing[]) {
+  return [...listings].sort((a, b) => {
+    const aPrice = parseListingPriceBillions(a.price);
+    const bPrice = parseListingPriceBillions(b.price);
+
+    if (aPrice === null && bPrice === null) {
+      return 0;
+    }
+
+    if (aPrice === null) {
+      return 1;
+    }
+
+    if (bPrice === null) {
+      return -1;
+    }
+
+    if (aPrice !== bPrice) {
+      return aPrice - bPrice;
+    }
+
+    if (a.featured && !b.featured) {
+      return -1;
+    }
+
+    if (!a.featured && b.featured) {
+      return 1;
+    }
+
+    return 0;
+  });
+}
+
+export function getBestPriceListings(listings: Listing[], limit = 5) {
+  if (listings.length <= limit) {
+    return sortListingsByBestPrice(listings);
+  }
+
+  const buckets: Record<1 | 2 | 3, Listing[]> = {
+    1: [],
+    2: [],
+    3: [],
+  };
+  const others: Listing[] = [];
+
+  for (const listing of listings) {
+    const bedrooms = parseListingBedroomCount(listing.unitType);
+    if (bedrooms) {
+      buckets[bedrooms].push(listing);
+    } else {
+      others.push(listing);
+    }
+  }
+
+  for (const bedroom of [1, 2, 3] as const) {
+    buckets[bedroom] = sortListingsByBestPrice(buckets[bedroom]);
+  }
+
+  const sortedOthers = sortListingsByBestPrice(others);
+  const selected: Listing[] = [];
+  const selectedIds = new Set<string>();
+  const pointers: Record<1 | 2 | 3, number> = { 1: 0, 2: 0, 3: 0 };
+
+  while (selected.length < limit) {
+    let addedInRound = false;
+
+    for (const bedroom of [1, 2, 3] as const) {
+      if (selected.length >= limit) {
+        break;
+      }
+
+      const bucket = buckets[bedroom];
+      while (pointers[bedroom] < bucket.length && selectedIds.has(bucket[pointers[bedroom]].id)) {
+        pointers[bedroom] += 1;
+      }
+
+      if (pointers[bedroom] < bucket.length) {
+        const listing = bucket[pointers[bedroom]];
+        pointers[bedroom] += 1;
+        selected.push(listing);
+        selectedIds.add(listing.id);
+        addedInRound = true;
+      }
+    }
+
+    if (!addedInRound) {
+      break;
+    }
+  }
+
+  if (selected.length < limit) {
+    for (const listing of [...sortedOthers, ...sortListingsByBestPrice(listings)]) {
+      if (selected.length >= limit) {
+        break;
+      }
+
+      if (!selectedIds.has(listing.id)) {
+        selected.push(listing);
+        selectedIds.add(listing.id);
+      }
+    }
+  }
+
+  return selected;
+}
+
+export function listingMatchesProjectSlug(listing: Listing, projectSlug: string) {
+  const listingSlug = getProjectSlug(listing)?.replace(/^\//, "");
+  return listingSlug === projectSlug.replace(/^\//, "");
+}
+
+export function filterListingsByProject(listings: Listing[], projectSlug: string) {
+  return listings.filter((listing) => listingMatchesProjectSlug(listing, projectSlug));
+}
+
+export function getListingCountsByType(listings: Listing[]) {
+  return {
+    all: listings.length,
+    "dang-ban": listings.filter((item) => item.type === "dang-ban").length,
+    "chuyen-nhuong": listings.filter((item) => item.type === "chuyen-nhuong").length,
+    "cho-thue": listings.filter((item) => item.type === "cho-thue").length,
+  };
+}
+
+export function getLatestListingUpdatedAt(listings: Listing[]) {
+  if (!listings.length) {
+    return undefined;
+  }
+
+  return listings.reduce((latest, listing) => {
+    return listing.updatedAt > latest ? listing.updatedAt : latest;
+  }, listings[0].updatedAt);
+}
+
+export function formatInventoryUpdatedLabel(updatedAt?: string) {
+  const source = updatedAt ?? new Date().toISOString().slice(0, 10);
+  const [year, month] = source.slice(0, 7).split("-");
+
+  return `Bảng giá cập nhật mới nhất tháng ${Number(month)} năm ${year}`;
 }

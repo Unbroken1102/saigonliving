@@ -8,7 +8,7 @@ Script se:
 2. Lay title, description, image va noi dung bai viet.
 3. Dung OpenAI de rewrite/tom tat thanh caption Facebook.
 4. Ghi vao Google Sheet de luu log.
-5. Len lich dang fanpage tu dong theo cac khung gio 09:00, 11:00, 13:00, 19:00, 21:00.
+5. Len lich dang fanpage tu dong 2 bai/ngay luc 07:00 va 20:00 (gio Viet Nam).
 6. Dang xong thi doi `status = POSTED` va luu `facebookPostId`.
 
 Tat ca khung gio dang bai trong script duoc tinh theo mui gio `Asia/Ho_Chi_Minh`.
@@ -61,7 +61,7 @@ Trong Google Sheet, dung menu `Saigon Living Auto Post`:
 1. Chon `1. Setup sheet headers`.
 2. Google se hoi quyen. Chap nhan bang tai khoan cua ban.
 3. Chon `2. Auto draft + publish new posts`.
-4. Script se lay bai moi/landing moi, tao caption, roi dang/hen lich theo cac khung gio 09:00, 11:00, 13:00, 19:00, 21:00.
+4. Script se lay bai moi/landing moi, tao caption, roi dang/hen lich luc 07:00 va 20:00 (toi da 2 bai/ngay).
 
 Neu vua cap nhat lai cac URL cu va muon dang lai len fanpage:
 
@@ -72,7 +72,7 @@ Neu vua cap nhat lai cac URL cu va muon dang lai len fanpage:
 Neu muon tu dong moi ngay:
 
 1. Chon menu `Create daily auto post trigger`.
-2. Moi ngay khoang 09:00 gio Viet Nam, script se tu kiem tra bai moi va chia lich dang trong ngay.
+2. Moi ngay khoang 06:00 gio Viet Nam, script se tu kiem tra bai moi va hen 2 bai luc 07:00 va 20:00.
 3. Neu khong co bai moi thi script khong dang gi.
 
 Neu bai o trang thai `SCHEDULED` ma den gio chua dang:

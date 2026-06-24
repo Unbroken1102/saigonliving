@@ -27,16 +27,16 @@ import { media } from "@/app/lib/media";
 import { absoluteUrl, project, siteConfig } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Vlasta Premier Phú Thuận | Giá từ 4,35 tỷ, trả 20% đến nhận nhà 2026",
+  title: "Vlasta Premier 2026: gần Phú Mỹ Hưng, 1PN từ 4,35 tỷ, trả 20% đến nhận nhà",
   description:
-    "Căn hộ ven sông Đào Trí Phú Thuận — thanh toán 10% khi ký, 20% đến nhận nhà, full nội thất CBRE. Bảng giá 1PN–3PN, mặt bằng và pháp lý 2026.",
+    "Vlasta Premier ven sông Đào Trí Phú Thuận — gần Phú Mỹ Hưng, thanh toán 10% khi ký và 20% đến nhận nhà. Xem bảng giá 1PN–3PN, mặt bằng và pháp lý 2026.",
   alternates: {
     canonical: absoluteUrl("/vlasta-premier"),
   },
   openGraph: {
-    title: "Vlasta Premier Phú Thuận | Giá từ 4,35 tỷ, trả 20% đến nhận nhà 2026",
+    title: "Vlasta Premier 2026: gần Phú Mỹ Hưng, 1PN từ 4,35 tỷ, trả 20% đến nhận nhà",
     description:
-      "Căn hộ cao cấp ven sông Đào Trí — trả 20% đến nhận nhà, hỗ trợ lãi sau bàn giao. Xem bảng giá, mặt bằng và chính sách ngân hàng 2026.",
+      "Vlasta Premier ven sông Đào Trí Phú Thuận — gần Phú Mỹ Hưng, thanh toán 10% khi ký và 20% đến nhận nhà. Xem bảng giá 1PN–3PN, mặt bằng và pháp lý 2026.",
     url: absoluteUrl("/vlasta-premier"),
     images: [
       {

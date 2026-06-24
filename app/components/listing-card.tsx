@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ListingCardGallery } from "@/app/components/listing-card-gallery";
 import { LeadFormTrigger } from "@/app/components/lead-form-popup";
 import { GOLD_CTA_BUTTON_COMPACT_CLASS } from "@/app/components/project-inventory-cta";
 import { getProjectSlug, type Listing, listingTypeLabels } from "@/app/lib/listings";
@@ -7,19 +7,14 @@ import { siteConfig } from "@/app/lib/site";
 
 export function ListingCard({ listing }: { listing: Listing }) {
   const projectHref = getProjectSlug(listing);
-  const coverImage = listing.images[0];
+  const imageAlt = `${listing.project} ${listing.unitType} ${listing.price}`;
+  const description = listing.description.replace(/\n{2,}/g, "\n").trim();
 
   return (
     <article className="overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-md">
-      <div className="relative aspect-[16/10] bg-neutral-100">
-        <Image
-          src={coverImage}
-          alt={`${listing.project} ${listing.unitType} ${listing.price}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+      <div className="relative">
+        <ListingCardGallery images={listing.images} alt={imageAlt} />
+        <div className="pointer-events-none absolute left-4 top-4 flex flex-wrap gap-2">
           <span className="rounded-full bg-white/92 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-800">
             {listingTypeLabels[listing.type]}
           </span>
@@ -47,7 +42,7 @@ export function ListingCard({ listing }: { listing: Listing }) {
           {listing.priceNote ? <p className="mt-1 text-sm text-neutral-500">{listing.priceNote}</p> : null}
         </div>
 
-        <p className="text-sm leading-7 text-neutral-600">{listing.description}</p>
+        <p className="whitespace-pre-line text-sm leading-snug text-neutral-600">{description}</p>
 
         <p className="text-xs text-neutral-400">Cập nhật {listing.updatedAt}</p>
 

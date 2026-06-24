@@ -112,6 +112,12 @@ const buyerNotes = [
 
 const articleLinks = [
   {
+    title: "600 triệu – 1 tỷ có mua căn gần Phú Mỹ Hưng?",
+    href: "/blog/600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung",
+    description:
+      "So TT Genesis (vốn vào gọn) và Vlasta Premier (gần PMH hơn) khi chỉ có 600tr–1tỷ tiền mặt ban đầu.",
+  },
+  {
     title: "TT Genesis: đừng nhìn mỗi giá 6x–7x",
     href: "/blog/tt-genesis-co-nen-mua-khong",
     description:

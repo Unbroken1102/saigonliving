@@ -1,20 +1,22 @@
 import Link from "next/link";
 import { listingTypeDescriptions, listingTypeLabels, type ListingType } from "@/app/lib/listings";
 
-const tabs: Array<{ id: ListingType | "all"; label: string; href: string }> = [
-  { id: "all", label: "Tất cả", href: "/gio-hang" },
-  { id: "dang-ban", label: listingTypeLabels["dang-ban"], href: "/gio-hang?loai=dang-ban" },
-  { id: "chuyen-nhuong", label: listingTypeLabels["chuyen-nhuong"], href: "/gio-hang?loai=chuyen-nhuong" },
-  { id: "cho-thue", label: listingTypeLabels["cho-thue"], href: "/gio-hang?loai=cho-thue" },
-];
-
 export function ListingsHubTabs({
   activeType,
   counts,
+  basePath = "/gio-hang",
 }: {
   activeType?: ListingType;
   counts: Record<ListingType | "all", number>;
+  basePath?: string;
 }) {
+  const tabs: Array<{ id: ListingType | "all"; label: string; href: string }> = [
+    { id: "all", label: "Tất cả", href: basePath },
+    { id: "dang-ban", label: listingTypeLabels["dang-ban"], href: `${basePath}?loai=dang-ban` },
+    { id: "chuyen-nhuong", label: listingTypeLabels["chuyen-nhuong"], href: `${basePath}?loai=chuyen-nhuong` },
+    { id: "cho-thue", label: listingTypeLabels["cho-thue"], href: `${basePath}?loai=cho-thue` },
+  ];
+
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap gap-2">
@@ -38,13 +40,8 @@ export function ListingsHubTabs({
       </div>
 
       {activeType ? (
-        <p className="max-w-3xl text-sm leading-7 text-neutral-600">{listingTypeDescriptions[activeType]}</p>
-      ) : (
-        <p className="max-w-3xl text-sm leading-7 text-neutral-600">
-          Giỏ hàng Saigon Living tổng hợp căn đang mở bán, chuyển nhượng và cho thuê tại Nam Sài Gòn. Giá và tình
-          trạng căn cần xác nhận lại khi liên hệ.
-        </p>
-      )}
+        <p className="max-w-3xl text-sm leading-6 text-neutral-600">{listingTypeDescriptions[activeType]}</p>
+      ) : null}
     </div>
   );
 }

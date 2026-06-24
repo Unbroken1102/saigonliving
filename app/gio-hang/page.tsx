@@ -3,9 +3,13 @@ import Link from "next/link";
 import { JsonLd } from "@/app/components/json-ld";
 import { ListingCard } from "@/app/components/listing-card";
 import { ListingsHubTabs } from "@/app/components/listings-hub-tabs";
+import { ListingsProjectNav } from "@/app/components/listings-project-nav";
 import { ContactSection } from "@/app/components/site-sections";
 import {
   filterListingsByType,
+  formatInventoryUpdatedLabel,
+  getLatestListingUpdatedAt,
+  getListingCountsByType,
   getPublishedListings,
   listingTypeLabels,
   type ListingType,
@@ -25,6 +29,8 @@ function getActiveType(value?: string): ListingType | undefined {
 
   return value as ListingType;
 }
+
+export const revalidate = 60;
 
 export async function generateMetadata({ searchParams }: GioHangPageProps): Promise<Metadata> {
   const { loai } = await searchParams;
@@ -67,13 +73,8 @@ export default async function GioHangPage({ searchParams }: GioHangPageProps) {
   const activeType = getActiveType(loai);
   const allListings = await getPublishedListings();
   const listings = filterListingsByType(allListings, activeType);
-
-  const counts = {
-    all: allListings.length,
-    "dang-ban": allListings.filter((item) => item.type === "dang-ban").length,
-    "chuyen-nhuong": allListings.filter((item) => item.type === "chuyen-nhuong").length,
-    "cho-thue": allListings.filter((item) => item.type === "cho-thue").length,
-  };
+  const counts = getListingCountsByType(allListings);
+  const inventoryUpdatedLabel = formatInventoryUpdatedLabel(getLatestListingUpdatedAt(allListings));
 
   const jsonLd = [
     {
@@ -134,18 +135,16 @@ export default async function GioHangPage({ searchParams }: GioHangPageProps) {
           </nav>
 
           <p className="mt-8 text-xs font-semibold uppercase tracking-[0.35em] text-neutral-500">
-            Saigon Living inventory
+            Giỏ hàng · Saigon Living
           </p>
           <h1 className="font-display mt-5 max-w-4xl text-4xl font-medium tracking-[-0.05em] text-balance md:text-6xl">
             Giỏ hàng căn hộ Nam Sài Gòn
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
-            Cập nhật căn đang mở bán, chuyển nhượng và cho thuê tại các dự án trọng tâm. Giá mang tính tham khảo —
-            liên hệ để xác nhận căn còn, pháp lý và chính sách thanh toán.
-          </p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">{inventoryUpdatedLabel}</p>
 
           <div className="mt-10">
             <ListingsHubTabs activeType={activeType} counts={counts} />
+            <ListingsProjectNav listings={allListings} />
           </div>
         </div>
       </section>
@@ -163,10 +162,10 @@ export default async function GioHangPage({ searchParams }: GioHangPageProps) {
           ) : (
             <div className="rounded-[2rem] border border-neutral-200 bg-white p-8 text-center">
               <h2 className="font-display text-3xl font-medium tracking-[-0.04em] text-neutral-900">
-                Chưa có căn trong nhóm này
+                Chưa có căn
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600">
-                Anh/Chị có thể xem các nhóm khác hoặc liên hệ để Saigon Living gửi giỏ hàng phù hợp ngân sách.
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-neutral-600">
+                Xem nhóm khác hoặc liên hệ để nhận gợi ý.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
@@ -185,9 +184,8 @@ export default async function GioHangPage({ searchParams }: GioHangPageProps) {
             </div>
           )}
 
-          <div className="mt-10 rounded-[1.75rem] border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-7 text-amber-950">
-            Thông tin trong giỏ hàng là tư vấn tham khảo, không thay thế bảng giá chính thức từ chủ đầu tư hoặc hợp
-            đồng chuyển nhượng. Vui lòng liên hệ để xác nhận tình trạng căn trước khi giữ chỗ.
+          <div className="mt-10 rounded-[1.75rem] border border-amber-200 bg-amber-50 px-5 py-4 text-sm leading-6 text-amber-950">
+            Giá tham khảo. Liên hệ trước khi giữ chỗ.
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">

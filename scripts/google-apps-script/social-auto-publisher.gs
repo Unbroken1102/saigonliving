@@ -5,7 +5,7 @@ const CONFIG = {
   FACEBOOK_PAGE_ID: "1154537577748632",
   FACEBOOK_GRAPH_VERSION: "v20.0",
   OPENAI_MODEL: "gpt-4o-mini",
-  MAX_DRAFTS: 5,
+  MAX_DRAFTS: 2,
   TIME_ZONE: "Asia/Ho_Chi_Minh",
   EXTRA_SOCIAL_PATHS: ["/tt-genesis"],
   UPDATED_SOCIAL_PATHS: [
@@ -14,7 +14,7 @@ const CONFIG = {
     "/blog/the-peak-garden-co-nen-mua-khong",
     "/blog/the-peak-garden-huong-loi-metro-ben-thanh-can-gio",
   ],
-  POST_SCHEDULE_HOURS: [9, 11, 13, 19, 21],
+  POST_SCHEDULE_HOURS: [7, 20],
   POST_SCHEDULE_GRACE_MINUTES: 30,
 };
 
@@ -69,6 +69,10 @@ function buildAutoPostMenu_() {
 
   if (typeof registerAnalyticsMenu_ === "function") {
     registerAnalyticsMenu_();
+  }
+
+  if (typeof registerListingsMenu_ === "function") {
+    registerListingsMenu_();
   }
 }
 
@@ -645,13 +649,13 @@ function createDailyAutoPostTrigger() {
     .timeBased()
     .inTimezone(CONFIG.TIME_ZONE)
     .everyDays(1)
-    .atHour(9)
+    .atHour(6)
     .create();
 
   ensureScheduledPublishWatchTrigger_();
 
   SpreadsheetApp.getUi().alert(
-    "Daily auto post trigger created for around 09:00. Scheduled posts will be checked every 5 minutes.",
+    "Daily auto post trigger created for around 06:00. Fanpage posts at 07:00 and 20:00. SCHEDULED rows checked every 5 minutes.",
   );
 }
 

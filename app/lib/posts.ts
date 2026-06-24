@@ -56,6 +56,7 @@ import ArticleFiftyFour, { post as articleFiftyFour } from "@/app/content/posts/
 import ArticleFiftyFive, { post as articleFiftyFive } from "@/app/content/posts/tt-genesis-ban-giao-khi-nao.mdx";
 import ArticleFiftySix, { post as articleFiftySix } from "@/app/content/posts/600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung.mdx";
 import ArticleFiftySeven, { post as articleFiftySeven } from "@/app/content/posts/gia-can-1pn-tt-genesis-2026.mdx";
+import ArticleFiftyEight, { post as articleFiftyEight } from "@/app/content/posts/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc.mdx";
 
 export type BlogPostMeta = {
   slug: string;
@@ -145,9 +146,11 @@ export const postImageBySlug: Record<string, string> = {
   "600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung": "/assets/optimized/amenity-pool.jpg",
   "gia-can-1pn-tt-genesis-2026": "/assets/tt-genesis/mat-bang-tt-genesis.jpg",
   "cau-binh-tien-noi-trung-tam-khu-nam-mizuki-park": "/assets/binh-tien-bridge/binh-tien-phoi-canh-cau.png",
+  "bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc": "/assets/mizuki-park/mizuki-park-kenh-dao-tien-ich.jpg",
 };
 
 const registry: Array<{ meta: BlogPostMeta; Content: ComponentType }> = [
+  { meta: articleFiftyEight, Content: ArticleFiftyEight },
   { meta: articleFiftySeven, Content: ArticleFiftySeven },
   { meta: articleFiftySix, Content: ArticleFiftySix },
   { meta: articleFiftyFive, Content: ArticleFiftyFive },
@@ -500,6 +503,23 @@ export function getArticleFaqs(post: BlogPost): FaqItem[] {
         question: "Có nên đặt cọc khi thông tin còn sớm không?",
         answer:
           "Không nên chuyển tiền hoặc đặt cọc chỉ dựa trên tin đồn hoặc ảnh quy hoạch. Giai đoạn này phù hợp để theo dõi, khảo sát thực địa, chuẩn bị dòng tiền và chờ thông tin pháp lý, sản phẩm, giá bán rõ ràng.",
+      },
+    ],
+    "bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc": [
+      {
+        question: "Bộ TN&MT có chấp thuận nâng công suất bãi rác Đa Phước lên 41 triệu tấn không?",
+        answer:
+          "Theo các thông tin công bố gần đây, Bộ TN&MT không chấp thuận đề xuất của VWS về việc nâng công suất tiếp nhận từ khoảng 24 triệu tấn lên 41 triệu tấn. Người đọc vẫn nên đối chiếu văn bản chính thức khi sử dụng thông tin.",
+      },
+      {
+        question: "Bao giờ khu Nam Sài Gòn hết mùi hôi từ bãi rác Đa Phước?",
+        answer:
+          "Chưa có mốc chính thức “hết mùi hôi”. Câu chuyện phụ thuộc tiến độ các nhà máy đốt rác phát điện, chính sách điều phối rác của TP.HCM và cảm nhận thực tế tại từng khu vực. Nên khảo sát thực địa thay vì chỉ dựa vào tin tức.",
+      },
+      {
+        question: "Tin không tăng công suất có nghĩa bãi rác sẽ ngừng hoạt động ngay không?",
+        answer:
+          "Không. TP.HCM vẫn có thể tiếp tục điều phối rác về Đa Phước trong giai đoạn chuyển tiếp cho đến khi có thêm nhà máy xử lý bằng công nghệ đốt rác phát điện.",
       },
     ],
     "bai-rac-da-phuoc-hung-long-1512ha-binh-chanh": [

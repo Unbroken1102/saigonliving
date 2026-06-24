@@ -903,6 +903,7 @@ const internalLinkSets = {
   ],
   mizukiHub: [
     { href: "/mizuki-park", title: "Trang tổng quan Mizuki Park", text: "Giá, phân khu Trellia Cove, tiện ích và form tư vấn." },
+    { href: "/blog/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc", title: "Bãi rác Đa Phước và khu Nam", text: "Tin Bộ TN&MT, lộ trình rác điện và cách đọc kỳ vọng môi trường khi chọn Mizuki." },
     { href: "/blog/mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh", title: "Mizuki hưởng lợi từ Hưng Long?", text: "Đọc Mizuki theo quy hoạch Vinhomes Bình Chánh 1.512 ha." },
     { href: "/blog/co-2-ty-nen-mua-mizuki-72m2-hay-vlasta-premier", title: "2 tỷ: Mizuki 72m² hay Vlasta?", text: "So ngân sách gọn giữa đô thị đã vận hành và căn hộ mới." },
     { href: "/blog/so-sanh-vlasta-premier-mizuki-park", title: "Vlasta Premier vs Mizuki Park", text: "So riêng về không gian xanh, giá và lịch thanh toán." },
@@ -945,12 +946,37 @@ const internalLinkSets = {
       text: "Căn Mizuki, Vlasta, TT Genesis, The Peak Garden — liên hệ xác nhận giá.",
     },
   ],
+  vinhomesTin: [
+    {
+      href: "/vinhomes-binh-chanh",
+      title: "Vinhomes Bình Chánh",
+      text: "Cập nhật quy hoạch Hưng Long 1.512 ha, bãi rác và cụm tin khu Nam.",
+    },
+    {
+      href: "/mizuki-park",
+      title: "Mizuki Park Bình Chánh",
+      text: "Đô thị đã có cư dân — có thể đến xem ngay trong lúc chờ Hưng Long.",
+    },
+    {
+      href: "/blog/mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh",
+      title: "Mizuki hưởng lợi từ Bình Chánh?",
+      text: "Đọc Mizuki theo bối cảnh Vinhomes Hưng Long và hạ tầng khu Nam.",
+    },
+  ],
 };
 
 const internalLinkHeadings: Partial<Record<keyof typeof internalLinkSets, { eyebrow: string; title: string }>> = {
   buyNamSouth: {
     eyebrow: "Đang tìm căn khu Nam?",
     title: "Xem dự án và giỏ hàng đang mở bán",
+  },
+  vinhomesTin: {
+    eyebrow: "Theo dõi tin Bình Chánh?",
+    title: "Mizuki Park và cụm cập nhật Vinhomes",
+  },
+  mizukiHub: {
+    eyebrow: "Đang cân nhắc Mizuki Park?",
+    title: "Xem trang dự án, giá Trellia Cove và bài liên quan",
   },
 };
 

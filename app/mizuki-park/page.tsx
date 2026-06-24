@@ -142,6 +142,11 @@ const incentiveItems = [
 
 const relatedArticleLinks = [
   {
+    title: "Bộ TN&MT từ chối nâng công suất bãi rác Đa Phước — bao giờ khu Nam hết mùi hôi?",
+    href: "/blog/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc",
+    description: "Tin môi trường mới và cách đọc kỳ vọng chất lượng sống khu Nam khi cân nhắc Mizuki Park.",
+  },
+  {
     title: "Mizuki Park hưởng lợi gì nếu Bình Chánh được chú ý hơn?",
     href: "/blog/mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh",
     description: "Phân tích lợi thế của Mizuki khi Hưng Long 1.512 ha, môi trường khu Nam và dòng tiền địa phương được quan tâm.",

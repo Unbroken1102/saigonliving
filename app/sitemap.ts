@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { INVENTORY_PROJECTS } from "@/app/lib/listings-project";
 import { blogPosts, postImageBySlug } from "@/app/lib/posts";
 import { absoluteUrl } from "@/app/lib/site";
 
@@ -53,6 +54,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       ...sitemapImages("/assets/mizuki-park/mizuki-park-can-ho-hien-huu.jpg"),
     },
+    ...INVENTORY_PROJECTS.map((project) => ({
+      url: absoluteUrl(`/gio-hang/${project.slug}`),
+      lastModified: now,
+      ...sitemapImages(project.image),
+    })),
     ...blogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
       lastModified: now,

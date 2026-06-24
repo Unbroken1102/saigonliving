@@ -4,33 +4,94 @@ const LISTINGS_CONFIG = {
   TIME_ZONE: "Asia/Ho_Chi_Minh",
 };
 
-const LISTING_HEADERS = [
-  "id",
-  "type",
-  "status",
-  "project",
-  "project_slug",
-  "district",
-  "unit_type",
-  "area",
-  "price",
-  "price_note",
-  "description",
-  "image_1",
-  "image_2",
-  "image_3",
-  "image_4",
-  "image_5",
-  "featured",
-  "updated_at",
-];
+// Cot co ban + description — anh dat trong public/assets/listings/{id}/
+const LISTING_HEADERS = ["id", "type", "status", "project", "unit_type", "price", "description"];
 
-function onOpen() {
+const PROJECT_SLUG_BY_KEY = {
+  "mizuki park": "/mizuki-park",
+  mizuki: "/mizuki-park",
+  "the peak garden": "/the-peak-garden",
+  "tt genesis": "/tt-genesis",
+  "vlasta premier": "/vlasta-premier",
+  vlasta: "/vlasta-premier",
+  "eco retreat": "/eco-retreat",
+};
+
+function resolveProjectSlug_(project, explicitSlug) {
+  const slug = String(explicitSlug || "").trim();
+  if (slug) {
+    return slug.indexOf("/") === 0 ? slug : "/" + slug;
+  }
+
+  const key = String(project || "").trim().toLowerCase();
+  if (PROJECT_SLUG_BY_KEY[key]) {
+    return PROJECT_SLUG_BY_KEY[key];
+  }
+
+  const slugified = "/" + key.replace(/\s+/g, "-");
+  const known = Object.keys(PROJECT_SLUG_BY_KEY).map(function (name) {
+    return PROJECT_SLUG_BY_KEY[name];
+  });
+  return known.indexOf(slugified) !== -1 ? slugified : undefined;
+}
+
+function registerListingsMenu_() {
   SpreadsheetApp.getUi()
-    .createMenu("Saigon Living")
+    .createMenu("Saigon Living Listings")
     .addItem("Setup Listings sheet", "setupListingsSheet")
+    .addItem("Seed 2 dong mau (ban + thue)", "seedTwoListingsSample")
     .addItem("Preview listings JSON", "previewListingsJson")
     .addToUi();
+}
+
+function seedTwoListingsSample() {
+  const spreadsheet = SpreadsheetApp.openById(LISTINGS_CONFIG.SPREADSHEET_ID);
+  let sheet = spreadsheet.getSheetByName(LISTINGS_CONFIG.SHEET_NAME);
+
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet(LISTINGS_CONFIG.SHEET_NAME);
+  }
+
+  sheet.clear();
+  sheet.getRange(1, 1, 1, LISTING_HEADERS.length).setValues([LISTING_HEADERS]);
+  sheet.setFrozenRows(1);
+  sheet.setColumnWidths(1, LISTING_HEADERS.length, 160);
+  sheet.setColumnWidth(1, 220);
+  sheet.setColumnWidth(4, 180);
+  sheet.setColumnWidth(6, 140);
+  sheet.setColumnWidth(7, 320);
+
+  const sampleRows = [
+    [
+      "vlasta-1pn-01",
+      "dang-ban",
+      "published",
+      "Vlasta Premier",
+      "Căn 1PN",
+      "Từ ~3,2 tỷ",
+      "Căn 1PN ven sông Đào Trí, phù hợp khách ngân sách ~3 tỷ muốn vào Quận 7.",
+    ],
+    [
+      "mizuki-2pn-thue-01",
+      "cho-thue",
+      "published",
+      "Mizuki Park",
+      "Căn 2PN",
+      "Liên hệ",
+      "Tham khảo căn 2PN cho thuê tại Mizuki — phù hợp khách muốn ở thử khu compound Nam Sài Gòn.",
+    ],
+  ];
+
+  sheet.getRange(2, 1, sampleRows.length + 1, LISTING_HEADERS.length).setValues(sampleRows);
+  sheet.getRange(1, 1, sampleRows.length + 1, LISTING_HEADERS.length).setFontFamily("Arial").setFontSize(10);
+  sheet.getRange(1, 1, 1, LISTING_HEADERS.length).setFontWeight("bold").setBackground("#f3efe6");
+
+  SpreadsheetApp.getUi().alert(
+    "Da tao 2 dong mau:\n" +
+      "1. dang-ban — Vlasta Premier 1PN\n" +
+      "2. cho-thue — Mizuki Park 2PN\n\n" +
+      "Anh: public/assets/listings/{id}/ tren site.",
+  );
 }
 
 function setupListingsSheet() {
@@ -44,6 +105,11 @@ function setupListingsSheet() {
   sheet.clear();
   sheet.getRange(1, 1, 1, LISTING_HEADERS.length).setValues([LISTING_HEADERS]);
   sheet.setFrozenRows(1);
+  sheet.setColumnWidths(1, LISTING_HEADERS.length, 160);
+  sheet.setColumnWidth(1, 220);
+  sheet.setColumnWidth(4, 180);
+  sheet.setColumnWidth(6, 140);
+  sheet.setColumnWidth(7, 320);
 
   const sampleRows = [
     [
@@ -51,45 +117,66 @@ function setupListingsSheet() {
       "dang-ban",
       "published",
       "TT Genesis",
-      "/tt-genesis",
-      "Nhà Bè",
       "Căn 1PN",
-      "~50m²",
       "Từ ~2,9 tỷ",
-      "Chưa VAT, tùy tầng và view",
-      "Dòng 1PN giai đoạn đầu, phù hợp khách ngân sách 3 tỷ.",
-      "https://saigonliving.net/assets/tt-genesis/tt-genesis-phoi-canh-2026.jpg",
-      "",
-      "",
-      "",
-      "",
-      "TRUE",
-      "2026-06-20",
+      "Dòng 1PN giai đoạn đầu, phù hợp khách ngân sách 3 tỷ muốn vào khu Nam gần Phú Mỹ Hưng.",
+    ],
+    [
+      "peak-garden-1pn-01",
+      "dang-ban",
+      "published",
+      "The Peak Garden",
+      "Căn 1PN",
+      "Từ ~3,63 tỷ",
+      "Căn hộ Quận 7 gần Phú Mỹ Hưng, wellness nội khu — dễ so với TT Genesis và Vlasta cùng ngân sách.",
     ],
     [
       "mizuki-trellia-2pn-01",
       "dang-ban",
       "published",
       "Mizuki Park",
-      "/mizuki-park",
-      "Bình Chánh",
       "Căn 2PN",
-      "~68m² thông thủy",
       "~5,25 tỷ",
-      "Trellia Cove",
-      "Compound đã hình thành, phù hợp gia đình trẻ.",
-      "https://saigonliving.net/assets/mizuki-park/mizuki-park-can-ho-hien-huu.jpg",
-      "",
-      "",
-      "",
-      "",
-      "TRUE",
-      "2026-06-20",
+      "Compound đã hình thành, phù hợp gia đình trẻ muốn ở thật hoặc cho thuê ổn định tại khu Nam.",
+    ],
+    [
+      "vlasta-1pn-cn-01",
+      "chuyen-nhuong",
+      "published",
+      "Vlasta Premier",
+      "Căn 1PN",
+      "Liên hệ",
+      "Căn chuyển nhượng tại dự án ven sông Đào Trí. Cần đối chiếu pháp lý, tiến độ và lịch thanh toán còn lại.",
+    ],
+    [
+      "mizuki-2pn-cn-01",
+      "chuyen-nhuong",
+      "published",
+      "Mizuki Park",
+      "Căn 2PN",
+      "Liên hệ",
+      "Căn chuyển nhượng Mizuki Park — nên kiểm tra phí, tiến độ và chính sách chuyển nhượng trước khi giữ chỗ.",
+    ],
+    [
+      "mizuki-2pn-thue-01",
+      "cho-thue",
+      "published",
+      "Mizuki Park",
+      "Căn 2PN",
+      "Liên hệ",
+      "Tham khảo căn 2PN cho thuê tại Mizuki — phù hợp khách muốn ở thử khu compound Nam Sài Gòn.",
     ],
   ];
 
-  sheet.getRange(2, 1, sampleRows.length, LISTING_HEADERS.length).setValues(sampleRows);
-  SpreadsheetApp.getUi().alert("Da tao sheet Listings voi header va 2 dong mau.");
+  sheet.getRange(2, 1, sampleRows.length + 1, LISTING_HEADERS.length).setValues(sampleRows);
+  sheet.getRange(1, 1, sampleRows.length + 1, LISTING_HEADERS.length).setFontFamily("Arial").setFontSize(10);
+  sheet.getRange(1, 1, 1, LISTING_HEADERS.length).setFontWeight("bold").setBackground("#f3efe6");
+
+  SpreadsheetApp.getUi().alert(
+    "Da tao tab Listings (co cot description) + 6 dong mau.\n\n" +
+      "Anh: tha vao folder public/assets/listings/{id}/ tren site.\n" +
+      "type: dang-ban | chuyen-nhuong | cho-thue",
+  );
 }
 
 function doGet() {
@@ -104,7 +191,7 @@ function doGet() {
 
 function previewListingsJson() {
   const listings = getPublishedListings_();
-  SpreadsheetApp.getUi().alert(JSON.stringify({ count: listings.length, listings: listings.slice(0, 2) }, null, 2));
+  SpreadsheetApp.getUi().alert(JSON.stringify({ count: listings.length, listings: listings.slice(0, 3) }, null, 2));
 }
 
 function getPublishedListings_() {
@@ -134,10 +221,11 @@ function rowToListing_(headers, row) {
     data[header] = row[index];
   });
 
-  if (!data.id || !data.type || !data.project) {
+  if (!data.id || !data.type || !data.project || !data.unit_type || !data.price) {
     return null;
   }
 
+  const project = String(data.project).trim();
   const images = ["image_1", "image_2", "image_3", "image_4", "image_5"]
     .map((key) => String(data[key] || "").trim())
     .filter(Boolean);
@@ -146,12 +234,12 @@ function rowToListing_(headers, row) {
     id: String(data.id).trim(),
     type: String(data.type).trim(),
     status: String(data.status || "published").trim(),
-    project: String(data.project).trim(),
-    projectSlug: String(data.project_slug || "").trim() || undefined,
+    project: project,
+    projectSlug: resolveProjectSlug_(project, data.project_slug),
     district: String(data.district || "TP.HCM").trim(),
-    unitType: String(data.unit_type || "").trim(),
+    unitType: String(data.unit_type).trim(),
     area: String(data.area || "").trim() || undefined,
-    price: String(data.price || "").trim(),
+    price: String(data.price).trim(),
     priceNote: String(data.price_note || "").trim() || undefined,
     description: String(data.description || "").trim(),
     images: images,

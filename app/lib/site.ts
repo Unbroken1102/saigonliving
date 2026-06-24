@@ -393,6 +393,7 @@ export const blogHubSections = [
       "co-2-ty-nen-mua-mizuki-72m2-hay-vlasta-premier",
       "so-sanh-vlasta-premier-mizuki-park",
       "so-sanh-mizuki-vlasta-premier-the-peak-garden",
+      "bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc",
     ],
   },
   {
@@ -450,10 +451,11 @@ export const blogHubSections = [
     title: "Góc tài chính & chọn căn",
     image: "/assets/optimized/location.jpg",
     description:
-      "Các bài nền giúp khách mua hiểu vốn tự có, lãi suất, khẩu vị rủi ro và tiêu chí chọn căn trước khi đi vào từng dự án.",
+      "Các bài nền giúp khách mua hiểu vốn tự có (600tr–1tỷ, 1–2 tỷ), lãi suất, khẩu vị rủi ro và tiêu chí chọn căn trước khi đi vào từng dự án.",
     href: "/blog",
     cta: "Xem tất cả bài viết",
     slugs: [
+      "600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung",
       "metro-ben-thanh-can-gio-cac-nha-ga-chinh",
       "co-1-2-ty-mua-can-ho-sai-gon-2026",
       "cac-yeu-to-chon-can-ho-phu-hop-hien-nay",
@@ -538,6 +540,11 @@ export const vlastaSeoClusterLinks = [
     title: "Thanh toán 20% đến khi nhận nhà",
     description: "Phân tích lợi thế dòng tiền, hỗ trợ lãi suất và rủi ro cần tính trước khi xuống tiền.",
     href: "/blog/thanh-toan-vlasta-premier-20-den-khi-nhan-nha",
+  },
+  {
+    title: "600 triệu – 1 tỷ có mua căn gần PMH?",
+    description: "So TT Genesis và Vlasta Premier theo vốn vào, thanh toán giãn và gần Phú Mỹ Hưng.",
+    href: "/blog/600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung",
   },
   {
     title: "So sánh Vlasta Premier vs Q7 Riverside",
