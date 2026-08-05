@@ -46,11 +46,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...sitemapImages("/assets/eco-retreat/eco-retreat-hero.webp"),
     },
     {
+      url: absoluteUrl("/vlasta-premier/thong-tin"),
+      lastModified: now,
+      ...sitemapImages("/assets/vlasta-thong-tin/renders/hero-poster.jpg"),
+    },
+    {
       url: absoluteUrl("/blog"),
       lastModified: now,
     },
     {
       url: absoluteUrl("/gio-hang"),
+      lastModified: now,
+      ...sitemapImages("/assets/mizuki-park/mizuki-park-can-ho-hien-huu.jpg"),
+    },
+    {
+      url: absoluteUrl("/gio-hang/chuyen-nhuong"),
       lastModified: now,
       ...sitemapImages("/assets/mizuki-park/mizuki-park-can-ho-hien-huu.jpg"),
     },

@@ -1,0 +1,77 @@
+# Kháng nghị lần 2 — Google Ads
+# Tài khoản: Vlastar Văn Phú (193-067-4554)
+# Vi phạm: Các hoạt động kinh doanh không được chấp nhận (Misrepresentation)
+#
+# TRƯỚC KHI GỬI — làm trên Ads (nếu UI cho phép) hoặc ghi rõ trong kháng nghị:
+# 1. Đổi TÊN TÀI KHOẢN: "Phạm Đức Tú · Saigon Living" (KHÔNG giữ Vlastar/Văn Phú)
+# 2. Advertiser verification: Phạm Đức Tú (cá nhân) — CCCD đã xác minh
+# 3. Chuẩn bị sẵn RSA từ responsive-search-ads.txt (có disclaimer trong description)
+# 4. KHÔNG tạo tài khoản Ads mới
+
+# --- DÁN VÀO Ô KHÁNG NGHỊ (tiếng Việt) ---
+
+Kính gửi đội ngũ Google Ads,
+
+Tôi là Phạm Đức Tú, đã xác minh danh tính bằng CCCD trên tài khoản này. Tôi gửi kháng nghị lần 2 và thừa nhận rõ nguyên nhân khiến kháng nghị trước chưa đủ thuyết phục.
+
+1) TÔI LÀ PHẠM ĐỨC TÚ — KHÔNG PHẢI CHỦ ĐẦU TƯ
+- Tôi vận hành thương hiệu Saigon Living (website https://saigonliving.net).
+- Vai trò: tư vấn bất động sản độc lập — giới thiệu thông tin dự án, so sánh, gửi bảng giá tham khảo qua form/Zalo.
+- Tôi KHÔNG phải Công ty CP Phát triển BĐS Văn Phú, KHÔNG phải đại lý F1/chính thức của Vlasta Premier, KHÔNG đại diện pháp lý cho chủ đầu tư.
+
+2) TÔI THỪA NHẬN LỖI GÂY HIỂU NHẦM
+- Tên tài khoản "Vlastar Văn Phú" khiến người dùng/Google hiểu nhầm tôi là bên liên quan trực tiếp đến CĐT Văn Phú — đây là sai sót của tôi.
+- Một thời điểm quảng cáo thiếu dòng phân biệt rõ "tư vấn độc lập / không phải web CĐT" trong description (theo tư vấn không phù hợp). Landing khi đó trông giống site dự án hơn site tư vấn.
+- Tôi chịu trách nhiệm và đã sửa toàn bộ.
+
+3) ĐÃ KHẮC PHỤC CỤ THỂ (có thể kiểm tra trực tiếp)
+- Landing quảng cáo: https://saigonliving.net/vlasta-premier/thong-tin
+  + Banner & footer ghi rõ: "Saigon Living — đơn vị tư vấn độc lập, KHÔNG PHẢI trang web chính thức của Chủ đầu tư Văn Phú".
+  + Trang chính sách: https://saigonliving.net/disclaimer
+- Website gốc https://saigonliving.net là kênh phân tích/tư vấn BĐS Nam Sài Gòn, không dùng domain giả mạo CĐT.
+- Quảng cáo chuẩn bị lại (sẽ bật trong 24h sau khi tài khoản được mở):
+  + Description có: "Saigon Living — tư vấn độc lập, không phải web CĐT" và "Phạm Đức Tú tư vấn".
+  + KHÔNG ghi số điện thoại trong headline/description (chỉ extension Gọi).
+  + Final URL: https://saigonliving.net/vlasta-premier/thong-tin
+- Đã đổi tên hiển thị tài khoản thành: Phạm Đức Tú · Saigon Living (hoặc sẽ đổi ngay khi được phép chỉnh sửa).
+
+4) CAM KẾT
+- Chỉ quảng cáo dịch vụ tư vấn thông tin; giá/chính sách ghi "tham khảo", khách xác nhận với CĐT khi giao dịch.
+- Không dùng cụm "chính thức", "F1", "phân phối độc quyền", "đại diện CĐT".
+- Không tạo tài khoản Ads mới để vòng qua đình chỉ.
+
+Tôi đề nghị Google xem xét lại. Tôi sẵn sàng bổ sung thêm tài liệu nếu cần.
+
+Trân trọng,
+Phạm Đức Tú
+Email: phamductubk@gmail.com
+Website: https://saigonliving.net
+
+# --- ENGLISH VERSION (nếu form chỉ nhận tiếng Anh) ---
+
+Dear Google Ads Policy Team,
+
+I am Pham Duc Tu (identity verified by national ID on this account). This is my second appeal. I acknowledge why the first appeal was insufficient.
+
+1) WHO I AM
+I operate Saigon Living (https://saigonliving.net), an independent real estate information and advisory service in Ho Chi Minh City. I am NOT Van Phu Invest, NOT an official sales agent of Vlasta Premier, and NOT authorized to represent the developer.
+
+2) WHAT WENT WRONG
+- The account name "Vlastar Van Phu" misleadingly suggested affiliation with the developer.
+- At one point, ad copy lacked clear disclosure that we are an independent advisor, not the developer's official website.
+- I take full responsibility and have corrected all of this.
+
+3) FIXES (please verify live)
+- Landing page: https://saigonliving.net/vlasta-premier/thong-tin — visible disclaimer: independent advisor, NOT the developer's official site.
+- Policy page: https://saigonliving.net/disclaimer
+- Prepared ads include description: "Saigon Living — independent advisor, not the developer's website" and "Pham Duc Tu — advisor". No phone numbers in ad text.
+- Account display name changed/will change to: Pham Duc Tu · Saigon Living.
+
+4) COMMITMENT
+I will only advertise advisory services with "reference pricing" disclaimers. I will not create a new Ads account to circumvent suspension.
+
+Thank you for reconsideration.
+
+Pham Duc Tu
+phamductubk@gmail.com
+https://saigonliving.net

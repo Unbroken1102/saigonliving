@@ -353,6 +353,7 @@ export const blogHubSections = [
     href: "/eco-retreat",
     cta: "Xem Eco Retreat",
     slugs: [
+      "eco-retreat-cap-nhat-tien-do-thang-8-2026",
       "eco-retreat-co-nen-mua-khong",
       "gia-eco-retreat-2026",
       "vi-tri-eco-retreat-ben-luc-co-xa-khong",

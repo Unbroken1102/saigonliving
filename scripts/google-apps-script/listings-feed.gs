@@ -179,7 +179,21 @@ function setupListingsSheet() {
   );
 }
 
-function doGet() {
+function doGet(e) {
+  const action = String(e?.parameter?.action || "listings").toLowerCase();
+
+  if (action === "seo-daily-plan" || action === "seodailyplan") {
+    try {
+      if (typeof sendDailySeoPlanEmail_ !== "function") {
+        return jsonResponse_({ ok: false, error: "seo-daily-plan module not deployed" });
+      }
+      const message = sendDailySeoPlanEmail_();
+      return jsonResponse_({ ok: true, message: message });
+    } catch (error) {
+      return jsonResponse_({ ok: false, error: String(error) });
+    }
+  }
+
   return ContentService.createTextOutput(
     JSON.stringify({
       listings: getPublishedListings_(),
@@ -187,6 +201,26 @@ function doGet() {
       source: "saigonliving-listings-feed",
     }),
   ).setMimeType(ContentService.MimeType.JSON);
+}
+
+/** POST { "action": "seo-daily-plan" } — gửi email kế hoạch qua Gmail */
+function doPost(e) {
+  try {
+    const body = e?.postData?.contents ? JSON.parse(e.postData.contents) : {};
+    const action = String(body.action || e?.parameter?.action || "").toLowerCase();
+
+    if (action === "seo-daily-plan" || action === "seodailyplan") {
+      if (typeof sendDailySeoPlanEmail_ !== "function") {
+        return jsonResponse_({ ok: false, error: "seo-daily-plan module not deployed" });
+      }
+      const message = sendDailySeoPlanEmail_();
+      return jsonResponse_({ ok: true, message: message });
+    }
+
+    return jsonResponse_({ ok: false, error: "Unknown action: " + action });
+  } catch (error) {
+    return jsonResponse_({ ok: false, error: String(error) });
+  }
 }
 
 function previewListingsJson() {

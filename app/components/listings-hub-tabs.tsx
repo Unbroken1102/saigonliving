@@ -10,11 +10,13 @@ export function ListingsHubTabs({
   counts: Record<ListingType | "all", number>;
   basePath?: string;
 }) {
+  const isCnHub = basePath === "/gio-hang/chuyen-nhuong";
+
   const tabs: Array<{ id: ListingType | "all"; label: string; href: string }> = [
-    { id: "all", label: "Tất cả", href: basePath },
-    { id: "dang-ban", label: listingTypeLabels["dang-ban"], href: `${basePath}?loai=dang-ban` },
-    { id: "chuyen-nhuong", label: listingTypeLabels["chuyen-nhuong"], href: `${basePath}?loai=chuyen-nhuong` },
-    { id: "cho-thue", label: listingTypeLabels["cho-thue"], href: `${basePath}?loai=cho-thue` },
+    { id: "all", label: "Tất cả", href: isCnHub ? "/gio-hang" : basePath },
+    { id: "dang-ban", label: listingTypeLabels["dang-ban"], href: "/gio-hang?loai=dang-ban" },
+    { id: "chuyen-nhuong", label: listingTypeLabels["chuyen-nhuong"], href: "/gio-hang/chuyen-nhuong" },
+    { id: "cho-thue", label: listingTypeLabels["cho-thue"], href: "/gio-hang?loai=cho-thue" },
   ];
 
   return (

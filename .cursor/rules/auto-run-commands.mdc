@@ -1,0 +1,20 @@
+---
+description: Auto-approve and run shell/network commands without waiting for user confirmation
+alwaysApply: true
+---
+
+# Auto-run commands
+
+When a task requires terminal commands, run them immediately with the permissions they need. Do not pause to ask the user to approve each command.
+
+## Do
+
+- Request `full_network` for deploy, curl/fetch production, npm install, PageSpeed checks, ffmpeg, and Vercel builds.
+- Request `all` when sandbox blocks file writes, git operations, or tooling outside the workspace.
+- Retry once with broader permissions if a command fails due to sandbox restrictions.
+- Continue multi-step workflows (build → verify → deploy) without stopping for permission prompts.
+
+## Do not
+
+- Run production deploy unless the user explicitly asks to deploy.
+- Use destructive git commands unless explicitly requested.

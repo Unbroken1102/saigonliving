@@ -1,0 +1,31 @@
+# Làm ngay 3 phút — copy số vào Google Ads
+# Tài khoản: Vlastar Văn Phú → Chiến dịch SL | Vlasta Thong Tin | Search
+
+## 1. Giá thầu chiến dịch
+Vào: Chiến dịch → tick SL | Vlasta Thong Tin | Search → Cài đặt
+
+  Đổi: Tối đa hóa số lượt nhấp  →  Lượt nhấp (Manual CPC)
+  Ngân sách: 800000
+  Giới hạn CPC tối đa (nếu có): 22000
+
+## 2. Bid nhóm quảng cáo
+Vào: Nhóm quảng cáo (trong chiến dịch)
+
+  Brand - Vlasta Premier    → Max CPC: 18000
+  Văn Phú - CĐT             → Max CPC: 15000
+  Giá - Bảng giá            → Max CPC: 15000
+  Vị trí - Intent           → TẠM DỪNG (Pause)
+
+## 3. Bid Exact (từ khóa)
+Nhóm Brand → Từ khóa → sửa cột Max CPC:
+
+  vlasta premier                 Exact  20000
+  vlasta premier phú thuận     Exact  20000
+  vlasta premier phu thuan       Exact  20000
+
+Nhóm Văn Phú → Từ khóa:
+
+  văn phú invest phú thuận     Exact  18000
+  vlasta premier văn phú        Exact  18000
+
+## Xong — Lưu tất cả

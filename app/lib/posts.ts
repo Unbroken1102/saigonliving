@@ -57,6 +57,7 @@ import ArticleFiftyFive, { post as articleFiftyFive } from "@/app/content/posts/
 import ArticleFiftySix, { post as articleFiftySix } from "@/app/content/posts/600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung.mdx";
 import ArticleFiftySeven, { post as articleFiftySeven } from "@/app/content/posts/gia-can-1pn-tt-genesis-2026.mdx";
 import ArticleFiftyEight, { post as articleFiftyEight } from "@/app/content/posts/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc.mdx";
+import ArticleFiftyNine, { post as articleFiftyNine } from "@/app/content/posts/eco-retreat-cap-nhat-tien-do-thang-8-2026.mdx";
 
 export type BlogPostMeta = {
   slug: string;
@@ -98,6 +99,7 @@ export const postImageBySlug: Record<string, string> = {
   "vi-tri-eco-retreat-ben-luc-co-xa-khong": "/assets/eco-retreat/eco-retreat-vi-tri.webp",
   "gia-eco-retreat-2026": "/assets/eco-retreat/eco-retreat-san-pham.webp",
   "eco-retreat-co-nen-mua-khong": "/assets/eco-retreat/eco-retreat-hero.webp",
+  "eco-retreat-cap-nhat-tien-do-thang-8-2026": "/assets/eco-retreat/eco-retreat-thuc-te-04.jpg",
   "nha-o-xa-hoi-trong-khu-do-thi-lon-nam-long-mizuki-hung-long":
     "/assets/mizuki-park/mizuki-park-kenh-dao-tien-ich.jpg",
   "he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026": "/assets/flood-control/cong-ngan-trieu-khu-nam-01.jpg",
@@ -150,6 +152,7 @@ export const postImageBySlug: Record<string, string> = {
 };
 
 const registry: Array<{ meta: BlogPostMeta; Content: ComponentType }> = [
+  { meta: articleFiftyNine, Content: ArticleFiftyNine },
   { meta: articleFiftyEight, Content: ArticleFiftyEight },
   { meta: articleFiftySeven, Content: ArticleFiftySeven },
   { meta: articleFiftySix, Content: ArticleFiftySix },
@@ -268,6 +271,7 @@ export function getArticleFaqs(post: BlogPost): FaqItem[] {
     "vi-tri-eco-retreat-ben-luc-co-xa-khong": ecoRetreatFaqs,
     "so-sanh-eco-retreat-mizuki-park": ecoRetreatFaqs,
     "nha-pho-eco-retreat-tu-5-ty-co-dang-mua-khong": ecoRetreatFaqs,
+    "eco-retreat-cap-nhat-tien-do-thang-8-2026": ecoRetreatFaqs,
     "cam-1-ty-tien-mat-mua-can-ho-cao-cap-sai-gon-khong": [
       {
         question: "Cầm 1 tỷ tiền mặt có mua được căn hộ cao cấp ở Sài Gòn không?",

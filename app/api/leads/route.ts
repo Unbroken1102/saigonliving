@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const leadRecipient = process.env.LEAD_NOTIFY_EMAIL || "phamductubk@gmail.com";
+// Google Sheet: https://docs.google.com/spreadsheets/d/1GMd344rtJkok7Fl1I_4EStpRWw-Yp0O2TfaRlFmJtpo
 const googleScriptUrl =
   process.env.LEAD_GOOGLE_SCRIPT_URL ||
   "https://script.google.com/macros/s/AKfycby2S8xtn-rQLQjGchtA28nz0NjxEFYDiwFiBgMS9UVq57RNm_XrtgyCGOticFVlXiGJ/exec";
@@ -167,6 +168,33 @@ async function sendWithGoogleScript(payload: Required<Omit<LeadPayload, "website
   return true;
 }
 
+async function tryGoogleScript(payload: Required<Omit<LeadPayload, "website">>) {
+  try {
+    return await sendWithGoogleScript(payload);
+  } catch (error) {
+    console.error("Google Sheet lead failed", error);
+    return false;
+  }
+}
+
+async function tryEmail(subject: string, html: string, text: string) {
+  try {
+    if (await sendWithResend(subject, html, text)) {
+      return true;
+    }
+
+    if (await sendWithSmtp(subject, html, text)) {
+      return true;
+    }
+
+    await sendWithFormSubmit(subject, text);
+    return true;
+  } catch (error) {
+    console.error("Lead email failed", error);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as LeadPayload;
@@ -191,18 +219,21 @@ export async function POST(request: Request) {
 
     const subject = `Lead Saigon Living: ${payload.name} - ${payload.phone}`;
     const { html, text } = buildEmail(payload);
-    const sent =
-      (await sendWithGoogleScript(payload)) ||
-      (await sendWithResend(subject, html, text)) ||
-      (await sendWithSmtp(subject, html, text));
+    const [sheetSaved, emailSent] = await Promise.all([
+      tryGoogleScript(payload),
+      tryEmail(subject, html, text),
+    ]);
 
-    if (!sent) {
-      await sendWithFormSubmit(subject, text);
+    if (!sheetSaved && !emailSent) {
+      return NextResponse.json(
+        { error: "Không gửi được thông tin. Vui lòng thử lại hoặc liên hệ Zalo." },
+        { status: 500 },
+      );
     }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("Lead email failed", error);
+    console.error("Lead submission failed", error);
     return NextResponse.json({ error: "Không gửi được thông tin. Vui lòng thử lại hoặc liên hệ Zalo." }, { status: 500 });
   }
 }

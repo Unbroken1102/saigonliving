@@ -122,6 +122,81 @@ function LegalDocumentTable() {
   );
 }
 
+function ArticleYoutube({
+  videoId,
+  title,
+  caption,
+}: {
+  videoId: string;
+  title: string;
+  caption?: string;
+}) {
+  return (
+    <figure className="my-10 overflow-hidden rounded-[1.75rem] border border-neutral-200 bg-[#15110c] shadow-sm">
+      <div className="relative aspect-video w-full">
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+      {caption ? (
+        <figcaption className="border-t border-neutral-200 bg-white px-5 py-4 text-sm font-medium leading-6 text-neutral-600 md:px-6">
+          {caption}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+/** Form chuẩn cho bài cập nhật tiến độ: tiêu đề + 1 câu + YouTube + 2 link nội bộ */
+function ProgressVideoPost({
+  title,
+  videoId,
+  summary,
+  links,
+}: {
+  title: string;
+  videoId: string;
+  summary: string;
+  links: Array<{ href: string; label: string }>;
+}) {
+  const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const headingClass =
+    "mt-20 border-l-4 border-neutral-300 pl-5 scroll-mt-36 font-sans text-[2.25rem] font-bold leading-[1.08] tracking-[-0.04em] text-neutral-900 first:mt-0 md:text-[2.9rem]";
+  const paragraphClass = "mt-5 text-[16px] leading-8 text-neutral-800 md:text-[17px] md:leading-8";
+  const linkClass =
+    "font-semibold text-neutral-900 underline decoration-neutral-400 underline-offset-4 hover:decoration-neutral-900";
+
+  return (
+    <>
+      <h2 id="video" className={headingClass}>
+        {title}
+      </h2>
+      <p className={paragraphClass}>{summary}</p>
+      <ArticleYoutube videoId={videoId} title={title} />
+      <p className={paragraphClass}>
+        Xem trên{" "}
+        <Link href={youtubeUrl} className={linkClass}>
+          YouTube
+        </Link>
+        . Đọc thêm{" "}
+        {links.map((link, index) => (
+          <span key={link.href}>
+            {index > 0 ? " · " : null}
+            <Link href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          </span>
+        ))}
+        .
+      </p>
+    </>
+  );
+}
+
 function ArticleLocationVideo() {
   return (
     <figure className="my-10">
@@ -1164,6 +1239,8 @@ const components: MDXComponents = {
   InlineArticleCta,
   ArticleImage,
   ArticlePortraitImage,
+  ArticleYoutube,
+  ProgressVideoPost,
   LegalDocumentTable,
   ArticleLocationVideo,
   PairComparison,

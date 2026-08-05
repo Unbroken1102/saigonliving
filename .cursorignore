@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.git/
+public/assets/
+*.mp4
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.pdf

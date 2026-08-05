@@ -9,7 +9,9 @@
     "lint": "eslint",
     "analytics:live": "node scripts/fetch-analytics.mjs live",
     "analytics:report": "node scripts/fetch-analytics.mjs summary",
-    "analytics:daily": "node scripts/fetch-analytics.mjs daily"
+    "analytics:daily": "node scripts/fetch-analytics.mjs daily",
+    "seo:daily-plan": "node scripts/send-seo-daily-plan.mjs",
+    "seo:daily-plan:install-cron": "bash scripts/install-seo-daily-cron.sh"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

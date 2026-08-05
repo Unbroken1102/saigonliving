@@ -1,0 +1,31 @@
+# Responsive Search Ads — Vlasta Premier /thong-tin
+# Chiến lược: headline mạnh (Văn Phú + Phú Thuận) | description 3 lợi ích + 1 disclaimer mềm
+#
+# Final URL:     https://saigonliving.net/vlasta-premier/thong-tin
+# Display path:  Vlasta-Premier / Thong-Tin
+
+# LƯU Ý: Google KHÔNG cho số điện thoại trong headline/description.
+# Dùng extension "Gọi" (0931781111) thay thế — KHÔNG ghi số trong text ad.
+
+HEADLINES (dán 15 dòng — KHÔNG số điện thoại, KHÔNG "không phải web CĐT"):
+Vlasta Premier Phú Thuận
+Văn Phú Invest | Phú Thuận
+Bảng Giá Tham Khảo 2026
+1PN Từ 3,9 Tỷ | 2PN 5,7 Tỷ
+Căn Hộ View Sông Đào Trí
+Thanh Toán 20% Đến Nhận Nhà
+Nhận Bảng Giá & Mặt Bằng
+602 Căn Hộ | 2 Tháp 35 Tầng
+Căn Hộ Cao Cấp Phú Thuận
+Pháp Lý & Tiến Độ Cập Nhật
+Liên Hệ Tư Vấn Ngay
+Xem 5 Căn Giá Tốt Nhất
+Tư Vấn Miễn Phí
+Dự Án Văn Phú Đào Trí
+Đăng Ký Nhận Ưu Đãi
+
+DESCRIPTIONS (dán 4 dòng — tối đa 90 ký tự/dòng):
+1PN 3,9 tỷ · 2PN 5,7 tỷ · Vlasta Premier Phú Thuận. Tư vấn miễn phí — Saigon Living.
+54 Đào Trí, Phú Thuận — PMH, Nam SG. Nhận bảng giá, mặt bằng & tiến độ qua form.
+Chính sách Văn Phú Invest. Saigon Living — tư vấn độc lập, không phải web CĐT.
+Phạm Đức Tú tư vấn · phản hồi qua form & Zalo. Thông tin tham khảo theo chính sách CĐT.

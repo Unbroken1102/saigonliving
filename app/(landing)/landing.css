@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #d4b87a;
+  --gold-light: #f0ddb0;
+  --gold-dark: #b8954f;
+  --sunset: #e8a04c;
+  --sunset-deep: #c76b2e;
+  --warm-white: #faf6f0;
+  --warm-white-dim: #f2ebe0;
+  --tropical-green: #2a5244;
+  --tropical-green-light: #3d6f5c;
+  --wood: #6b4f3a;
+  --wood-light: #9a7355;
+  --turquoise: #2d9d96;
+  --turquoise-light: #4ec4bc;
+  --pool-teal: #1a6b68;
+  --charcoal: #1c1b19;
+  --charcoal-soft: #2a2825;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-sunset: var(--sunset);
+  --color-warm-white: var(--warm-white);
+  --color-warm-white-dim: var(--warm-white-dim);
+  --color-tropical: var(--tropical-green);
+  --color-tropical-light: var(--tropical-green-light);
+  --color-wood: var(--wood);
+  --color-wood-light: var(--wood-light);
+  --color-turquoise: var(--turquoise);
+  --color-turquoise-light: var(--turquoise-light);
+  --color-pool-teal: var(--pool-teal);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --font-display: var(--font-display-serif);
+  --font-body: var(--font-body-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--warm-white);
+  color: var(--charcoal);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 40%, transparent);
+  color: var(--charcoal);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes popup-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cta-blink {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--gold) 30%, transparent);
+    transform: scale(1);
+  }
+  45% {
+    box-shadow: 0 0 0 7px color-mix(in srgb, var(--gold) 22%, transparent),
+      0 16px 32px color-mix(in srgb, var(--gold) 42%, transparent);
+    transform: scale(1.06);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease forwards;
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 14s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-popup-zoom {
+  animation: popup-zoom 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-cta-blink {
+  animation: cta-blink 0.9s ease-in-out 2;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(
+    135deg,
+    var(--gold-light) 0%,
+    var(--sunset) 45%,
+    var(--gold-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: color-mix(in srgb, var(--warm-white) 78%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-hero {
+  background: color-mix(in srgb, var(--charcoal) 48%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-dark {
+  background: color-mix(in srgb, var(--charcoal) 50%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.sunset-overlay {
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--sunset) 18%, transparent) 0%,
+    color-mix(in srgb, var(--charcoal) 35%, transparent) 40%,
+    color-mix(in srgb, var(--charcoal) 88%, transparent) 100%
+  );
+}
+
+.sunset-overlay-soft {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--charcoal) 70%, transparent) 100%
+  );
+}
+
+.section-padding {
+  @apply px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

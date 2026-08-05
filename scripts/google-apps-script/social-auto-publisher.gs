@@ -46,6 +46,12 @@ const STATUS = {
 
 function onOpen() {
   buildAutoPostMenu_();
+  if (typeof registerAnalyticsMenu_ === "function") {
+    registerAnalyticsMenu_();
+  }
+  if (typeof registerSeoPlanMenu_ === "function") {
+    registerSeoPlanMenu_();
+  }
 }
 
 function buildAutoPostMenu_() {

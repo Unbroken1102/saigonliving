@@ -1,0 +1,17 @@
+SỬA LỖI SỐ ĐIỆN THOẠI — 3 BƯỚC (copy từng dòng)
+
+1. ads.google.com → chọn Vlastar Văn Phú (193-067-4554)
+2. Quảng cáo và tiện ích → Quảng cáo → click quảng cáo ⚠️ → Chỉnh sửa
+3. Thay đúng 2 chỗ:
+
+   XÓA headline:  Hotline 0931 781 111
+   THÊM headline: Liên Hệ Tư Vấn Ngay
+
+   XÓA description (dòng có 0931 hoặc 0931781111)
+   THÊM description:
+   Phạm Đức Tú tư vấn · phản hồi qua form & Zalo. Thông tin tham khảo theo chính sách CĐT.
+
+4. Lưu — giữ extension Gọi 0931781111
+
+BONUS — nếu thấy "Thiếu phương thức thanh toán":
+   Công cụ → Thanh toán → Thêm thẻ (ads không chạy nếu thiếu)

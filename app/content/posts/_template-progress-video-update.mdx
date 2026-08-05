@@ -1,0 +1,38 @@
+<!--
+  TEMPLATE — bài cập nhật tiến độ (chèn video YouTube)
+
+  Cách dùng:
+  1. Copy file này → đổi tên (bỏ dấu _ ở đầu), ví dụ: eco-retreat-cap-nhat-tien-do-thang-9-2026.mdx
+  2. Sửa export const post (slug, title, description = summary, publishedAt, keywords)
+  3. Sửa ProgressVideoPost (title, videoId từ link YouTube, summary, links)
+  4. Đăng ký trong app/lib/posts.ts (import + registry + postImageBySlug + customFaqMap nếu cùng hub)
+  5. Thêm slug vào blogHubSections.slugs trong app/lib/site.ts
+  6. (Tuỳ chọn) Thêm link ở landing dự án → relatedLinks
+  7. Sau deploy: request index URL mới trên GSC
+
+  videoId: lấy từ https://www.youtube.com/watch?v=VIDEO_ID
+-->
+
+export const post = {
+  slug: "PROJECT-cap-nhat-tien-do-thang-MM-YYYY",
+  title: "Cập nhật dự án PROJECT tháng MM/YYYY",
+  description: "Một câu mô tả ngắn — trùng hoặc gần với summary bên dưới.",
+  category: "Eco Retreat",
+  publishedAt: "YYYY-MM-DD",
+  readingTime: "1 phút đọc",
+  keywords: [
+    "PROJECT cập nhật tháng MM YYYY",
+    "tiến độ PROJECT",
+  ],
+  toc: [],
+};
+
+<ProgressVideoPost
+  title="Cập nhật dự án PROJECT tháng MM/YYYY"
+  videoId="YOUTUBE_VIDEO_ID"
+  summary="Một câu mô tả ngắn về nội dung video."
+  links={[
+    { href: "/eco-retreat", label: "Eco Retreat Long An" },
+    { href: "/blog/gia-eco-retreat-2026", label: "Giá Eco Retreat 2026" },
+  ]}
+/>

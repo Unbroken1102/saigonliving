@@ -1,0 +1,43 @@
+{
+  "title": "Có 1-2 tỷ tiền mặt còn mua được căn hộ Sài Gòn không?",
+  "format": "reel-9x16",
+  "cta": "Comment \"DÒNG TIỀN\" để nhận checklist",
+  "scenes": [
+    {
+      "id": "01-hook",
+      "subtitle": "Có 1-2 tỷ vẫn chưa chắc dễ mua nhà",
+      "image": "../../public/assets/optimized/overview-dao-tri.jpg",
+      "narration": "Có một đến hai tỷ tiền mặt, bạn vẫn chưa chắc mua được căn hộ Sài Gòn một cách thoải mái."
+    },
+    {
+      "id": "02-price",
+      "subtitle": "Căn 50-70m2 đã lên vùng 4-6 tỷ",
+      "image": "../../public/assets/optimized/location.jpg",
+      "narration": "Vì nhiều căn hộ diện tích khoảng năm mươi đến bảy mươi mét vuông hiện đã rơi vào vùng bốn đến sáu tỷ."
+    },
+    {
+      "id": "03-cashflow",
+      "subtitle": "Khó nhất là dòng tiền sau khi vay",
+      "image": "../../public/assets/optimized/overview-balcony.jpg",
+      "narration": "Khó nhất không phải là đủ tiền trả trước. Khó nhất là sau khi vay, mỗi tháng dòng tiền của bạn còn an toàn hay không."
+    },
+    {
+      "id": "04-three-numbers",
+      "subtitle": "Đừng chỉ nhìn tiền trả trước",
+      "image": "../../public/assets/optimized/plan-b-1br.jpg",
+      "narration": "Trước khi mua, hãy tính ba con số: vốn ban đầu, khoản vay ngân hàng, và quỹ dự phòng ít nhất sáu tháng."
+    },
+    {
+      "id": "05-good-home",
+      "subtitle": "Căn hộ tốt là căn giữ được lâu dài",
+      "image": "../../public/assets/optimized/amenity-business-lounge.jpg",
+      "narration": "Một căn hộ tốt không nhất thiết là căn rẻ nhất. Một căn hộ tốt là căn bạn có thể giữ được lâu dài mà không bị áp lực tài chính quá lớn."
+    },
+    {
+      "id": "06-cta",
+      "subtitle": "Comment “DÒNG TIỀN” để nhận checklist",
+      "image": "../../public/assets/optimized/hero.jpg",
+      "narration": "Nếu bạn muốn mình tính giúp phương án mua căn hộ theo số vốn đang có, hãy comment: Dòng tiền."
+    }
+  ]
+}

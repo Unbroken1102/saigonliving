@@ -1,0 +1,38 @@
+# Copy toàn bộ (bỏ dòng comment #) vào ô "Nhập từ khóa" Google Ads
+
+# Brand — Vlasta + Phú Thuận
+[vlasta premier]
+[vlasta premier phú thuận]
+[vlasta premier phu thuan]
+"vlasta premier đào trí"
+"vlasta phú thuận"
+"căn hộ vlasta premier"
+"vlasta premier quận 7"
+"vlasta premier nam sài gòn"
+
+# Giá — bảng giá
+"bảng giá vlasta premier"
+"giá vlasta premier"
+"giá căn hộ vlasta premier"
+"vlasta premier giá bao nhiêu"
+"vlasta premier 1pn giá"
+"vlasta premier 2pn giá"
+"vlasta premier 3pn giá"
+"chính sách thanh toán vlasta premier"
+
+# Vị trí — Phú Thuận, Đào Trí
+"căn hộ phú thuận"
+"căn hộ đào trí"
+"căn hộ nam sài gòn view sông"
+"căn hộ cao cấp phú thuận"
+"dự án đào trí phú thuận"
+
+# Văn Phú / CĐT
+"vlasta premier văn phú"
+"vlasta văn phú"
+"căn hộ văn phú invest phú thuận"
+"văn phú invest đào trí"
+"dự án văn phú phú thuận"
+"văn phú invest phú thuận"
+[vlasta premier văn phú]
+[văn phú invest phú thuận]

@@ -1,0 +1,54 @@
+# Liên kết trang web (Sitelinks) — SL | Vlasta Thong Tin | Search
+# Copy từng dòng vào Google Ads → Chiến dịch → Mục tiêu → Phần mở rộng → Liên kết trang web → +
+# Hoặc: Công cụ → Thư viện chia sẻ → Liên kết trang web → + → gán campaign
+
+Campaign: SL | Vlasta Thong Tin | Search
+Base URL: https://saigonliving.net/vlasta-premier/thong-tin
+
+---
+
+## Sitelink 1 — Bảng giá
+Văn bản liên kết:     Bảng giá 2026
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#bang-gia
+Mô tả dòng 1:         1PN từ 3.9 tỷ · 2PN từ 5.7 tỷ
+Mô tả dòng 2:         Thanh toán 20% đến nhận nhà
+
+## Sitelink 2 — Vị trí
+Văn bản liên kết:     Vị trí Phú Thuận
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#vi-tri
+Mô tả dòng 1:         Cửa ngõ Nam Sài Gòn ven sông
+Mô tả dòng 2:         10 phút tới Phú Mỹ Hưng
+
+## Sitelink 3 — Mặt bằng
+Văn bản liên kết:     Mặt bằng căn hộ
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#mat-bang
+Mô tả dòng 1:         1PN, 2PN, 3PN, Duplex
+Mô tả dòng 2:         Xem mặt bằng từng tầng
+
+## Sitelink 4 — Pháp lý
+Văn bản liên kết:     Pháp lý dự án
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#phap-ly
+Mô tả dòng 1:         Sở hữu lâu dài
+Mô tả dòng 2:         Thông tin tham khảo minh bạch
+
+## Sitelink 5 — Tiến độ
+Văn bản liên kết:     Tiến độ xây dựng
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#tien-do
+Mô tả dòng 1:         Cập nhật tiến độ thực tế
+Mô tả dòng 2:         Bàn giao dự kiến 2027
+
+## Sitelink 6 — Form liên hệ
+Văn bản liên kết:     Nhận bảng giá
+URL:                  https://saigonliving.net/vlasta-premier/thong-tin#lien-he
+Mô tả dòng 1:         Đăng ký nhận thông tin dự án
+Mô tả dòng 2:         Tư vấn độc lập Saigon Living
+
+---
+
+## Callout (tuỳ chọn, thêm cùng lúc)
+Tư vấn độc lập
+Bảng giá tham khảo
+View sông Sài Gòn
+Thanh toán 20%
+602 căn hộ · 30 tầng
+Nam Sài Gòn · Phú Thuận

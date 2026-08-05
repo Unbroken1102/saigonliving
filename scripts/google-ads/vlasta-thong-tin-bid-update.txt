@@ -1,0 +1,58 @@
+# Cập nhật bid — SL | Vlasta Thong Tin | Search
+# Mục tiêu: giảm 41% mất hiển thị do thứ hạng | Ngân sách 800.000 ₫/ngày
+# Làm trên tài khoản: Vlastar Văn Phú (193-067-4554)
+
+================================================================================
+BƯỚC 1 — NGÂN SÁCH & TRẦN CPC (1 phút)
+================================================================================
+Chiến dịch SL | Vlasta Thong Tin | Search → Cài đặt
+
+  Ngân sách hàng ngày:     800.000 ₫
+  Giá thầu:               Lượt nhấp (Manual CPC)
+  Giới hạn CPC tối đa:    22.000 ₫   (nếu có ô trần chiến dịch)
+
+================================================================================
+BƯỚC 2 — BID CẤP NHÓM QUẢNG CÁO (2 phút)
+================================================================================
+Chiến dịch → Nhóm quảng cáo → click từng nhóm → Cài đặt giá thầu
+
+  Brand - Vlasta Premier     Max CPC mặc định:  18.000 ₫
+  Văn Phú - CĐT              Max CPC mặc định:  15.000 ₫
+  Giá - Bảng giá             Max CPC mặc định:  15.000 ₫
+  Vị trí - Intent            TẠM DỪNG nhóm      (Pause ad group)
+
+================================================================================
+BƯỚC 3 — BID RIÊNG TỪ KHÓA EXACT (ưu tiên top, tùy chọn +1 phút)
+================================================================================
+Nhóm Brand → Từ khóa → sửa Max CPC từng dòng Exact:
+
+  [vlasta premier]                    20.000 ₫
+  [vlasta premier phú thuận]          20.000 ₫
+  [vlasta premier phu thuan]          20.000 ₫
+
+Nhóm Văn Phú → Từ khóa → Exact:
+
+  [văn phú invest phú thuận]         18.000 ₫
+  [vlasta premier văn phú]           18.000 ₫
+
+(Các từ Phrase trong nhóm giữ bid mặc định nhóm — 18k / 15k)
+
+================================================================================
+BƯỚC 4 — TẮT NHÓM VỊ TRÍ
+================================================================================
+Nhóm quảng cáo "Vị trí - Intent" → biểu tượng Tạm dừng (Pause)
+Hoặc: chọn nhóm → Trạng thái → Tạm dừng
+
+Lý do: từ rộng (căn hộ phú thuận, nam sài gòn) tốn tiền, rank thấp, ít lead.
+
+================================================================================
+KIỂM TRA SAU 48H
+================================================================================
+Cột → Thêm → Cạnh tranh:
+  - Phần trăm hiển thị tìm kiếm
+  - Phần trăm hiển thị bị mất do thứ hạng   → mục tiêu < 25%
+  - Phần trăm hiển thị bị mất do ngân sách → nên < 10%
+
+Nếu vẫn > 30% mất rank sau 48h:
+  - Brand Exact lên 22.000 ₫
+  - Hoặc nhóm Brand → Giá thầu → Target impression share 80%, max 22.000 ₫
