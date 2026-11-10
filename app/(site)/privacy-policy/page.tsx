@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             Nếu có câu hỏi về quyền riêng tư hoặc cách xử lý dữ liệu, Anh/Chị có thể liên hệ Saigon Living qua số{" "}
-            <a className="font-semibold text-[#8a6a2f] underline-offset-4 hover:underline" href={`tel:${siteConfig.contact.phone}`}>
+            <a className="font-semibold text-[#8a6a2f] underline-offset-4 hover:underline" href={`tel:${siteConfig.contact.phoneTel}`}>
               {siteConfig.contact.phone}
             </a>
             .

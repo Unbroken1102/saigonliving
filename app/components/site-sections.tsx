@@ -32,7 +32,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <a
-          href={`tel:${siteConfig.contact.phone}`}
+          href={`tel:${siteConfig.contact.phoneTel}`}
           className="rounded-full border border-[#d4b87a]/55 bg-[#1c1b19]/25 px-4 py-2 text-xs font-semibold text-[#f0ddb0] transition hover:bg-[#d4b87a] hover:text-[#1c1b19]"
         >
           Gọi tư vấn
@@ -76,10 +76,13 @@ export function SiteFooter() {
           <Link href="/eco-retreat" className="block hover:text-[#8a6a2f]">
             Eco Retreat
           </Link>
+          <Link href="/the-9-stellars" className="block hover:text-[#8a6a2f]">
+            The 9 Stellars
+          </Link>
           <Link href="/blog/review-vi-tri-vlasta-premier" className="block hover:text-[#8a6a2f]">
             Review vị trí
           </Link>
-          <Link href="/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden" className="block hover:text-[#8a6a2f]">
+          <Link href="/blog/so-sanh-vlasta-premier-khu-nam-2026" className="block hover:text-[#8a6a2f]">
             So sánh dự án khu Nam
           </Link>
         </div>
@@ -88,7 +91,7 @@ export function SiteFooter() {
           <a href={`mailto:${siteConfig.contact.email}`} className="block hover:text-[#8a6a2f]">
             {siteConfig.contact.email}
           </a>
-          <a href={`tel:${siteConfig.contact.phone}`} className="block hover:text-[#8a6a2f]">
+          <a href={`tel:${siteConfig.contact.phoneTel}`} className="block hover:text-[#8a6a2f]">
             {siteConfig.contact.phone}
           </a>
           <a href={siteConfig.contact.zalo} className="block hover:text-[#8a6a2f]">
@@ -178,7 +181,7 @@ export function HeroSection() {
                 <LeadFormTrigger source="Private Dossier" className="rounded-full bg-[#d4b87a] px-5 py-3 text-center text-sm font-bold text-[#1c1b19] transition hover:bg-[#f0ddb0]">
                   Nhận bảng giá
                 </LeadFormTrigger>
-                <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-white/18 bg-white/8 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/14">
+                <a href={`tel:${siteConfig.contact.phoneTel}`} className="rounded-full border border-white/18 bg-white/8 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/14">
                   Gọi tư vấn
                 </a>
               </div>
@@ -760,7 +763,7 @@ export function VlastaBlogClusterSection() {
             Đọc thêm các bài phân tích Vlasta Premier
           </h2>
           <p className="mt-5 text-lg leading-8 text-[#5d554c]">
-            Mỗi bài trả lời một long-tail cụ thể. Nên đọc theo thứ tự: vị trí → giá → pháp lý → thanh toán → so sánh dự án khác trước khi nhận giỏ hàng 5 căn giá tốt nhất.
+            Cụm đã gom thành 5 trụ: giá · pháp lý · thanh toán · so sánh khu Nam · có nên mua. Đọc theo thứ tự trên trước khi nhận giỏ 5 căn.
           </p>
         </MotionReveal>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -808,7 +811,7 @@ export function BlogPreview({ variant = "default" }: { variant?: "default" | "vl
       : [
           "eco-retreat-co-nen-mua-khong",
           "gia-vlasta-premier-2026",
-          "so-sanh-vlasta-premier-the-peak-garden",
+          "so-sanh-vlasta-premier-khu-nam-2026",
           "mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh",
           "vin-group-nghien-cuu-sieu-do-thi-1512ha-binh-chanh",
           "phap-ly-vlasta-premier-van-phu",
@@ -902,6 +905,7 @@ export function ContactSection({ variant = "default" }: ContactSectionProps) {
     "Quan tâm Vinhomes Bình Chánh",
     "Quan tâm Vlasta Premier",
     "Quan tâm The Peak Garden",
+    "Quan tâm The 9 Stellars",
     "Nhận cập nhật Vinhomes Bình Chánh",
   ];
 
@@ -990,7 +994,7 @@ export function ContactSection({ variant = "default" }: ContactSectionProps) {
             <a href={siteConfig.contact.zalo} className="btn-luxury rounded-full bg-[#15110c] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]">
               Zalo
             </a>
-            <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
+            <a href={`tel:${siteConfig.contact.phoneTel}`} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
               Gọi điện
             </a>
             <a href={siteConfig.contact.whatsapp} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
@@ -1044,7 +1048,7 @@ export function RelatedProjects() {
 export function MobileStickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-3 gap-2 border-t border-[#d9c79f]/60 bg-[#fbf8f2]/95 p-3 text-center text-xs font-semibold text-[#15110c] shadow-[0_-10px_30px_rgba(0,0,0,0.08)] backdrop-blur lg:hidden">
-      <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full bg-[#15110c] px-3 py-3 text-white">
+      <a href={`tel:${siteConfig.contact.phoneTel}`} className="rounded-full bg-[#15110c] px-3 py-3 text-white">
         Gọi
       </a>
       <a href={siteConfig.contact.zalo} className="rounded-full bg-[#0068ff] px-3 py-3 font-semibold text-white">
@@ -1071,7 +1075,7 @@ export function DesktopFloatingCta() {
         Zalo
       </a>
       <a
-        href={`tel:${siteConfig.contact.phone}`}
+        href={`tel:${siteConfig.contact.phoneTel}`}
         className="rounded-full border border-[#d9c79f]/45 bg-[#15110c]/92 px-4 py-2.5 text-center text-xs font-bold text-white shadow-[0_14px_34px_rgba(0,0,0,0.16)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]"
       >
         {siteConfig.contact.phone}

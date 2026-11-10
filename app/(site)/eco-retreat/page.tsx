@@ -6,6 +6,8 @@ import { LeadFormTrigger } from "@/app/components/lead-form-popup";
 import { PROJECT_INVENTORY_CTA_LABEL, ProjectInventoryCta, INVENTORY_CTA_HERO_CLASS } from "@/app/components/project-inventory-cta";
 import { MotionReveal } from "@/app/components/motion-reveal";
 import { ContactSection } from "@/app/components/site-sections";
+import { EcoRetreatYoutubeVideo } from "@/app/components/eco-retreat-youtube-video";
+import { ecoRetreatMedia } from "@/app/lib/eco-retreat-media";
 import { absoluteUrl, siteConfig } from "@/app/lib/site";
 
 const pageUrl = "/eco-retreat";
@@ -178,6 +180,11 @@ const priceCards = [
 ];
 
 const relatedLinks = [
+  {
+    title: "Giá chuyển nhượng Eco Retreat tháng 8/2026: Sky Retreat và thấp tầng",
+    href: "/blog/eco-retreat-cap-nhat-gia-chuyen-nhuong-2026",
+    description: "Bảng giá tham khảo 2PN Vườn Mây, nhà phố, biệt thự song lập và shophouse đang chuyển nhượng.",
+  },
   {
     title: "Eco Retreat cập nhật tháng 8/2026",
     href: "/blog/eco-retreat-cap-nhat-tien-do-thang-8-2026",
@@ -388,7 +395,7 @@ export default function EcoRetreatPage() {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
         url: siteConfig.url,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
       },
       about: ["Eco Retreat", "Eco Retreat Long An", "bất động sản Bến Lức", "đô thị sinh thái Long An"],
     },
@@ -693,6 +700,45 @@ export default function EcoRetreatPage() {
               description="Saigon Living sẽ gửi 5 căn Eco Retreat có giá và chính sách tốt nhất trong giỏ hàng tuần này — đúng lúc Anh/Chị đang so giá từ 1,8 tỷ đến 16 tỷ."
             />
           </div>
+        </div>
+      </section>
+
+      <section id="transfer-video" className="bg-[#fbf8f2] px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <MotionReveal className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#6f7f3f]">Video tư vấn</p>
+            <h2 className="font-display mt-4 text-4xl font-medium tracking-[-0.04em] text-[#10251c] md:text-5xl">
+              Giá chuyển nhượng Eco Retreat tháng 8/2026
+            </h2>
+            <p className="mt-6 leading-8 text-[#5d554c]">
+              Tóm tắt Sky Retreat (studio 1,9 tỷ · 1PN 2 tỷ · 2PN 3,8 tỷ) và 2PN Vườn Mây ~4,4 tỷ — giá đang rao, cần đối chiếu mã căn trước khi chốt.
+            </p>
+          </MotionReveal>
+          <MotionReveal className="mt-10" delay={0.06}>
+            <EcoRetreatYoutubeVideo
+              videoId={ecoRetreatMedia.youtube.transferPriceVideoId || null}
+              title={ecoRetreatMedia.transferPriceVideo.title}
+              caption={ecoRetreatMedia.transferPriceVideo.caption}
+              thumbnail={ecoRetreatMedia.transferPriceVideo.thumbnail}
+              blogHref={ecoRetreatMedia.transferPriceVideo.blogHref}
+              inventoryHref={ecoRetreatMedia.transferPriceVideo.inventoryHref}
+              playLabel="Xem video giá chuyển nhượng"
+            />
+          </MotionReveal>
+          <MotionReveal className="mt-8 flex flex-wrap gap-4" delay={0.1}>
+            <Link
+              href={ecoRetreatMedia.transferPriceVideo.blogHref}
+              className="rounded-full border border-[#6f7f3f]/35 bg-white px-6 py-3 text-sm font-semibold text-[#10251c] transition hover:border-[#6f7f3f]"
+            >
+              Đọc bảng giá chi tiết
+            </Link>
+            <Link
+              href={inventoryHref}
+              className="rounded-full bg-[#10251c] px-6 py-3 text-sm font-semibold text-[#d8efae] transition hover:bg-[#1a3829]"
+            >
+              Xem giỏ chuyển nhượng
+            </Link>
+          </MotionReveal>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { vlastaClusterRedirects } from "./app/lib/vlasta-cluster";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
@@ -10,6 +11,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc",
         permanent: true,
       },
+      ...Object.entries(vlastaClusterRedirects).map(([source, destination]) => ({
+        source: `/blog/${source}`,
+        destination: `/blog/${destination}`,
+        permanent: true,
+      })),
     ];
   },
   images: {

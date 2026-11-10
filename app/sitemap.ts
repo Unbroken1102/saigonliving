@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { INVENTORY_PROJECTS } from "@/app/lib/listings-project";
 import { blogPosts, postImageBySlug } from "@/app/lib/posts";
 import { absoluteUrl } from "@/app/lib/site";
+import { vlastaRedirectedSlugs } from "@/app/lib/vlasta-cluster";
+
+const sitemapBlogPosts = blogPosts.filter((post) => !vlastaRedirectedSlugs.includes(post.slug));
 
 function sitemapImages(imagePath?: string) {
   return imagePath ? { images: [absoluteUrl(imagePath)] } : {};
@@ -46,6 +49,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...sitemapImages("/assets/eco-retreat/eco-retreat-hero.webp"),
     },
     {
+      url: absoluteUrl("/zeit-river-county"),
+      lastModified: now,
+      ...sitemapImages("/assets/zeit-river-county/hero-banner.jpg"),
+    },
+    {
+      url: absoluteUrl("/the-9-stellars"),
+      lastModified: now,
+      ...sitemapImages("/assets/the-9-stellars/alta-villa.jpg"),
+    },
+    {
       url: absoluteUrl("/vlasta-premier/thong-tin"),
       lastModified: now,
       ...sitemapImages("/assets/vlasta-thong-tin/renders/hero-poster.jpg"),
@@ -69,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       ...sitemapImages(project.image),
     })),
-    ...blogPosts.map((post) => ({
+    ...sitemapBlogPosts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
       lastModified: now,
       ...sitemapImages(postImageBySlug[post.slug]),

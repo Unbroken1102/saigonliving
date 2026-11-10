@@ -49,7 +49,7 @@ export const khuNamTiers: KhuNamTier[] = [
   {
     id: "metro-tang-truong",
     title: "Metro & tăng trưởng",
-    subtitle: "Zeit River County (GS Metro City) — hành lang metro Bến Thành – Cần Giờ, Long An",
+    subtitle: "Zeit River County (GS Metro City) — Nhà Bè, hành lang Metro số 4",
   },
   {
     id: "q7-can-ho",
@@ -181,42 +181,42 @@ export const khuNamProjects: KhuNamProject[] = [
   {
     slug: "zeit-river-county",
     name: "Zeit River County",
-    aliases: ["GS Metro City", "GS Metrocity"],
+    aliases: ["Zeitgeist Nhà Bè", "GS Metro City", "GS Metrocity"],
     tier: "metro-tang-truong",
-    district: "Long An",
-    productType: "Căn hộ · hưởng metro",
-    budgetLabel: "Liên hệ",
-    statusLabel: "Đang mở bán / theo dõi",
+    district: "Nhà Bè",
+    productType: "Nhà phố · Shophouse · Biệt thự",
+    budgetLabel: "CN T6/2028: 16 – 60 tỷ",
+    statusLabel: "Phân khu 1.1 · đã bàn giao Q4/2022",
     landingPath: "/zeit-river-county",
-    image: "/assets/eco-retreat/eco-retreat-hero.webp",
-    heroEyebrow: "GS · Metro Bến Thành – Cần Giò",
+    image: "/assets/zeit-river-county/hero-banner.jpg",
+    heroEyebrow: "Nhà Bè · Nguyễn Hữu Thọ",
     heroTitle: "Zeit River County",
     heroDescription:
-      "Zeit River County (thị trường còn gọi GS Metro City) nằm trên hành lang metro Bến Thành – Cần Giờ, Long An. Phù hợp khách đầu tư theo hạ tầng và so sánh với Eco Retreat, Mizuki.",
+      "Zeit River County là phân khu thấp tầng 17,9 ha (359 căn) thuộc đại đô thị Zeitgeist Nhà Bè — GS E&C, mặt tiền Nguyễn Hữu Thọ. Phù hợp khách tìm nhà phố, shophouse hoặc biệt thự ven sông khu Nam, so sánh chuyển nhượng theo tuần.",
     highlights: [
       {
-        title: "Story metro",
-        text: "Lợi thế gắn với tuyến metro khi hạ tầng hoàn thiện — cần đối chiếu ga và lộ trình thực tế.",
+        title: "Phân khu 1.1",
+        text: "17,9 ha · 359 căn nhà phố, shophouse, biệt thự song lập và đơn lập. Bàn giao Q4/2022 theo thông tin dự án.",
       },
       {
-        title: "GS Metro City",
-        text: "Tên gọi quảng cáo phổ biến trên thị trường; trang này dùng tên pháp lý Zeit River County kèm keyword GS Metro City.",
+        title: "Vị trí Nguyễn Hữu Thọ",
+        text: "Xã Phước Kiển & Nhơn Đức, Nhà Bè — liền kề Phú Mỹ Hưng, ven sông, kết nối cảng Hiệp Phước.",
       },
       {
-        title: "So với Eco · Mizuki",
-        text: "Eco entry giá; Mizuki ở ngay; Zeit River County cho nhóm tin metro dài hạn.",
+        title: "Chủ đầu tư GS E&C",
+        text: "Công ty TNHH MTV Phát triển GS Nhà Bè thuộc tập đoàn GS Engineering & Construction (Hàn Quốc).",
       },
     ],
     fitFor: [
-      "Nhà đầu tư tin hạ tầng metro khu Tây Nam",
-      "Khách đã xem Eco/Mizuki, muốn thêm lựa chọn tăng trưởng",
-      "Ngân sách trung hạn, chấp nhận giữ 5–8 năm",
+      "Khách cần thấp tầng ven sông Nhà Bè — vừa ở vừa kinh doanh (shophouse)",
+      "Nhà đầu tư tìm biệt thự Zeit River County trên thị trường chuyển nhượng",
+      "Người đã xem Mizuki/Peak, muốn thêm lựa chọn thấp tầng Nam Sài Gòn",
     ],
     relatedLinks: [
       {
-        title: "Metro Bến Thành – Cần Giò",
-        href: "/blog/metro-ben-thanh-can-gio-cac-nha-ga-chinh",
-        description: "Các nhà ga chính trên tuyến.",
+        title: "The Peak Garden & Metro BTH–CG",
+        href: "/blog/the-peak-garden-huong-loi-metro-ben-thanh-can-gio",
+        description: "Tuyến khác — Bến Thành – Cần Giỏ, ga Tân Mỹ (Q7).",
       },
       {
         title: "So sánh Eco vs Mizuki",
@@ -226,18 +226,38 @@ export const khuNamProjects: KhuNamProject[] = [
     popupSource: "Zeit River County Landing",
     faqs: [
       {
-        question: "Zeit River County có phải GS Metro City không?",
+        question: "Zeit River County là gì — liên quan thế nào với Zeitgeist Nhà Bè?",
         answer:
-          "Đúng — GS Metro City là tên gọi phổ biến trên thị trường đại lý; Zeit River County là tên dự án dùng trên trang tư vấn này.",
+          "Zeit River County là tên phân khu thấp tầng thuộc đại đô thị Zeitgeist Nhà Bè (GS Metro City). Phân khu 1.1 (River County 1) rộng 17,9 ha, gồm 359 căn nhà phố, shophouse và biệt thự, bàn giao Q4/2022 theo thông tin dự án.",
       },
       {
-        question: "Nên chọn Zeit River County hay Eco Retreat?",
+        question: "Zeit River County nằm ở đâu?",
         answer:
-          "Eco phù hợp ở thật và giá mềm hơn; Zeit River County hợp khách ưu tiên câu chuyện metro và tăng trưởng dài hạn.",
+          "Mặt tiền đường Nguyễn Hữu Thọ, thuộc xã Phước Kiển và xã Nhơn Đức, huyện Nhà Bè, TP.HCM — liền kề Phú Mỹ Hưng và hành lang cảng Hiệp Phước.",
+      },
+      {
+        question: "Chủ đầu tư Zeit River County là ai?",
+        answer:
+          "Công ty TNHH MTV Phát triển GS Nhà Bè, thuộc tập đoàn GS Engineering & Construction (GS E&C) Hàn Quốc. Pháp lý sở hữu lâu dài.",
+      },
+      {
+        question: "Giá nhà phố, shophouse, biệt thự Zeit River County bao nhiêu?",
+        answer:
+          "Giá mở bán tham khảo: nhà phố 9,6–10,4 tỷ; shophouse 12,8–14,8 tỷ; biệt thự song lập 11,8–16,9 tỷ; biệt thự đơn lập 250 m² 16,6–18,8 tỷ; đơn lập 300 m² 20–27 tỷ. Giá chuyển nhượng T6/2028: nhà phố 16–17 tỷ; BT song lập 22–28 tỷ; shophouse 23,5–27 tỷ; đơn lập 250 m² 30–32 tỷ; đơn lập 300 m² 45–60 tỷ — cần báo giá theo mã căn.",
+      },
+      {
+        question: "Zeit River County có liên quan Metro số 4 không?",
+        answer:
+          "Khu Nam Sài Gòn còn story quy hoạch Metro số 4 — khác tuyến Metro Bến Thành – Cần Giỏ (The Peak Garden). Vị trí thực tế của phân khu dựa trên Nguyễn Hữu Thọ và kết nối PMH; ga metro cần đối chiếu quy hoạch chính thức.",
+      },
+      {
+        question: "Có giỏ chuyển nhượng Zeit River County không?",
+        answer:
+          "Saigon Living cập nhật giỏ chuyển nhượng Zeit River County theo tuần khi có hàng. Anh/Chị có thể để lại ngân sách và loại hình để nhận 5 căn phù hợp.",
       },
     ],
     metaDescription:
-      "Zeit River County (GS Metro City) Long An — vị trí metro, giá, so sánh Eco Retreat và Mizuki Park. Tư vấn Saigon Living.",
+      "Zeit River County Nhà Bè — phân khu 17,9 ha thuộc Zeitgeist (GS Metro City), giá nhà phố & biệt thự tham khảo, giỏ chuyển nhượng. Tư vấn Saigon Living.",
   },
   {
     slug: "the-peak-garden",
@@ -292,11 +312,11 @@ export const khuNamProjects: KhuNamProject[] = [
     relatedLinks: [
       {
         title: "So sánh Vlasta vs Sunshine Sky City",
-        href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city",
+        href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
       },
       {
         title: "So sánh Sky City, Diamond River, Peak Garden",
-        href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
+        href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
       },
     ],
     popupSource: "Sunshine Sky City Landing",

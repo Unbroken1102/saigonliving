@@ -1,3 +1,11 @@
+import {
+  isVlastaHubPost,
+  vlastaHubSlugs,
+  vlastaSeoClusterLinks,
+} from "@/app/lib/vlasta-cluster";
+
+export { isVlastaHubPost, vlastaHubSlugs, vlastaSeoClusterLinks };
+
 export const siteConfig = {
   name: "Saigon Living",
   tagline: "South Saigon Real Estate Advisory",
@@ -9,9 +17,10 @@ export const siteConfig = {
   locale: "vi_VN",
   contact: {
     advisor: "Phạm Đức Tú",
-    phone: "0931781111",
-    zalo: "https://zalo.me/0931781111",
-    whatsapp: "https://wa.me/84931781111",
+    phone: "0943 94 91 91",
+    phoneTel: "0943949191",
+    zalo: "https://zalo.me/0943949191",
+    whatsapp: "https://wa.me/84943949191",
     email: "phamductubk@gmail.com",
     facebook: "https://www.facebook.com/profile.php?id=61590951983725",
   },
@@ -305,42 +314,16 @@ export const seoHubLinks = [
     href: "/eco-retreat",
   },
   {
+    title: "The 9 Stellars Thủ Đức",
+    description: "Hub chuyển nhượng The 9 Stellars: Alta Villa, Alta Height, vị trí metro Suối Tiên và giỏ căn.",
+    href: "/the-9-stellars",
+  },
+  {
     title: "FAQ dự án",
     description: "Các câu hỏi khách mua thường cần trước khi đặt cọc.",
     href: "/vlasta-premier#faq",
   },
 ];
-
-export const vlastaHubSlugs = [
-  "vlasta-premier-o-dau",
-  "vlasta-premier-chu-dau-tu-la-ai",
-  "vlasta-premier-ban-giao-khi-nao",
-  "phi-quan-ly-vlasta-premier",
-  "mat-bang-tang-vlasta-premier",
-  "gia-vlasta-premier-2026",
-  "gia-can-1pn-vlasta-premier-2026",
-  "gia-can-2pn-vlasta-premier-2026",
-  "gia-can-3pn-vlasta-premier-2026",
-  "phap-ly-vlasta-premier-van-phu",
-  "vlasta-premier-co-so-hong-khong",
-  "review-vi-tri-vlasta-premier",
-  "thanh-toan-vlasta-premier-20-den-khi-nhan-nha",
-  "cam-1-ty-tien-mat-mua-can-ho-cao-cap-sai-gon-khong",
-  "vlasta-premier-co-dang-dau-tu-khong",
-  "vlasta-premier-co-nen-mua-de-o-khong",
-  "vlasta-premier-co-tiem-nang-tang-gia-khong",
-  "so-sanh-vlasta-premier-q7-riverside",
-  "so-sanh-vlasta-premier-mizuki-park",
-  "so-sanh-vlasta-premier-the-peak-garden",
-  "so-sanh-vlasta-premier-sunshine-sky-city",
-  "so-sanh-vlasta-premier-sunshine-diamond-river",
-  "so-sanh-mizuki-vlasta-premier-the-peak-garden",
-  "so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
-] as const;
-
-export function isVlastaHubPost(slug: string) {
-  return (vlastaHubSlugs as readonly string[]).includes(slug);
-}
 
 export const blogHubSections = [
   {
@@ -353,6 +336,7 @@ export const blogHubSections = [
     href: "/eco-retreat",
     cta: "Xem Eco Retreat",
     slugs: [
+      "eco-retreat-cap-nhat-gia-chuyen-nhuong-2026",
       "eco-retreat-cap-nhat-tien-do-thang-8-2026",
       "eco-retreat-co-nen-mua-khong",
       "gia-eco-retreat-2026",
@@ -376,6 +360,7 @@ export const blogHubSections = [
       "den-bu-tai-dinh-cu-vinhomes-binh-chanh-dong-tien-di-ve-dau",
       "bai-rac-da-phuoc-hung-long-1512ha-binh-chanh",
       "he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026",
+      "metro-so-7-tphcm-phuong-an-moi-2026",
     ],
   },
   {
@@ -392,9 +377,9 @@ export const blogHubSections = [
       "mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh",
       "nha-o-xa-hoi-trong-khu-do-thi-lon-nam-long-mizuki-hung-long",
       "co-2-ty-nen-mua-mizuki-72m2-hay-vlasta-premier",
-      "so-sanh-vlasta-premier-mizuki-park",
-      "so-sanh-mizuki-vlasta-premier-the-peak-garden",
+      "so-sanh-vlasta-premier-khu-nam-2026",
       "bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc",
+      "metro-so-7-tphcm-phuong-an-moi-2026",
     ],
   },
   {
@@ -422,9 +407,7 @@ export const blogHubSections = [
       "the-peak-garden-co-nen-mua-khong",
       "the-peak-garden-huong-loi-metro-ben-thanh-can-gio",
       "so-sanh-the-peak-garden-belleza-q7-boulevard",
-      "so-sanh-vlasta-premier-the-peak-garden",
-      "so-sanh-mizuki-vlasta-premier-the-peak-garden",
-      "so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
+      "so-sanh-vlasta-premier-khu-nam-2026",
     ],
   },
   {
@@ -480,94 +463,6 @@ export function getBlogHubProjectName(hub: BlogHubSection | null) {
 
   return hub.title;
 }
-
-export const vlastaSeoClusterLinks = [
-  {
-    title: "Vlasta Premier ở đâu?",
-    description: "Địa chỉ Đào Trí Phú Thuận, kết nối Phú Mỹ Hưng và checklist đi thực địa.",
-    href: "/blog/vlasta-premier-o-dau",
-  },
-  {
-    title: "Chủ đầu tư là ai?",
-    description: "New Tech, hệ thống Văn Phú và đơn vị vận hành CBRE.",
-    href: "/blog/vlasta-premier-chu-dau-tu-la-ai",
-  },
-  {
-    title: "Bàn giao khi nào?",
-    description: "Tiến độ dự kiến Q4/2027 và mốc cần theo dõi trước khi ký.",
-    href: "/blog/vlasta-premier-ban-giao-khi-nao",
-  },
-  {
-    title: "Phí quản lý bao nhiêu?",
-    description: "16.500 đồng/m2/tháng, phí bảo trì 2% và chi phí sống thực tế.",
-    href: "/blog/phi-quan-ly-vlasta-premier",
-  },
-  {
-    title: "Mặt bằng tầng",
-    description: "Cách đọc layout, chọn căn 1PN-3PN theo view và vị trí trên sàn.",
-    href: "/blog/mat-bang-tang-vlasta-premier",
-  },
-  {
-    title: "Giá Vlasta Premier 2026",
-    description: "Bảng giá tham khảo theo 1PN, 1PN+, 2PN, 3PN và lưu ý khi so giỏ hàng.",
-    href: "/blog/gia-vlasta-premier-2026",
-  },
-  {
-    title: "Giá căn 1PN 2026",
-    description: "Tổng vốn căn 1PN/1PN+ và phù hợp ở hay đầu tư.",
-    href: "/blog/gia-can-1pn-vlasta-premier-2026",
-  },
-  {
-    title: "Giá căn 2PN 2026",
-    description: "Diện tích 77-80m2, tổng giá và cách chọn căn gia đình.",
-    href: "/blog/gia-can-2pn-vlasta-premier-2026",
-  },
-  {
-    title: "Giá căn 3PN 2026",
-    description: "Không gian 101-102m2, view và checklist chọn căn lớn.",
-    href: "/blog/gia-can-3pn-vlasta-premier-2026",
-  },
-  {
-    title: "Pháp lý Vlasta Premier",
-    description: "Tên pháp lý New Tech, giấy phép xây dựng, quy hoạch 1/500 và bảo lãnh ngân hàng.",
-    href: "/blog/phap-ly-vlasta-premier-van-phu",
-  },
-  {
-    title: "Vlasta Premier có sổ hồng không?",
-    description: "Cách hiểu sở hữu lâu dài, điều kiện ra sổ và các giấy tờ nên kiểm tra trước khi mua.",
-    href: "/blog/vlasta-premier-co-so-hong-khong",
-  },
-  {
-    title: "Thanh toán 20% đến khi nhận nhà",
-    description: "Phân tích lợi thế dòng tiền, hỗ trợ lãi suất và rủi ro cần tính trước khi xuống tiền.",
-    href: "/blog/thanh-toan-vlasta-premier-20-den-khi-nhan-nha",
-  },
-  {
-    title: "600 triệu – 1 tỷ có mua căn gần PMH?",
-    description: "So TT Genesis và Vlasta Premier theo vốn vào, thanh toán giãn và gần Phú Mỹ Hưng.",
-    href: "/blog/600-trieu-1-ty-mua-can-ho-cao-cap-gan-phu-my-hung",
-  },
-  {
-    title: "So sánh Vlasta Premier vs Q7 Riverside",
-    description: "Hai thế hệ trên trục Đào Trí: Q7 Riverside đông dân vs Vlasta Premier wellness ven sông.",
-    href: "/blog/so-sanh-vlasta-premier-q7-riverside",
-  },
-  {
-    title: "So sánh Vlasta Premier vs Mizuki Park",
-    description: "Không gian xanh, giá bán, lịch thanh toán và nhóm khách phù hợp từng dự án.",
-    href: "/blog/so-sanh-vlasta-premier-mizuki-park",
-  },
-  {
-    title: "So sánh Vlasta Premier vs The Peak Garden",
-    description: "Vị trí Phú Mỹ Hưng, hạ tầng Metro và chất lượng căn hộ khi so ngân sách.",
-    href: "/blog/so-sanh-vlasta-premier-the-peak-garden",
-  },
-  {
-    title: "So sánh Vlasta Premier với nhóm Sunshine",
-    description: "Đặt Vlasta Premier cạnh Sunshine Sky City, Sunshine Diamond River và The Peak Garden.",
-    href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
-  },
-];
 
 export const legacyBlogPostsNotUsed: LegacyBlogPost[] = [
   {

@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import { project } from "@/app/lib/site";
+import ArticleSixtyTwo, { post as articleSixtyTwo } from "@/app/content/posts/so-sanh-vlasta-premier-khu-nam-2026.mdx";
 import ArticleOne, { post as articleOne } from "@/app/content/posts/vlasta-premier-co-dang-dau-tu-khong.mdx";
 import ArticleTwo, { post as articleTwo } from "@/app/content/posts/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden.mdx";
 import ArticleThree, { post as articleThree } from "@/app/content/posts/review-vi-tri-vlasta-premier.mdx";
@@ -58,6 +59,8 @@ import ArticleFiftySix, { post as articleFiftySix } from "@/app/content/posts/60
 import ArticleFiftySeven, { post as articleFiftySeven } from "@/app/content/posts/gia-can-1pn-tt-genesis-2026.mdx";
 import ArticleFiftyEight, { post as articleFiftyEight } from "@/app/content/posts/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc.mdx";
 import ArticleFiftyNine, { post as articleFiftyNine } from "@/app/content/posts/eco-retreat-cap-nhat-tien-do-thang-8-2026.mdx";
+import ArticleSixty, { post as articleSixty } from "@/app/content/posts/eco-retreat-cap-nhat-gia-chuyen-nhuong-2026.mdx";
+import ArticleSixtyOne, { post as articleSixtyOne } from "@/app/content/posts/metro-so-7-tphcm-phuong-an-moi-2026.mdx";
 
 export type BlogPostMeta = {
   slug: string;
@@ -88,6 +91,7 @@ export type FaqItem = {
 };
 
 export const postImageBySlug: Record<string, string> = {
+  "so-sanh-vlasta-premier-khu-nam-2026": "/assets/optimized/overview-towers.jpg",
   "so-sanh-vlasta-premier-q7-riverside": "/assets/optimized/overview-dao-tri.jpg",
   "so-sanh-the-peak-garden-belleza-q7-boulevard": "/assets/the-peak-garden/the-peak-garden-overview.jpg",
   "the-peak-garden-huong-loi-metro-ben-thanh-can-gio": "/assets/metro-ben-thanh-can-gio/ga-tan-my.png",
@@ -100,6 +104,9 @@ export const postImageBySlug: Record<string, string> = {
   "gia-eco-retreat-2026": "/assets/eco-retreat/eco-retreat-san-pham.webp",
   "eco-retreat-co-nen-mua-khong": "/assets/eco-retreat/eco-retreat-hero.webp",
   "eco-retreat-cap-nhat-tien-do-thang-8-2026": "/assets/eco-retreat/eco-retreat-thuc-te-04.jpg",
+  "eco-retreat-cap-nhat-gia-chuyen-nhuong-2026": "/assets/eco-retreat/cn-2026-08/bt-song-lap-phoi-canh.png",
+  "metro-so-7-tphcm-phuong-an-moi-2026":
+    "/assets/metro-so-7/ban-do-metro-so-7-tan-kien-vinhomes-grand-park.png",
   "nha-o-xa-hoi-trong-khu-do-thi-lon-nam-long-mizuki-hung-long":
     "/assets/mizuki-park/mizuki-park-kenh-dao-tien-ich.jpg",
   "he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026": "/assets/flood-control/cong-ngan-trieu-khu-nam-01.jpg",
@@ -152,6 +159,9 @@ export const postImageBySlug: Record<string, string> = {
 };
 
 const registry: Array<{ meta: BlogPostMeta; Content: ComponentType }> = [
+  { meta: articleSixtyTwo, Content: ArticleSixtyTwo },
+  { meta: articleSixtyOne, Content: ArticleSixtyOne },
+  { meta: articleSixty, Content: ArticleSixty },
   { meta: articleFiftyNine, Content: ArticleFiftyNine },
   { meta: articleFiftyEight, Content: ArticleFiftyEight },
   { meta: articleFiftySeven, Content: ArticleFiftySeven },
@@ -272,6 +282,24 @@ export function getArticleFaqs(post: BlogPost): FaqItem[] {
     "so-sanh-eco-retreat-mizuki-park": ecoRetreatFaqs,
     "nha-pho-eco-retreat-tu-5-ty-co-dang-mua-khong": ecoRetreatFaqs,
     "eco-retreat-cap-nhat-tien-do-thang-8-2026": ecoRetreatFaqs,
+    "eco-retreat-cap-nhat-gia-chuyen-nhuong-2026": ecoRetreatFaqs,
+    "metro-so-7-tphcm-phuong-an-moi-2026": [
+      {
+        question: "Metro số 7 TP.HCM dài bao nhiêu km?",
+        answer:
+          "Theo quy hoạch cũ hơn 51 km (16,5 km ngầm, ~35 km cao). Phương án mới rút còn khoảng 48,5 km theo dữ liệu Biggee.",
+      },
+      {
+        question: "Phương án mới của Metro số 7 thay đổi gì?",
+        answer:
+          "Tuyến đi ngầm qua đường Tố Hữu và Bùi Thiện Ngộ, đi qua Trung tâm hành chính mới, không còn đi qua Trần Bạch Đằng.",
+      },
+      {
+        question: "Metro số 7 triển khai theo hình thức nào?",
+        answer:
+          "Liên danh nhà đầu tư kiến nghị triển khai theo PPP, hoàn thiện hồ sơ đề xuất tháng 6/2026.",
+      },
+    ],
     "cam-1-ty-tien-mat-mua-can-ho-cao-cap-sai-gon-khong": [
       {
         question: "Cầm 1 tỷ tiền mặt có mua được căn hộ cao cấp ở Sài Gòn không?",

@@ -163,7 +163,7 @@ const articleLinks = [
   },
   {
     title: "So sánh Vlasta Premier và The Peak Garden",
-    href: "/blog/so-sanh-vlasta-premier-the-peak-garden",
+    href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
     description: "Mở rộng rổ so sánh nếu ngân sách trên 5–6 tỷ và muốn nâng phân khúc khu Nam.",
   },
 ];
@@ -247,7 +247,7 @@ export default function TTGenesisPage() {
       provider: {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
         url: siteConfig.url,
       },
     },
@@ -555,7 +555,7 @@ export default function TTGenesisPage() {
               <a href={siteConfig.contact.zalo} className="btn-luxury rounded-full bg-[#15110c] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8a6a2f]">
                 Zalo
               </a>
-              <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
+              <a href={`tel:${siteConfig.contact.phoneTel}`} className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold text-[#15110c]">
                 Gọi điện
               </a>
             </div>

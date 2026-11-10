@@ -72,7 +72,7 @@ export function VlastaArticleLeadForms({ className = "" }: { className?: string 
             Zalo
           </a>{" "}
           /{" "}
-          <a href={`tel:${siteConfig.contact.phone}`} className="font-semibold text-neutral-900 underline underline-offset-4">
+          <a href={`tel:${siteConfig.contact.phoneTel}`} className="font-semibold text-neutral-900 underline underline-offset-4">
             {siteConfig.contact.phone}
           </a>
           .

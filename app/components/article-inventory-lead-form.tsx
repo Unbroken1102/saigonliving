@@ -104,7 +104,7 @@ export function ArticleInventoryLeadForm({
                 <a href={siteConfig.contact.zalo} className="font-semibold underline underline-offset-4">
                   Gửi qua Zalo
                 </a>
-                <a href={`tel:${siteConfig.contact.phone}`} className="font-semibold underline underline-offset-4">
+                <a href={`tel:${siteConfig.contact.phoneTel}`} className="font-semibold underline underline-offset-4">
                   Gọi {siteConfig.contact.phone}
                 </a>
               </div>

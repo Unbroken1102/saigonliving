@@ -136,6 +136,12 @@ const relatedArticles = [
     href: "/blog/he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026",
   },
   {
+    eyebrow: "Metro số 7",
+    title: "Metro số 7 TP.HCM: bản đồ tuyến mới Tân Kiên – Vinhomes Grand Park",
+    description: "Phương án điều chỉnh qua Trung tâm hành chính mới, chiều dài ~48,5 km và hành lang gần Tân Kiên – Nguyễn Văn Linh.",
+    href: "/blog/metro-so-7-tphcm-phuong-an-moi-2026",
+  },
+  {
     eyebrow: "Đô thị bền vững",
     title: "Nhà ở xã hội trong khu đô thị lớn: bài học từ Nam Long và Mizuki Park",
     description: "Vì sao đại đô thị tương lai không chỉ cần sản phẩm thương mại, mà còn cần nhiều tầng cư dân để có sinh khí và tiện ích vận hành thật.",
@@ -216,7 +222,7 @@ export default function VinhomesBinhChanhPage() {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
         url: siteConfig.url,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
       },
       about: [
         "Vinhomes Bình Chánh",

@@ -93,7 +93,7 @@ export function formatSeoPlanText(plan: SeoDailyPlan, strategy: string): string 
   });
 
   lines.push("");
-  lines.push("Zalo 0931781111 · Gọi lead <30p trước khi nhắn");
+  lines.push("Zalo 0943949191 · Gọi lead <30p trước khi nhắn");
   lines.push("Roadmap: docs/seo-roadmap-1-tuan.md");
 
   return lines.join("\n");
@@ -112,7 +112,7 @@ export function formatSeoPlanHtml(plan: SeoDailyPlan, strategy: string): string 
         <span style="font-weight:normal;color:#666">(${escapeHtml(plan.hours)})</span>
       </h3>
       <ol style="padding-left:20px">${items}</ol>
-      <p style="margin-top:24px;font-size:13px;color:#666">Zalo 0931781111 · Gọi lead &lt;30p trước khi nhắn</p>
+      <p style="margin-top:24px;font-size:13px;color:#666">Zalo 0943949191 · Gọi lead &lt;30p trước khi nhắn</p>
     </div>
   `.trim();
 }

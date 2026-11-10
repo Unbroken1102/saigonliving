@@ -163,7 +163,7 @@ const relatedArticleLinks = [
   },
   {
     title: "So sánh Mizuki, Vlasta Premier và The Peak Garden",
-    href: "/blog/so-sanh-mizuki-vlasta-premier-the-peak-garden",
+    href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
     description: "Đặt các lựa chọn khu Nam cạnh nhau theo vị trí, giá, dòng tiền và mục tiêu mua.",
   },
   {
@@ -310,7 +310,7 @@ export default function MizukiParkPage() {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
         url: siteConfig.url,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
       },
       about: ["Mizuki Park", "Trellia Cove", "căn hộ khu Nam Sài Gòn", "Bình Chánh"],
     },

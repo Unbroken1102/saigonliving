@@ -1,8 +1,11 @@
+import type { ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
 import { InlineArticleCta } from "@/app/components/inline-article-cta";
+import { EcoRetreatYoutubeVideo } from "@/app/components/eco-retreat-youtube-video";
 import { LocationVideo } from "@/app/components/location-video";
+import { ecoRetreatMedia } from "@/app/lib/eco-retreat-media";
 import { media } from "@/app/lib/media";
 
 function ArticleImage({
@@ -193,6 +196,51 @@ function ProgressVideoPost({
         ))}
         .
       </p>
+    </>
+  );
+}
+
+function EcoRetreatTransferPriceVideo() {
+  const { youtube, transferPriceVideo } = ecoRetreatMedia;
+  const headingClass =
+    "mt-20 border-l-4 border-neutral-300 pl-5 scroll-mt-36 font-sans text-[2.25rem] font-bold leading-[1.08] tracking-[-0.04em] text-neutral-900 first:mt-0 md:text-[2.9rem]";
+  const paragraphClass = "mt-5 text-[16px] leading-8 text-neutral-800 md:text-[17px] md:leading-8";
+  const linkClass =
+    "font-semibold text-neutral-900 underline decoration-neutral-400 underline-offset-4 hover:decoration-neutral-900";
+
+  return (
+    <>
+      <h2 id="video" className={headingClass}>
+        Video tóm tắt giá chuyển nhượng
+      </h2>
+      <p className={paragraphClass}>
+        Tóm tắt nhanh Sky Retreat và 2PN Vườn Mây — chi tiết bảng giá ở các mục bên dưới.
+      </p>
+      <EcoRetreatYoutubeVideo
+        videoId={youtube.transferPriceVideoId || null}
+        title={transferPriceVideo.title}
+        caption={transferPriceVideo.caption}
+        thumbnail={transferPriceVideo.thumbnail}
+        blogHref={transferPriceVideo.blogHref}
+        inventoryHref={transferPriceVideo.inventoryHref}
+        playLabel="Xem video giá CN"
+      />
+      {youtube.transferPriceVideoId ? (
+        <p className={paragraphClass}>
+          Xem trên{" "}
+          <Link
+            href={`https://www.youtube.com/watch?v=${youtube.transferPriceVideoId}`}
+            className={linkClass}
+          >
+            YouTube
+          </Link>
+          {" · "}
+          <Link href={transferPriceVideo.inventoryHref} className={linkClass}>
+            Giỏ chuyển nhượng Eco Retreat
+          </Link>
+          .
+        </p>
+      ) : null}
     </>
   );
 }
@@ -971,9 +1019,11 @@ const internalLinkSets = {
     { href: "/tt-genesis", title: "TT Genesis — giá từ 2,8 tỷ, thanh toán theo tiến độ", text: "Bảng giá, tiện ích, tiến độ và form nhận giỏ hàng 5 căn." },
   ],
   comparisonHub: [
-    { href: "/blog/so-sanh-vlasta-premier-q7-riverside", title: "Vlasta Premier vs Q7 Riverside", text: "So riêng hai thế hệ trên trục Đào Trí ven sông." },
-    { href: "/blog/so-sanh-vlasta-premier-mizuki-park", title: "Vlasta Premier vs Mizuki Park", text: "So riêng về không gian xanh, giá và lịch thanh toán." },
-    { href: "/blog/so-sanh-vlasta-premier-the-peak-garden", title: "Vlasta Premier vs The Peak Garden", text: "So riêng về vị trí Phú Mỹ Hưng, hạ tầng và chất lượng căn hộ." },
+    {
+      href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
+      title: "So sánh Vlasta vs khu Nam 2026",
+      text: "Mizuki, Peak, Sunshine, Q7 Riverside — bảng so một chỗ.",
+    },
     { href: "/vlasta-premier", title: "Thông tin dự án Vlasta Premier", text: "Xem bảng giá, mặt bằng, pháp lý và tiến độ cập nhật." },
   ],
   mizukiHub: [
@@ -981,18 +1031,26 @@ const internalLinkSets = {
     { href: "/blog/bo-tnmt-tu-choi-nang-cong-suat-bai-rac-da-phuoc", title: "Bãi rác Đa Phước và khu Nam", text: "Tin Bộ TN&MT, lộ trình rác điện và cách đọc kỳ vọng môi trường khi chọn Mizuki." },
     { href: "/blog/mizuki-park-huong-loi-gi-tu-vinhomes-binh-chanh", title: "Mizuki hưởng lợi từ Hưng Long?", text: "Đọc Mizuki theo quy hoạch Vinhomes Bình Chánh 1.512 ha." },
     { href: "/blog/co-2-ty-nen-mua-mizuki-72m2-hay-vlasta-premier", title: "2 tỷ: Mizuki 72m² hay Vlasta?", text: "So ngân sách gọn giữa đô thị đã vận hành và căn hộ mới." },
-    { href: "/blog/so-sanh-vlasta-premier-mizuki-park", title: "Vlasta Premier vs Mizuki Park", text: "So riêng về không gian xanh, giá và lịch thanh toán." },
-    { href: "/blog/so-sanh-mizuki-vlasta-premier-the-peak-garden", title: "So sánh tổng quan khu Nam", text: "Đặt Mizuki cạnh Vlasta Premier và The Peak Garden." },
+    {
+      href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
+      title: "So sánh Vlasta vs Mizuki & Peak",
+      text: "Bảng so nhanh giá, thanh toán và nhóm khách phù hợp.",
+    },
     { href: "/blog/he-thong-chong-ngap-khu-nam-binh-chanh-quan-7-2026", title: "Chống ngập khu Nam 2026", text: "Lớp hạ tầng khác đáng đọc cùng cầu Bình Tiên." },
   ],
   sunshineHub: [
-    { href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city", title: "Vlasta Premier vs Sunshine Sky City", text: "So riêng về Phú Mỹ Hưng, mật độ và trải nghiệm sống." },
-    { href: "/blog/so-sanh-vlasta-premier-sunshine-diamond-river", title: "Vlasta Premier vs Sunshine Diamond River", text: "So riêng về cảnh quan ven sông và căn hộ cao cấp." },
-    { href: "/blog/so-sanh-vlasta-premier-the-peak-garden", title: "Vlasta Premier vs The Peak Garden", text: "So riêng về ngân sách, vị trí và lịch thanh toán." },
+    {
+      href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
+      title: "So sánh Vlasta vs Sunshine & Peak",
+      text: "Sky City, Diamond River, Peak Garden và Vlasta trong một bài.",
+    },
   ],
   pair: [
-    { href: "/blog/so-sanh-mizuki-vlasta-premier-the-peak-garden", title: "Bài so sánh tổng quan khu Nam", text: "Đặt Vlasta Premier cạnh Mizuki Park và The Peak Garden." },
-    { href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden", title: "So sánh với nhóm Sunshine", text: "Xem thêm Sunshine Sky City, Sunshine Diamond River và The Peak Garden." },
+    {
+      href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
+      title: "Bảng so sánh khu Nam 2026",
+      text: "Mizuki, Peak, Sunshine, Q7 Riverside và Vlasta Premier.",
+    },
     { href: "/vlasta-premier", title: "Nhận bảng giá Vlasta Premier", text: "Xem mặt bằng, tiện ích, pháp lý và form tư vấn." },
   ],
   project: [
@@ -1194,6 +1252,137 @@ function CapitalChoiceComparison() {
   );
 }
 
+function PriceTableShell({
+  eyebrow,
+  title,
+  note,
+  children,
+  featured,
+}: {
+  eyebrow: string;
+  title: string;
+  note?: string;
+  children: ReactNode;
+  featured?: boolean;
+}) {
+  return (
+    <div
+      className={`my-10 overflow-hidden rounded-[1.75rem] border shadow-[0_20px_60px_rgba(21,17,12,0.08)] ${
+        featured
+          ? "border-[#c9a227]/40 bg-gradient-to-br from-[#fffdf8] to-white"
+          : "border-neutral-200 bg-white"
+      }`}
+    >
+      <div className={`px-5 py-5 md:px-6 ${featured ? "bg-[#1a2744] text-white" : "bg-neutral-900 text-white"}`}>
+        <p className="text-xs font-semibold uppercase tracking-[0.26em] text-neutral-300">{eyebrow}</p>
+        <h3 className="font-display mt-2 text-2xl font-medium tracking-[-0.03em]">{title}</h3>
+        {note ? <p className="mt-2 text-sm leading-6 text-neutral-300">{note}</p> : null}
+      </div>
+      <div className="overflow-x-auto">{children}</div>
+    </div>
+  );
+}
+
+function EcoRetreatSkyRetreatPriceTable() {
+  const skyRows = [
+    ["Studio (Stu)", "31m²", "1,9 tỷ"],
+    ["1PN", "34–38m²", "2 tỷ"],
+    ["2PN", "80–88m²", "3,8 tỷ"],
+  ];
+
+  return (
+    <PriceTableShell
+      featured
+      eyebrow="Giỏ chuyển nhượng · 18/08/2026"
+      title="Sky Retreat Residences — tháp S1"
+      note="Giá theo tin đang rao. Cần đối chiếu HĐMB gốc, phần đã trả và phần còn lại."
+    >
+      <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+        <thead className="bg-[#f8f4eb] text-neutral-900">
+          <tr>
+            {["Loại căn", "Diện tích", "Giá chuyển nhượng"].map((heading) => (
+              <th key={heading} className="border-b border-neutral-200 px-5 py-4 font-bold">
+                {heading}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="text-[#40382f]">
+          {skyRows.map((row) => (
+            <tr key={row[0]} className="odd:bg-white even:bg-[#fffdf8]">
+              <td className="border-b border-neutral-200 px-5 py-4 font-bold text-neutral-900">{row[0]}</td>
+              <td className="border-b border-neutral-200 px-5 py-4 whitespace-nowrap text-neutral-700">{row[1]}</td>
+              <td className="border-b border-neutral-200 px-5 py-4 text-right text-base font-bold text-[#1a2744]">
+                {row[2]}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </PriceTableShell>
+  );
+}
+
+function EcoRetreatCompoundPriceTable() {
+  type PriceRow = { group: string; type: string; area: string; price: string };
+
+  const compoundRows: PriceRow[] = [
+    { group: "Căn hộ", type: "2PN Vườn Mây", area: "96,3m²", price: "Từ 4,4 tỷ" },
+    { group: "Thấp tầng", type: "Nhà phố Rừng Phượng", area: "80m²", price: "5,9 tỷ" },
+    { group: "Thấp tầng", type: "Townhouse", area: "90m²", price: "Từ 6,2 tỷ" },
+    { group: "Thấp tầng", type: "Townhouse", area: "115,42m²", price: "7,7 tỷ" },
+    { group: "Thấp tầng", type: "Townhouse", area: "130,3m²", price: "9 tỷ" },
+    { group: "Thấp tầng", type: "Town Villa", area: "130m²", price: "8,8 tỷ" },
+    { group: "Thấp tầng", type: "Town Villa", area: "178,3m²", price: "13,5 tỷ" },
+    { group: "Biệt thự", type: "Song lập", area: "189m²", price: "11 tỷ" },
+    { group: "Biệt thự", type: "Song lập", area: "180m²", price: "11,7 tỷ" },
+    { group: "Biệt thự", type: "Song lập", area: "278,6m²", price: "14,7 tỷ" },
+    { group: "Thương mại", type: "Shop & Shop Villa", area: "135m²", price: "Từ 13 tỷ" },
+    { group: "Thương mại", type: "Shop & Shop Villa", area: "190m²", price: "Từ 18,1 tỷ" },
+    { group: "Thương mại", type: "Shop & Shop Villa", area: "355m²", price: "32,3 tỷ" },
+  ];
+
+  let lastGroup = "";
+
+  return (
+    <PriceTableShell
+      eyebrow="Thấp tầng & Vườn Mây"
+      title="Mặt bằng giá chuyển nhượng tham khảo"
+      note="Giá theo loại sản phẩm đang rao — chốt theo mã căn, vị trí lô và tiến độ thanh toán."
+    >
+      <table className="w-full min-w-[680px] border-collapse text-left text-sm">
+        <thead className="bg-neutral-50 text-neutral-900">
+          <tr>
+            {["Nhóm", "Loại sản phẩm", "Diện tích", "Giá tham khảo"].map((heading) => (
+              <th key={heading} className="border-b border-neutral-200 px-5 py-4 font-bold">
+                {heading}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="text-[#40382f]">
+          {compoundRows.map((row) => {
+            const showGroup = row.group !== lastGroup;
+            lastGroup = row.group;
+            return (
+              <tr key={`${row.group}-${row.type}-${row.area}`} className="odd:bg-white even:bg-neutral-50/70">
+                <td className="border-b border-neutral-200 px-5 py-4 font-bold text-neutral-900">
+                  {showGroup ? row.group : ""}
+                </td>
+                <td className="border-b border-neutral-200 px-5 py-4 leading-6">{row.type}</td>
+                <td className="border-b border-neutral-200 px-5 py-4 whitespace-nowrap">{row.area}</td>
+                <td className="border-b border-neutral-200 px-5 py-4 text-right font-bold text-neutral-900">
+                  {row.price}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </PriceTableShell>
+  );
+}
+
 const components: MDXComponents = {
   h2: (props) => (
     <h2
@@ -1253,6 +1442,9 @@ const components: MDXComponents = {
   TtGenesisCashFlowTable,
   TtGenesisPaymentScenarioTable,
   TtGenesisThreeWayComparisonTable,
+  EcoRetreatSkyRetreatPriceTable,
+  EcoRetreatCompoundPriceTable,
+  EcoRetreatTransferPriceVideo,
   UrbanMixComparisonTable,
   SunshineComparisonCards,
   SunshineComparisonTable,

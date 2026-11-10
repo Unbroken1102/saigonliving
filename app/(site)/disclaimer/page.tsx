@@ -55,7 +55,7 @@ export default function DisclaimerPage() {
           </h2>
           <p>
             Nếu cần kiểm tra thông tin mới nhất, Anh/Chị có thể liên hệ Saigon Living qua số{" "}
-            <a className="font-semibold text-[#8a6a2f] underline-offset-4 hover:underline" href={`tel:${siteConfig.contact.phone}`}>
+            <a className="font-semibold text-[#8a6a2f] underline-offset-4 hover:underline" href={`tel:${siteConfig.contact.phoneTel}`}>
               {siteConfig.contact.phone}
             </a>{" "}
             hoặc email{" "}

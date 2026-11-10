@@ -6,6 +6,8 @@ const PROJECT_SLUG_BY_KEY: Record<string, string> = {
   "vlasta premier": "/vlasta-premier",
   vlasta: "/vlasta-premier",
   "eco retreat": "/eco-retreat",
+  "the 9 stellars": "/the-9-stellars",
+  "9 stellars": "/the-9-stellars",
 };
 
 export type InventoryProject = {
@@ -51,6 +53,13 @@ export const INVENTORY_PROJECTS: InventoryProject[] = [
     image: "/assets/eco-retreat/eco-retreat-hero.webp",
     landingPath: "/eco-retreat",
     district: "Long An",
+  },
+  {
+    slug: "the-9-stellars",
+    name: "The 9 Stellars",
+    image: "/assets/the-9-stellars/alta-villa.jpg",
+    landingPath: "/the-9-stellars",
+    district: "Thủ Đức",
   },
 ];
 

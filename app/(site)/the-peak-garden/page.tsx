@@ -119,17 +119,17 @@ const articleLinks = [
   },
   {
     title: "So sánh Vlasta Premier và The Peak Garden Quận 7",
-    href: "/blog/so-sanh-vlasta-premier-the-peak-garden",
+    href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
     description: "Một bài đọc ngắn để hiểu khác biệt giữa gần Phú Mỹ Hưng và trải nghiệm căn hộ cao cấp hơn.",
   },
   {
     title: "So sánh Mizuki Park, Vlasta Premier và The Peak Garden",
-    href: "/blog/so-sanh-mizuki-vlasta-premier-the-peak-garden",
+    href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
     description: "Đọc ba lựa chọn khu Nam theo nhịp sống: xanh, tiện lợi hay cao cấp hơn.",
   },
   {
     title: "So sánh Vlasta với Sunshine Sky City, Sunshine Diamond River và The Peak Garden",
-    href: "/blog/so-sanh-vlasta-premier-sunshine-sky-city-sunshine-diamond-river-the-peak-garden",
+    href: "/blog/so-sanh-vlasta-premier-khu-nam-2026",
     description: "Góc nhìn rộng hơn cho khách đang lọc dự án quanh Quận 7 - khu Nam.",
   },
   {
@@ -237,7 +237,7 @@ export default function ThePeakGardenPage() {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
         url: siteConfig.url,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
       },
       about: ["The Peak Garden", "căn hộ Quận 7", "bất động sản Nam Sài Gòn"],
     },

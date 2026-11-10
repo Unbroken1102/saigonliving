@@ -94,7 +94,7 @@ export default function VlastaPremierPage() {
       provider: {
         "@type": "RealEstateAgent",
         name: siteConfig.name,
-        telephone: siteConfig.contact.phone,
+        telephone: siteConfig.contact.phoneTel,
         url: siteConfig.url,
       },
     },

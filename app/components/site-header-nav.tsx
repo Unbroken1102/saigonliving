@@ -21,6 +21,7 @@ const defaultNavItems: NavItem[] = [
   { href: "/blog", label: "Phân tích & cẩm nang" },
   { href: "/#contact", label: "Tư vấn", highlight: true },
   { href: "/tt-genesis", label: "TT Genesis" },
+  { href: "/the-9-stellars", label: "The 9 Stellars" },
 ];
 
 const navByPath: Record<string, NavItem[]> = {
@@ -79,6 +80,15 @@ const navByPath: Record<string, NavItem[]> = {
     { href: "/tt-genesis#related", label: "Đọc tiếp" },
     { href: "/tt-genesis#contact", label: "Nhận thông tin", highlight: true },
     { href: "/tt-genesis#faq", label: "FAQ" },
+  ],
+  "/the-9-stellars": [
+    { href: "/", label: "Saigon Living" },
+    { href: "/the-9-stellars#tong-quan", label: "Tổng quan" },
+    { href: "/the-9-stellars#vi-tri", label: "Vị trí" },
+    { href: "/the-9-stellars#san-pham", label: "Sản phẩm" },
+    { href: "/the-9-stellars#tien-ich", label: "Tiện ích" },
+    { href: "/the-9-stellars#chuyen-nhuong", label: "Chuyển nhượng", highlight: true },
+    { href: "/the-9-stellars#faq", label: "FAQ" },
   ],
   "/vinhomes-binh-chanh": [
     { href: "/", label: "Saigon Living" },

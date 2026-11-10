@@ -277,7 +277,7 @@ function LeadFormModal({
                   <a href={siteConfig.contact.zalo} className="rounded-full bg-[#15110c] px-6 py-3 text-center text-sm font-semibold text-white">
                     Mở Zalo
                   </a>
-                  <a href={`tel:${siteConfig.contact.phone}`} className="rounded-full border border-black/15 px-6 py-3 text-center text-sm font-semibold text-[#15110c]">
+                  <a href={`tel:${siteConfig.contact.phoneTel}`} className="rounded-full border border-black/15 px-6 py-3 text-center text-sm font-semibold text-[#15110c]">
                     Gọi {siteConfig.contact.phone}
                   </a>
                 </div>
@@ -349,7 +349,7 @@ function LeadFormModal({
                       <a href={siteConfig.contact.zalo} className="font-semibold underline underline-offset-4">
                         Gửi qua Zalo
                       </a>
-                      <a href={`tel:${siteConfig.contact.phone}`} className="font-semibold underline underline-offset-4">
+                      <a href={`tel:${siteConfig.contact.phoneTel}`} className="font-semibold underline underline-offset-4">
                         Gọi {siteConfig.contact.phone}
                       </a>
                     </div>

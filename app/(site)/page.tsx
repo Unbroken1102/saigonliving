@@ -119,7 +119,7 @@ export default function Home() {
       "@type": "RealEstateAgent",
       name: siteConfig.name,
       url: siteConfig.url,
-      telephone: siteConfig.contact.phone,
+      telephone: siteConfig.contact.phoneTel,
       email: siteConfig.contact.email,
       areaServed: "Nam Sài Gòn, TP.HCM",
       slogan: siteConfig.tagline,
